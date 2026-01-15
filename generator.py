@@ -6,39 +6,40 @@ import argparse
 import json
 import markdown2
 from fpdf import FPDF
+from weasyprint import HTML
 
 def export_as_pdf(json_data, target_directory="generated_reports"):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
-    font_path = "/usr/share/fonts/truetype/dejavu/"
+    # Basic CSS to ensure the table has borders and proper padding
+    style = """
+    <style>
+        body { font-family: 'DejaVu Sans', sans-serif; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        h2 { color: #800000; }
+    </style>
+    """
 
     for report in json_data:
-        pdf = FPDF()
-        pdf.set_auto_page_break(auto=True, margin=15)
-        pdf.add_page()
+        # Clean the markdown: Replace double pipes with newlines
+        md_content = report['Report Content']
+        fixed_md = md_content.replace("||", "|\n|")
 
-        # Load Unicode font
-        pdf.add_font("DejaVu", style="", fname="./fonts/DejaVuSans.ttf")
-        pdf.add_font("DejaVu", style="B", fname="./fonts/DejaVuSans-Bold.ttf")
-        pdf.set_font("DejaVu", size=10)
+        # Convert to HTML with 'tables' extra enabled
+        html_content = markdown2.markdown(fixed_md, extras=["tables"])
 
-        # 1. Get the content directly from the JSON
-        content = report["Report Content"]
+        # Combine CSS and HTML
+        full_html = f"{style}{html_content}"
 
-        # 2. Add extra spacing between sections to prevent "clutter"
-        # This replaces standard newlines with HTML breaks that FPDF understands
-        formatted_content = content.replace("\n", "<br>")
-
-        try:
-            # 3. Write directly to PDF using the 1.5x line spacing (8)
-            pdf.write_html(formatted_content, 8) 
-            
-            output_path = os.path.join(target_directory, report["Document File Name"])
-            pdf.output(output_path)
-            print(f"✅ Clean PDF generated: {output_path}")
-        except Exception as e:
-            print(f"❌ Error: {e}")
+        # Generate the PDF using WeasyPrint (much better for tables)
+        report_fn = report['file_name']
+        output_path = os.path.join(target_directory, report_fn)
+        
+        HTML(string=full_html).write_pdf(output_path)
+        print(f"Exported: {output_path}")
 
 
 def main():
@@ -66,60 +67,64 @@ def main():
 
     # Generator Prompt
     generator_prompt = f"""
-**Role:** You are a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC).
+    You are a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC).
+    
+    Generate 2 distinct Internal Audit Reports for different corporate business units.
 
-**Task:** Generate {args.number_of_reports} distinct Internal Audit Reports for different corporate business units.
+    **Report Requirements**
+    Each report should contain the following sections:
+    1. Title
+    2. Executive Summary
+        - contains objectives, backgrounds, and scope
+    3. Details
+        - contains a list of observations/issues about the business unit.
+        - each observation has a corresponding risk and risk rating defined at a later section
+        - each observation will have a recommendation and overall status
+    4. Recommendations
+        - contains some recommendations for the business unit regarding the observation details
+    5. Management Action Plan
+        - contains an action plan for the business unit management
 
-**Seed Instruction:** Focus specifically on {args.seed}. 
+    **Risk Ratings**
+    The risk ratings are shown below as follows:
+        1. ADEQUATE
+        2. FOR IMPROVEMENT
+        3. INADEQUATE
 
-**Report Format Instructions (Strict PDF Rendering):**
-Use ONLY these HTML tags for formatting: <h1>, <h3>, <b>, <center>, and <br>. 
-DO NOT use Markdown symbols like #, *, -, or >.
+    These risks are ranked from best to worst, or least concerning to most concerning.
 
-For each of the {args.number_of_reports} reports, follow this exact structure:
+    **Report Types**
+    There are two report types, and each generated report will only be able to pick one of the two:
+    1. Assurance Review
+        - a more stringent report that focuses on the risks of specific teams under the business unit  (e.g. Finance, Accounting, etc.) 
 
-1. <center><h1>[Centered Title of the Report]</h1></center><br>
+    2. Advisory Engagement
+        - focuses on understanding processes and providing recommendations to improve on processes.
 
-2. <h3>Executive Summary</h3>
-   [Provide a high-level overview of the audit scope and overall opinion.]<br><br>
+    **Expected Output**:
+    The expected output should be a JSON file which houses all the report content data, with a specific key titled "Report Content" which houses the whole report content in markdown format.
+    Each JSON object should also have a file name key, which defines a file name for said report.
+    Only give the JSON file as the output, and use JSON formatting. And use proper markdown formatting for bold, italicized, and other formattings.
+"""
 
-3. <h3>Risk Assessment & In-Depth Analysis</h3>
-   For each risk, use this exact vertical structure to ensure the analysis starts on its own line:
-   <b>Risk [Number]: [Name] — Rating: [Value]</b>
-   <br><b>In-Depth Analysis:</b> [Provide 3-4 sentences. The <br> tag above ensures this starts on a new line. For 'Severe' or 'Very severe' risks, include USD quantification.]<br><br>
+    # response = google_client.models.generate_content(
+    #     model='gemini-3-flash-preview', 
+    #     contents=generator_prompt,
+    #     config={
+    #         'response_mime_type': 'application/json',
+    #     }
+    # )
 
-4. <h3>Audit Findings</h3>
-   <b>Finding 1: [Title]</b><br>[Detailed observation.]<br><br>
-   <b>Finding 2: [Title]</b><br>[Detailed observation.]<br><br>
-
-5. <h3>Recommendations</h3>
-   <b>Recommendation 1: [Title]</b><br>[Remediation instructions.]<br><br>
-   <b>Recommendation 2: [Title]</b><br>[Remediation instructions.]<br><br>
-
-6. <h3>Management Response</h3>
-   [Simulate "audit friction" in 2 out of the {args.number_of_reports} reports.]<br><br>
-
-7. <h3>Conclusion</h3>
-   [Final summary statement.]
-
-**Output Format:**
-Return ONLY a valid JSON array containing exactly {args.number_of_reports} objects.
-* `Document File Name`: String (e.g., "IA_Report_Name_2026.pdf").
-* `Report Content`: Full report string using the HTML tags above."""
-
-    response = google_client.models.generate_content(
-        model='gemini-3-flash-preview', 
-        contents=generator_prompt,
-        config={
-            'response_mime_type': 'application/json',
-        }
-    )
-
-    # Load JSON
-    data = json.loads(response.text)
-
+    # # Load JSON
+    # data = json.loads(response.text)
+    # # print(data)
+    # with open("output.json", "w", encoding="utf-8") as json_file:
+    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
     # Convert data to PDFs
+    # DEBUG: Load dummy response from JSON file
+    with open('output.json', 'r') as file:
+        data = json.load(file)
     export_as_pdf(data)
-
+    
 if __name__ == '__main__':
     main()
