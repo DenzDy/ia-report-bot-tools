@@ -49,7 +49,7 @@ def main():
 
     # Parse input arguments
     parser = argparse.ArgumentParser(description="Generates a JSON of internal audit risk reports in Markdown format.")
-    parser.add_argument("number_of_reports", type=int, help="number of reports to generate.")
+    parser.add_argument("-r","--reports", type=int, help="number of reports to generate.")
     parser.add_argument("-v", '--verbose', action='store_true')
     parser.add_argument("--seed",
         type=str,
@@ -60,71 +60,61 @@ def main():
 
     # Verbose logging of command line input arguments
     if args.verbose:
-        print(f"[DEBUG] Received number_of_reports={args.number_of_reports}")
+        print(f"[DEBUG] Received reports={args.reports}")
 
     # Get response from Gemini API
     google_client = genai.Client(api_key=GEMINI_API_KEY)
 
     # Generator Prompt
     generator_prompt = f"""
-    You are a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC).
-    
-    Generate 2 distinct Internal Audit Reports for different corporate business units.
+    Act as a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC). Generate {args.reports} distinct Internal Audit Reports for different corporate business units.
 
-    **Report Requirements**
-    Each report should contain the following sections:
-    1. Title
-    2. Executive Summary
-        - contains objectives, backgrounds, and scope
-    3. Details
-        - contains a list of observations/issues about the business unit.
-        - each observation has a corresponding risk and risk rating defined at a later section
-        - each observation will have a recommendation and overall status
-    4. Recommendations
-        - contains some recommendations for the business unit regarding the observation details
-    5. Management Action Plan
-        - contains an action plan for the business unit management
+    **Report Requirements:**
+    One report must be an **Assurance Review** (stringent focus on risks/controls of specific teams) and the other must be an **Advisory Engagement** (focus on process improvement and consultative insights).
 
-    **Risk Ratings**
-    The risk ratings are shown below as follows:
-        1. ADEQUATE
-        2. FOR IMPROVEMENT
-        3. INADEQUATE
+    Each report must be structured as a sequence of slides. Each of the following sections must correspond to its own slide (one slide per item):
+    1. **Title Slide:** Title of the report, Business Unit name, and Date.
+    2. **Executive Summary:** Objectives, Background, and Scope.
+    3. **Details (Observation Slides):** Provide one slide for **each** observation/issue. Each slide must contain:
+        * The issue description.
+        * The corresponding Risk.
+        * The Risk Rating (choose from: **ADEQUATE**, **FOR IMPROVEMENT**, or **INADEQUATE**).
+        * A specific Recommendation.
+        * The overall Status.
+    4. **Recommendations Summary:** A consolidated list of recommendations for the business unit.
+    5. **Management Action Plan:** Specific action items, owners, and deadlines.
 
-    These risks are ranked from best to worst, or least concerning to most concerning.
+    **Output Format:**
+    Deliver the final response as a JSON file. 
+    * Use a key titled "file_name" for the report's filename.
+    * Use a key titled "Report Content" which houses an array of strings. 
+    * **Crucial:** Each element in the array must represent exactly one slide. 
+    * Use proper Markdown formatting (bold, headers, lists) within the strings.
 
-    **Report Types**
-    There are two report types, and each generated report will only be able to pick one of the two:
-    1. Assurance Review
-        - a more stringent report that focuses on the risks of specific teams under the business unit  (e.g. Finance, Accounting, etc.) 
+    **Example structure for the JSON:**
+    {{"file_name": "Report_Name.json", "Report Content": ["# Slide 1 Content", "## Slide 2 Content"]}}
 
-    2. Advisory Engagement
-        - focuses on understanding processes and providing recommendations to improve on processes.
-
-    **Expected Output**:
-    The expected output should be a JSON file which houses all the report content data, with a specific key titled "Report Content" which houses the whole report content in markdown format.
-    Each JSON object should also have a file name key, which defines a file name for said report.
-    Only give the JSON file as the output, and use JSON formatting. And use proper markdown formatting for bold, italicized, and other formattings.
+    Please provide only the JSON output.
 """
 
-    # response = google_client.models.generate_content(
-    #     model='gemini-3-flash-preview', 
-    #     contents=generator_prompt,
-    #     config={
-    #         'response_mime_type': 'application/json',
-    #     }
-    # )
+    response = google_client.models.generate_content(
+        model='gemini-3-flash-preview', 
+        contents=generator_prompt,
+        config={
+            'response_mime_type': 'application/json',
+        }
+    )
 
-    # # Load JSON
-    # data = json.loads(response.text)
-    # # print(data)
-    # with open("output.json", "w", encoding="utf-8") as json_file:
-    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
+    # Load JSON
+    data = json.loads(response.text)
+    # print(data)
+    with open("output.json", "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
     # Convert data to PDFs
     # DEBUG: Load dummy response from JSON file
-    with open('output.json', 'r') as file:
-        data = json.load(file)
-    export_as_pdf(data)
+    # with open('output.json', 'r') as file:
+    #     data = json.load(file)
+    # export_as_pdf(data)
     
 if __name__ == '__main__':
     main()
