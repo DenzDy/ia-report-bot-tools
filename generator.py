@@ -5,43 +5,39 @@ import sys
 import argparse
 import json
 import markdown2
-from fpdf import FPDF
-from weasyprint import HTML
+import subprocess
 
-def export_as_pdf(json_data, target_directory="generated_reports"):
+def export_as_pptx(json_data, target_directory="generated_pptx"):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
-    # Basic CSS to ensure the table has borders and proper padding
-    style = """
-    <style>
-        body { font-family: 'DejaVu Sans', sans-serif; font-size: 12px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid black; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        h2 { color: #800000; }
-    </style>
-    """
-
     for report in json_data:
-        # Clean the markdown: Replace double pipes with newlines
-        md_content = report['Report Content']
-        fixed_md = md_content.replace("||", "|\n|")
-
-        # Convert to HTML with 'tables' extra enabled
-        html_content = markdown2.markdown(fixed_md, extras=["tables"])
-
-        # Combine CSS and HTML
-        full_html = f"{style}{html_content}"
-
-        # Generate the PDF using WeasyPrint (much better for tables)
-        report_fn = report['file_name']
+        report_fn = report['file_name'].replace('.json', '.pptx')
         output_path = os.path.join(target_directory, report_fn)
         
-        HTML(string=full_html).write_pdf(output_path)
-        print(f"Exported: {output_path}")
+        # Clean each string to ensure '#' is at the very start
+        cleaned_content = [item.strip() for item in report['Report Content']]
+        
+        # Use a very large gap to force section breaks
+        full_markdown = "\n\n\n\n".join(cleaned_content)
+        
+        temp_md_path = f"temp_{report['file_name']}.md"
+        with open(temp_md_path, "w", encoding="utf-8") as f:
+            f.write(full_markdown)
 
-
+        try:
+            subprocess.run([
+                "pandoc", 
+                temp_md_path, 
+                "--standalone",
+                "--slide-level=1", 
+                "-o", output_path
+            ], check=True)
+            print(f"Exported: {output_path}")
+        finally:
+            if os.path.exists(temp_md_path):
+                os.remove(temp_md_path)
+                
 def main():
     # Load and import API Keys
     load_dotenv()
@@ -97,24 +93,24 @@ def main():
     Please provide only the JSON output.
 """
 
-    response = google_client.models.generate_content(
-        model='gemini-3-flash-preview', 
-        contents=generator_prompt,
-        config={
-            'response_mime_type': 'application/json',
-        }
-    )
+    # response = google_client.models.generate_content(
+    #     model='gemini-3-flash-preview', 
+    #     contents=generator_prompt,
+    #     config={
+    #         'response_mime_type': 'application/json',
+    #     }
+    # )
 
-    # Load JSON
-    data = json.loads(response.text)
-    # print(data)
-    with open("output.json", "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=4)
-    # Convert data to PDFs
+    # # Load JSON
+    # data = json.loads(response.text)
+    # # print(data)
+    # with open("output.json", "w", encoding="utf-8") as json_file:
+    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
+    # # Convert data to PDFs
     # DEBUG: Load dummy response from JSON file
-    # with open('output.json', 'r') as file:
-    #     data = json.load(file)
-    # export_as_pdf(data)
+    with open('output.json', 'r') as file:
+        data = json.load(file)
+    export_as_pptx(data)
     
 if __name__ == '__main__':
     main()
