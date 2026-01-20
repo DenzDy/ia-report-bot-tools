@@ -7,7 +7,7 @@ import json
 import markdown2
 import subprocess
 
-def export_as_pptx(json_data, target_directory="generated_pptx"):
+def export_as_pptx(json_data, target_directory="generated_pptx", char_limit=800):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
@@ -15,29 +15,39 @@ def export_as_pptx(json_data, target_directory="generated_pptx"):
         report_fn = report['file_name'].replace('.json', '.pptx')
         output_path = os.path.join(target_directory, report_fn)
         
-        # Clean each string to ensure '#' is at the very start
-        cleaned_content = [item.strip() for item in report['Report Content']]
+        final_slides = []
+        for item in report['Report Content']:
+            parts = item.strip().split('\n', 1)
+            header = parts[0]
+            content = parts[1] if len(parts) > 1 else ""
+            
+            # Split if content is excessively long
+            if len(content) > char_limit:
+                split_point = content.rfind(' ', 0, char_limit)
+                final_slides.append(f"{header} (1/2)\n\n{content[:split_point]}")
+                final_slides.append(f"{header} (2/2)\n\n{content[split_point:].strip()}")
+            else:
+                final_slides.append(item.strip())
         
-        # Use a very large gap to force section breaks
-        full_markdown = "\n\n\n\n".join(cleaned_content)
+        full_markdown = "\n\n---\n\n".join(final_slides)
+        temp_md = "temp_report.md"
         
-        temp_md_path = f"temp_{report['file_name']}.md"
-        with open(temp_md_path, "w", encoding="utf-8") as f:
+        with open(temp_md, "w", encoding="utf-8") as f:
             f.write(full_markdown)
 
         try:
             subprocess.run([
                 "pandoc", 
-                temp_md_path, 
-                "--standalone",
+                temp_md, 
+                "--reference-doc=template.pptx", # Path to the file you just made
                 "--slide-level=1", 
                 "-o", output_path
             ], check=True)
-            print(f"Exported: {output_path}")
+            print(f"Success! Created {output_path}")
         finally:
-            if os.path.exists(temp_md_path):
-                os.remove(temp_md_path)
-                
+            if os.path.exists(temp_md):
+                os.remove(temp_md)
+
 def main():
     # Load and import API Keys
     load_dotenv()
@@ -88,7 +98,7 @@ def main():
     * Use proper Markdown formatting (bold, headers, lists) within the strings.
 
     **Example structure for the JSON:**
-    {{"file_name": "Report_Name.json", "Report Content": ["# Slide 1 Content", "## Slide 2 Content"]}}
+    {{"file_name": "Report_Name.json", "Report Content": ["# Slide 1 Content", "# Slide 2 Content"]}}
 
     Please provide only the JSON output.
 """
@@ -107,7 +117,7 @@ def main():
     # with open("output.json", "w", encoding="utf-8") as json_file:
     #     json.dump(data, json_file, ensure_ascii=False, indent=4)
     # # Convert data to PDFs
-    # DEBUG: Load dummy response from JSON file
+    # # DEBUG: Load dummy response from JSON file
     with open('output.json', 'r') as file:
         data = json.load(file)
     export_as_pptx(data)
