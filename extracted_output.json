@@ -1,0 +1,62 @@
+{
+    "Assurance_Review_Procurement_Controls_2023.pptx": {
+        "report_title": "Assurance Review: P2P Lifecycle & Vendor Management",
+        "executive_summary": "Objectives: To evaluate the design and operating effectiveness of internal controls governing the Procure-to-Pay (P2P) cycle. Background: Following the migration to the new ERP system in Q1, management requested a formal review of vendor onboarding and payment authorization workflows. Scope: The audit covered transactions processed between January 1, 2023, and September 30, 2023, focusing on vendor master data and high-value purchase orders.",
+        "details": [
+            {
+                "observation": "A review of 50 new vendors revealed that 12 did not have verified Tax ID numbers or evidence of Conflict of Interest (COI) disclosures on file.",
+                "risk": "Potential for onboarding fraudulent entities, financial penalties from tax authorities, or undisclosed related-party transactions.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Mandatory validation fields must be enabled in the ERP system to prevent vendor creation without verified tax documentation and digital COI sign-off.",
+                "status": "OPEN"
+            },
+            {
+                "observation": "We identified 15 instances where multiple purchase orders were issued to the same vendor on the same day for values just below the $50,000 threshold requiring Executive VP approval.",
+                "risk": "Circumvention of the Delegation of Authority (DoA) policy, leading to unauthorized spend and lack of executive oversight.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement system-based alerts for aggregate daily spend by vendor and perform monthly forensic data analytics to identify potential DoA bypass patterns.",
+                "status": "OPEN"
+            }
+        ],
+        "recommendations": [
+            "Enforce mandatory documentation fields for all new vendor registrations.",
+            "Establish a monthly \u2018Spend Exception Report\u2019 to be reviewed by the Finance Director.",
+            "Re-train procurement officers on the updated Delegation of Authority (DoA) limits."
+        ],
+        "management_action_plan": [
+            "ERP Validation Logic Update | IT Systems Manager | Dec 15, 2023",
+            "DoA Refresher Workshop | Compliance Officer | Nov 30, 2023",
+            "Monthly Exception Reporting | Procurement Controller | Jan 1, 2024"
+        ]
+    },
+    "Advisory_Engagement_AI_Governance_Strategy_2023.pptx": {
+        "report_title": "Advisory Engagement: AI Integration & Data Ethics",
+        "executive_summary": "The objective of this engagement was to provide consultative insights on the emerging Generative AI roadmap and assess the readiness of the data governance framework. The business unit is currently piloting several Large Language Model (LLM) applications to automate customer service interactions. The scope included a review of the proposed AI Ethics Charter, data privacy protocols for model training, and alignment with upcoming regional AI regulations.",
+        "details": [
+            {
+                "observation": "Current pilot projects use anonymized but not fully de-identified customer datasets, which may still pose re-identification risks in complex LLM outputs.",
+                "risk": "Potential breach of GDPR/CCPA privacy standards and reputational damage if sensitive customer patterns are inadvertently exposed.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Adopt differential privacy techniques and synthetic data generation for all model training phases to ensure zero exposure of PII (Personally Identifiable Information).",
+                "status": "IN PROGRESS"
+            },
+            {
+                "observation": "The proposed workflow for automated credit limit adjustments via AI lacks a formal human override or secondary verification step.",
+                "risk": "Algorithmic bias leading to discriminatory lending practices and lack of accountability for automated financial decisions.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Formalize a \u2018Human-in-the-Loop\u2019 (HITL) protocol where AI-driven credit adjustments exceeding a specific variance must be approved by a Senior Credit Officer.",
+                "status": "OPEN"
+            }
+        ],
+        "recommendations": [
+            "Data Security: Upgrade to advanced de-identification and synthetic data tools for R&D.",
+            "Governance Framework: Finalize the Corporate AI Ethics Charter and appoint an AI Ethics Committee.",
+            "Risk Mitigation: Implement HITL (Human-in-the-Loop) checkpoints for all financial and legal AI outputs."
+        ],
+        "management_action_plan": [
+            "Implement Synthetic Data Tools | Owner: Head of Data Science | Deadline: Feb 20, 2024",
+            "Establish AI Ethics Committee | Owner: Chief Technology Officer | Deadline: Dec 10, 2023",
+            "Finalize HITL Workflow Design | Owner: Product Lead - Innovation | Deadline: Jan 15, 2024"
+        ]
+    }
+}

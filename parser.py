@@ -105,14 +105,15 @@ def generate_json(extracted_text):
     )
     
     # Load JSON
-    data = json.loads(response.text)
-    print(data)
-    with open("generated_output.json", "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=4)
-
+    clean_text = response.text.replace("```json", "").replace("```", "").strip()
+    return ReportData.model_validate_json(clean_text)
 def main():
-    text = extract_slide_content("generated_pptx/Assurance_Review_Procurement_Controls_2023.pptx")
-    generate_json(text)    
-
+    extracted_data : dict[str, ReportData] = {}
+    for filename in os.listdir('generated_pptx'):
+        text = extract_slide_content(f"generated_pptx/{filename}")
+        data = generate_json(text)
+        extracted_data[filename] = data.model_dump()
+    with open("extracted_output.json", "w") as f:
+        json.dump(extracted_data, f, indent=4)
 if __name__ == '__main__':
     main()

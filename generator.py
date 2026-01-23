@@ -62,6 +62,11 @@ def main():
         help="Optional: Provide a specific industry or focus (e.g., 'Healthcare', 'Fintech')",
         default="General Corporate Operations"
     )
+    parser.add_argument("--type",
+        type=str,
+        help="Optional: Provide a specific report type",
+        default="General Corporate Operations"
+    )
     args = parser.parse_args()
 
     # Verbose logging of command line input arguments
@@ -75,8 +80,8 @@ def main():
     generator_prompt = f"""
     Act as a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC). Generate {args.reports} distinct Internal Audit Reports for different corporate business units.
 
-    **Report Requirements:**
-    One report must be an **Assurance Review** (stringent focus on risks/controls of specific teams) and the other must be an **Advisory Engagement** (focus on process improvement and consultative insights).
+    **Report Requirements (IMPORTANT):**
+    1. Focus on {args.seed}
 
     Each report must be structured as a sequence of slides. Each of the following sections must correspond to its own slide (one slide per item):
     1. **Title Slide:** Title of the report, Business Unit name, and Date.
@@ -90,6 +95,8 @@ def main():
     4. **Recommendations Summary:** A consolidated list of recommendations for the business unit.
     5. **Management Action Plan:** Specific action items, owners, and deadlines.
 
+    
+    
     **Output Format:**
     Deliver the final response as a JSON file. 
     * Use a key titled "file_name" for the report's filename.
@@ -101,6 +108,24 @@ def main():
     {{"file_name": "Report_Name.json", "Report Content": ["# Slide 1 Content", "# Slide 2 Content"]}}
 
     Please provide only the JSON output.
+    
+    Shown below is a toy example of a report's content:
+    
+    Title:  AC Analytics lacks project governance 
+
+    ES: WE have noted 10 observations , 5 are high…. These are the common themes…. Scope… action plans… finding… per review conclusion (A, NI, INAQ) 
+
+    Details: 
+
+    Observation 1: ... + Risk rating (L/M/H) + Recommendation, Risk, Action plan, Overall status, 
+
+    O2: ...
+
+    O3: ... 
+
+    O4: ... 
+
+    O5: ...
 """
 
     # response = google_client.models.generate_content(
