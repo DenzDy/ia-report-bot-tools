@@ -1,4 +1,5 @@
 from google import genai
+from google.genai import types
 import os
 from dotenv import load_dotenv
 import sys
@@ -55,7 +56,7 @@ def main():
 
     # Parse input arguments
     parser = argparse.ArgumentParser(description="Generates a JSON of internal audit risk reports in Markdown format.")
-    parser.add_argument("-r","--reports", type=int, help="number of reports to generate.")
+    parser.add_argument("-r","--reports", required=True, type=int, help="number of reports to generate.")
     parser.add_argument("-v", '--verbose', action='store_true')
     parser.add_argument("--seed",
         type=str,
@@ -76,73 +77,88 @@ def main():
     # Get response from Gemini API
     google_client = genai.Client(api_key=GEMINI_API_KEY)
 
-    # Generator Prompt
-    generator_prompt = f"""
-    Act as a Senior Internal Audit Manager with 15+ years of experience in corporate governance, risk management, and compliance (GRC). Generate {args.reports} distinct Internal Audit Reports for different corporate business units.
+    # System Prompt
+    system_prompt = f"""
+    ### ROLE
+    Senior Internal Audit Manager (15+ years experience). Tone: Professional and authoritative.
 
-    **Report Requirements (IMPORTANT):**
-    1. Focus on {args.seed}
+    ### TASK
+    Generate a structured Internal Audit Report JSON for PowerPoint.
 
-    Each report must be structured as a sequence of slides. Each of the following sections must correspond to its own slide (one slide per item):
-    1. **Title Slide:** Title of the report, Business Unit name, and Date.
-    2. **Executive Summary:** Objectives, Background, and Scope.
-    3. **Details (Observation Slides):** Provide one slide for **each** observation/issue. Each slide must contain:
-        * The issue description.
-        * The corresponding Risk.
-        * The Risk Rating (choose from: **ADEQUATE**, **FOR IMPROVEMENT**, or **INADEQUATE**).
-        * A specific Recommendation.
-        * The overall Status.
-    4. **Recommendations Summary:** A consolidated list of recommendations for the business unit.
-    5. **Management Action Plan:** Specific action items, owners, and deadlines.
-
+    ### STRUCTURAL RULES
+    - Return a JSON object: {{"file_name": "...", "Report Content": ["...", "..."]}}
+    - Each array element = ONE slide.
+    - Every string MUST start with "# " for the title.
+    - Use Markdown tables for "Management Action Plan" slides.
+    - Keep slide text under 600 characters.
     
-    
-    **Output Format:**
-    Deliver the final response as a JSON file. 
-    * Use a key titled "file_name" for the report's filename.
-    * Use a key titled "Report Content" which houses an array of strings. 
-    * **Crucial:** Each element in the array must represent exactly one slide. 
-    * Use proper Markdown formatting (bold, headers, lists) within the strings.
+    ### STRUCTURAL REQUIREMENTS (CRITICAL)
+    - Return ONLY a JSON object: {{"file_name": "...", "Report Content": ["...", "..."]}}
+    - Each array element in "Report Content" represents EXACTLY one PowerPoint slide.
+    - EVERY slide string MUST start with "# " as the first character.
+    - **Spacing Rule:** Use exactly two newline characters (\n\n) to separate every header, subheading, and paragraph. This prevents text clumping on the slide.
 
-    **Example structure for the JSON:**
-    {{"file_name": "Report_Name.json", "Report Content": ["# Slide 1 Content", "# Slide 2 Content"]}}
+    ### SLIDE SEQUENCE
+    1. # [Title Slide]: Include Business Unit and Date.
+    2. # Executive Summary: Include ### Objectives, ### Background, and ### Scope.
+    3. # Observation [N]: [Title]: Detail the finding. Use bold labels (**Issue:**, **Risk:**, **Risk Rating:**, **Recommendation:**, **Status:**) each on their own line separated by \n\n.
+    4. # Recommendations Summary: Consolidated bulleted list.
+    5. # Management Action Plan: Use a Markdown table: | Action Item | Owner | Deadline |.
 
-    Please provide only the JSON output.
-    
-    Shown below is a toy example of a report's content:
-    
-    Title:  AC Analytics lacks project governance 
+    ### CONSTRAINTS
+    - Minimum of 2 detailed observations per report.
+    - Maximum length: Keep body text under 1000 characters per slide.
+    - Risk Ratings MUST be: ADEQUATE, FOR IMPROVEMENT, or INADEQUATE.
 
-    ES: WE have noted 10 observations , 5 are high…. These are the common themes…. Scope… action plans… finding… per review conclusion (A, NI, INAQ) 
+    ### EXAMPLES OF IDEAL OUTPUT
+    {{
+        "file_name": "IA_Report_HR_Payroll_Processing.json",
+        "Report Content": [
+            "# Title Slide\n**Report:** Internal Audit of Payroll Processing & Employee Benefits\n**Business Unit:** Human Resources (Global Operations)\n**Date:** January 25, 2026",
+            "# Executive Summary\n\n### Objectives\nTo evaluate the accuracy of payroll disbursements and compliance with tax regulations.\n\n### Background\nThe HR unit manages payroll for 5,000 employees across three jurisdictions.\n\n### Scope\nReview of payroll cycles from Q3 2025 to Q4 2025, including manual adjustments and bonus calculations.",
+            "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.\n**Status:** Open",
+            "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.\n**Status:** In Progress",
+            "# Recommendations Summary\n1. Enforce strict Segregation of Duties (SoD) in payroll software.\n2. Implement automated 'Leaver' protocols for system access.\n3. Conduct quarterly payroll audits against physical headcount records.",
+            "# Management Action Plan\n* **Action Item:** Configure ERP permissions for SoD.\n  * **Owner:** HR Director / IT Manager\n  * **Deadline:** March 31, 2026\n* **Action Item:** Establish automated termination alerts.\n  * **Owner:** HR Operations Lead\n  * **Deadline:** February 28, 2026"
+        ]
+    }},
+    {{
+        "file_name": "IA_Report_Procurement_Vendor_Mgmt.json",
+        "Report Content": [
+        "# Title Slide\n**Report:** Strategic Sourcing and Vendor Risk Management Audit\n**Business Unit:** Corporate Procurement\n**Date:** January 20, 2026",
+        "# Executive Summary\n\n### Objectives\nTo assess the vendor selection process and contract lifecycle management.\n\n### Background\nProcurement managed $50M in spend across 200+ vendors in the last fiscal year.\n\n### Scope\nFocus on vendors with annual spend exceeding $500k and the competitive bidding process.",
+        "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.\n**Status:** Open",
+        "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.\n**Status:** Not Started",
+        "# Recommendations Summary\n1. Standardize the competitive bidding workflow.\n2. Launch a Vendor Performance Management (VPM) framework.\n3. Audit vendor insurance certificates for expiration.",
+        "# Management Action Plan\n* **Action Item:** Update Procurement Policy to include Bid Exception requirements.\n  * **Owner:** Head of Procurement\n  * **Deadline:** April 15, 2026\n* **Action Item:** Conduct catch-up reviews for top 10 vendors.\n  * **Owner:** Procurement Category Manager\n  * **Deadline:** May 30, 2026"
+        ]
+    }}
 
-    Details: 
+    ### INPUT SEED
+    Generate a new report based on the user's provided seed.
+    """
 
-    Observation 1: ... + Risk rating (L/M/H) + Recommendation, Risk, Action plan, Overall status, 
+    # User Prompt
+    user_prompt = f"""
+    Generate {args.reports} reports with focus on {args.seed} for the reports.
+    """
 
-    O2: ...
+    response = google_client.models.generate_content(
+        model='gemini-3-flash-preview', 
+        contents=user_prompt,
+        config=types.GenerateContentConfig(
+            systemInstruction=system_prompt,
+            responseMimeType='application/json'
+        )
+    )
 
-    O3: ... 
-
-    O4: ... 
-
-    O5: ...
-"""
-
-    # response = google_client.models.generate_content(
-    #     model='gemini-3-flash-preview', 
-    #     contents=generator_prompt,
-    #     config={
-    #         'response_mime_type': 'application/json',
-    #     }
-    # )
-
-    # # Load JSON
-    # data = json.loads(response.text)
-    # # print(data)
-    # with open("output.json", "w", encoding="utf-8") as json_file:
-    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
-    # # Convert data to PDFs
-    # # DEBUG: Load dummy response from JSON file
+    # Load JSON
+    data = json.loads(response.text)
+    # print(data)
+    with open("output.json", "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
+    # Convert data to PDFs
+    # DEBUG: Load dummy response from JSON file
     with open('output.json', 'r') as file:
         data = json.load(file)
     export_as_pptx(data)

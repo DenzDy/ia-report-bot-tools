@@ -108,6 +108,7 @@ def generate_json(extracted_text):
     clean_text = response.text.replace("```json", "").replace("```", "").strip()
     return ReportData.model_validate_json(clean_text)
 def main():
+    # TODO: Batch processing
     extracted_data : dict[str, ReportData] = {}
     for filename in os.listdir('generated_pptx'):
         text = extract_slide_content(f"generated_pptx/{filename}")
