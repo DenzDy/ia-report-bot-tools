@@ -4,7 +4,10 @@ from pptx import Presentation
 from google import genai
 import os
 from dotenv import load_dotenv
+from typing import Dict
 import json 
+from google.genai import types
+
 # JSON Object Definitions
 class DetailsTable(BaseModel):
     observation: str
@@ -19,6 +22,9 @@ class ReportData(BaseModel):
     details: List[DetailsTable]
     recommendations: List[str]
     management_action_plan: List[str]
+
+class BatchResponse(BaseModel):
+    reports: List[ReportData]
     
 def extract_slide_content(file_path):
     prs = Presentation(file_path)
@@ -52,40 +58,37 @@ def extract_slide_content(file_path):
 
 def generate_json(extracted_text):
     extraction_prompt = f"""
-    Act as an Internal Audit Data Analyst. Your goal is to parse raw text extracted from a PowerPoint report into a structured JSON format following a specific schema.
+    Act as an Internal Audit Data Analyst. Your goal is to parse raw text extracted from MULTIPLE PowerPoint reports into a structured JSON format. 
 
-    ### Data Mapping Instructions:
-    1. **report_title**: Locate the main title of the audit (usually on Slide 1).
-    2. **executive_summary**: Summarize the overarching conclusion and background found in the introductory slides.
-    3. **details**: This is a list of audit findings. For each finding/observation found in a table or slide:
-    - **observation**: The factual description of what was found.
-    - **risk**: The potential negative impact or consequence.
-    - **risk_rating**: The severity (e.g., High, Medium, Low).
-    - **recommendation**: The specific suggestion for improvement for THAT finding.
-    - **status**: Current state (e.g., Open, Closed, In Progress).
-    4. **recommendations**: A general list of all corrective actions suggested throughout the deck.
-    5. **management_action_plan**: Specific responses or commitments made by management to address the findings.
+    ### Input Format
+    The source text contains multiple reports. Each report begins with a marker like [[START_FILE: filename]] and ends with [[END_FILE]].
+
+    ### Data Mapping Instructions (Apply to EACH report):
+    1. **report_title**: Locate the main title of the audit.
+    2. **executive_summary**: Summarize overarching conclusions and background.
+    3. **details**: A list of audit findings. For each finding:
+    - **observation**: Factual description of findings.
+    - **risk**: Potential negative impact.
+    - **risk_rating**: Severity (e.g., INADEQUATE, FOR IMPROVEMENT, ADEQUATE).
+    - **recommendation**: Suggestion for improvement for THAT finding.
+    4. **recommendations**: A list of all corrective actions in the deck.
+    5. **management_action_plan**: Specific management commitments.
 
     ### Constraints:
+    - Return a SINGLE JSON object where each key is the filename provided in the [[START_FILE]] marker.
     - Output ONLY valid JSON.
-    - Do not hallucinate data; if a field is not found, use an empty string "" or an empty list [].
-    - Combine data if a single observation spans multiple slides.
+    - If a field is not found, use "" or []. Do not omit keys.
 
     ### Target JSON Schema:
     {{
-    "report_title": "string",
-    "executive_summary": "string",
-    "details": [
-        {{
-        "observation": "string",
-        "risk": "string",
-        "risk_rating": "string",
-        "recommendation": "string",
-        "status": "string"
-        }}
-    ],
-    "recommendations": ["string"],
-    "management_action_plan": ["string"]
+    "filename_1.pptx": {{
+        "report_title": "string",
+        "executive_summary": "string",
+        "details": [{{"observation": "string", "risk": "string", "risk_rating": "string", "recommendation": "string"}}],
+        "recommendations": ["string"],
+        "management_action_plan": ["string"]
+    }},
+    "filename_2.pptx": {{ ... }}
     }}
 
     ### Source Text:
@@ -99,21 +102,25 @@ def generate_json(extracted_text):
     response = google_client.models.generate_content(
         model='gemini-3-flash-preview', 
         contents=extraction_prompt,
-        config={
-            'response_mime_type': 'application/json',
-        }
+        config=types.GenerateContentConfig(
+            responseMimeType='application/json',
+            responseSchema=BatchResponse
+        )
     )
-    
-    # Load JSON
-    clean_text = response.text.replace("```json", "").replace("```", "").strip()
-    return ReportData.model_validate_json(clean_text)
+    return json.loads(response.text)
 def main():
     # TODO: Batch processing
     extracted_data : dict[str, ReportData] = {}
-    for filename in os.listdir('generated_pptx'):
+    all_pptx = [f for f in os.listdir('generated_pptx') if f.endswith('.pptx')]
+    batch_files = all_pptx[0:5]
+    combined_text = ""
+    for filename in batch_files:
+        # Local extraction is fast and consumes no quota
         text = extract_slide_content(f"generated_pptx/{filename}")
-        data = generate_json(text)
-        extracted_data[filename] = data.model_dump()
+        combined_text += f"\n[[START_FILE: {filename}]]\n{text}\n[[END_FILE]]\n"
+    batch_json = generate_json(combined_text)
+    extracted_data.update(batch_json)
+
     with open("extracted_output.json", "w") as f:
         json.dump(extracted_data, f, indent=4)
 if __name__ == '__main__':

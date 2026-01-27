@@ -1,62 +1,154 @@
 {
-    "Assurance_Review_Procurement_Controls_2023.pptx": {
-        "report_title": "Assurance Review: P2P Lifecycle & Vendor Management",
-        "executive_summary": "Objectives: To evaluate the design and operating effectiveness of internal controls governing the Procure-to-Pay (P2P) cycle. Background: Following the migration to the new ERP system in Q1, management requested a formal review of vendor onboarding and payment authorization workflows. Scope: The audit covered transactions processed between January 1, 2023, and September 30, 2023, focusing on vendor master data and high-value purchase orders.",
-        "details": [
-            {
-                "observation": "A review of 50 new vendors revealed that 12 did not have verified Tax ID numbers or evidence of Conflict of Interest (COI) disclosures on file.",
-                "risk": "Potential for onboarding fraudulent entities, financial penalties from tax authorities, or undisclosed related-party transactions.",
-                "risk_rating": "INADEQUATE",
-                "recommendation": "Mandatory validation fields must be enabled in the ERP system to prevent vendor creation without verified tax documentation and digital COI sign-off.",
-                "status": "OPEN"
-            },
-            {
-                "observation": "We identified 15 instances where multiple purchase orders were issued to the same vendor on the same day for values just below the $50,000 threshold requiring Executive VP approval.",
-                "risk": "Circumvention of the Delegation of Authority (DoA) policy, leading to unauthorized spend and lack of executive oversight.",
-                "risk_rating": "FOR IMPROVEMENT",
-                "recommendation": "Implement system-based alerts for aggregate daily spend by vendor and perform monthly forensic data analytics to identify potential DoA bypass patterns.",
-                "status": "OPEN"
-            }
-        ],
-        "recommendations": [
-            "Enforce mandatory documentation fields for all new vendor registrations.",
-            "Establish a monthly \u2018Spend Exception Report\u2019 to be reviewed by the Finance Director.",
-            "Re-train procurement officers on the updated Delegation of Authority (DoA) limits."
-        ],
-        "management_action_plan": [
-            "ERP Validation Logic Update | IT Systems Manager | Dec 15, 2023",
-            "DoA Refresher Workshop | Compliance Officer | Nov 30, 2023",
-            "Monthly Exception Reporting | Procurement Controller | Jan 1, 2024"
-        ]
-    },
-    "Advisory_Engagement_AI_Governance_Strategy_2023.pptx": {
-        "report_title": "Advisory Engagement: AI Integration & Data Ethics",
-        "executive_summary": "The objective of this engagement was to provide consultative insights on the emerging Generative AI roadmap and assess the readiness of the data governance framework. The business unit is currently piloting several Large Language Model (LLM) applications to automate customer service interactions. The scope included a review of the proposed AI Ethics Charter, data privacy protocols for model training, and alignment with upcoming regional AI regulations.",
-        "details": [
-            {
-                "observation": "Current pilot projects use anonymized but not fully de-identified customer datasets, which may still pose re-identification risks in complex LLM outputs.",
-                "risk": "Potential breach of GDPR/CCPA privacy standards and reputational damage if sensitive customer patterns are inadvertently exposed.",
-                "risk_rating": "FOR IMPROVEMENT",
-                "recommendation": "Adopt differential privacy techniques and synthetic data generation for all model training phases to ensure zero exposure of PII (Personally Identifiable Information).",
-                "status": "IN PROGRESS"
-            },
-            {
-                "observation": "The proposed workflow for automated credit limit adjustments via AI lacks a formal human override or secondary verification step.",
-                "risk": "Algorithmic bias leading to discriminatory lending practices and lack of accountability for automated financial decisions.",
-                "risk_rating": "INADEQUATE",
-                "recommendation": "Formalize a \u2018Human-in-the-Loop\u2019 (HITL) protocol where AI-driven credit adjustments exceeding a specific variance must be approved by a Senior Credit Officer.",
-                "status": "OPEN"
-            }
-        ],
-        "recommendations": [
-            "Data Security: Upgrade to advanced de-identification and synthetic data tools for R&D.",
-            "Governance Framework: Finalize the Corporate AI Ethics Charter and appoint an AI Ethics Committee.",
-            "Risk Mitigation: Implement HITL (Human-in-the-Loop) checkpoints for all financial and legal AI outputs."
-        ],
-        "management_action_plan": [
-            "Implement Synthetic Data Tools | Owner: Head of Data Science | Deadline: Feb 20, 2024",
-            "Establish AI Ethics Committee | Owner: Chief Technology Officer | Deadline: Dec 10, 2023",
-            "Finalize HITL Workflow Design | Owner: Product Lead - Innovation | Deadline: Jan 15, 2024"
-        ]
-    }
+    "reports": [
+        {
+            "report_title": "Audit of Corporate Records Management & Retention (IA_Report_Records_Retention_Compliance.pptx)",
+            "executive_summary": "Objectives: To assess compliance with statutory records retention periods and secure destruction protocols. Background: The company handles sensitive customer data and legal contracts across various jurisdictions. Scope: Review of physical archiving facilities and digital document deletion schedules.",
+            "details": [
+                {
+                    "observation": "Financial records dating back 15 years are still stored on-site, despite a 7-year legal retention limit.",
+                    "risk": "Increased litigation discovery risks and excessive storage costs.",
+                    "risk_rating": "FOR IMPROVEMENT",
+                    "recommendation": "Execute a bulk shredding project for all documents past their retention period.",
+                    "status": "Open"
+                },
+                {
+                    "observation": "Highly sensitive payroll documents were found in regular recycling bins instead of locked shredding consoles.",
+                    "risk": "Unauthorized disclosure of PII and potential GDPR/regulatory fines.",
+                    "risk_rating": "INADEQUATE",
+                    "recommendation": "Replace open recycling bins in administrative areas with locked security consoles for sensitive paper.",
+                    "status": "Open"
+                }
+            ],
+            "recommendations": [
+                "Update the Global Records Retention Schedule.",
+                "Conduct annual training on sensitive data handling.",
+                "Partner with a certified secure destruction vendor for site-wide clearances."
+            ],
+            "management_action_plan": [
+                "Retention Update | General Counsel | March 2026",
+                "Shredding Project | Office Manager | April 2026",
+                "Compliance Training | HR Manager | May 2026"
+            ]
+        },
+        {
+            "report_title": "Audit of Operational Petty Cash Management (IA_Report_Petty_Cash_Controls.pptx)",
+            "executive_summary": "Objectives: To verify the security of petty cash funds and the validity of small-value disbursements. Background: 15 regional branches maintain petty cash floats ranging from $500 to $2,000. Scope: Surprise cash counts and voucher audits at 5 selected regional branches.",
+            "details": [
+                {
+                    "observation": "3 out of 5 branches visited did not perform weekly cash reconciliations as required by policy.",
+                    "risk": "Undetected theft or loss of funds; financial reporting inaccuracies.",
+                    "risk_rating": "INADEQUATE",
+                    "recommendation": "Mandate a weekly sign-off by the Branch Manager on a standardized cash reconciliation form.",
+                    "status": "Open"
+                },
+                {
+                    "observation": "Personal funds and \u2018IOU\u2019 notes from employees were found in the petty cash lockbox at one location.",
+                    "risk": "High risk of fraud and lack of accountability for corporate assets.",
+                    "risk_rating": "INADEQUATE",
+                    "recommendation": "Strictly prohibit \u2018IOUs\u2019 and enforce immediate disciplinary action for commingling of funds.",
+                    "status": "Open"
+                }
+            ],
+            "recommendations": [
+                "Standardize petty cash reconciliation templates.",
+                "Perform monthly unannounced cash counts by Regional Controllers.",
+                "Phase out physical petty cash in favor of corporate \u2018P-Cards\u2019 for small spend."
+            ],
+            "management_action_plan": [
+                "P-Card Rollout | Finance VP | September 2026",
+                "Surprise Counts | Regional Auditor | Monthly",
+                "Policy Briefing | Branch Managers | April 2026"
+            ]
+        },
+        {
+            "report_title": "Audit of Knowledge Management & SOP Governance (IA_Report_Internal_Communications_Knowledge.pptx)",
+            "executive_summary": "Objectives: To ensure Standard Operating Procedures (SOPs) are current, approved, and accessible. Background: The company maintains a central repository for over 500 operational policies. Scope: Review of the policy lifecycle management and version control on the company Intranet.",
+            "details": [
+                {
+                    "observation": "40% of the SOPs on the Intranet have not been reviewed or updated in the last 3 years.",
+                    "risk": "Employees following obsolete processes leading to operational errors or safety risks.",
+                    "risk_rating": "FOR IMPROVEMENT",
+                    "recommendation": "Implement an automated \u2018Expiry\u2019 flag that requires owners to re-verify SOPs annually.",
+                    "status": "Open"
+                },
+                {
+                    "observation": "Draft versions of sensitive financial policies were accessible to all employees via a shared folder.",
+                    "risk": "Unauthorized use of draft procedures and potential for internal fraud.",
+                    "risk_rating": "ADEQUATE",
+                    "recommendation": "Move all policy documents to a dedicated Document Management System (DMS) with restricted permissions.",
+                    "status": "Open"
+                }
+            ],
+            "recommendations": [
+                "Enforce a mandatory annual review cycle for all operational policies.",
+                "Consolidate all SOPs into a single, permission-controlled system.",
+                "Retire the use of ungoverned shared network drives for policy storage."
+            ],
+            "management_action_plan": [
+                "DMS Migration | IT Manager | August 2026",
+                "Policy Audit | Ops Excellence | June 2026",
+                "Access Review | Security Lead | April 2026"
+            ]
+        },
+        {
+            "report_title": "Audit of Employee Onboarding & Offboarding Controls (IA_Report_Onboarding_Offboarding.pptx)",
+            "executive_summary": "Objectives: To ensure new hires are properly vetted and terminated employees lose access promptly. Background: The company hired 300 and offboarded 120 employees in the last 12 months. Scope: Verification of background checks for new hires and system deactivations for leavers.",
+            "details": [
+                {
+                    "observation": "10% of new hire files lacked evidence of completed criminal or education verification checks.",
+                    "risk": "Hiring of unqualified or high-risk individuals; regulatory non-compliance.",
+                    "risk_rating": "FOR IMPROVEMENT",
+                    "recommendation": "Make background check clearance a prerequisite for generating an employee ID.",
+                    "status": "Open"
+                },
+                {
+                    "observation": "5 terminated employees retained active VPN and Email access for more than 72 hours after their final day.",
+                    "risk": "Potential for data exfiltration or unauthorized system changes post-employment.",
+                    "risk_rating": "INADEQUATE",
+                    "recommendation": "Implement an automated \u2018Leaver\u2019 workflow that disables all accounts at midnight on the termination date.",
+                    "status": "Open"
+                }
+            ],
+            "recommendations": [
+                "Standardize the onboarding checklist to include all vetting requirements.",
+                "Automate the offboarding notification between HR and IT.",
+                "Conduct quarterly access reviews for \u2018stale\u2019 accounts."
+            ],
+            "management_action_plan": [
+                "Vetting Compliance | HR Director | March 2026",
+                "Identity Mgmt Auto | IT Lead | April 2026",
+                "Access Cleanup | Security Ops | March 2026"
+            ]
+        },
+        {
+            "report_title": "Audit of General Ledger & Financial Closing Process (IA_Report_Financial_Closing_Operations.pptx)",
+            "executive_summary": "Objectives: To assess the speed, accuracy, and control environment of the monthly financial close. Background: The Finance team aims for a \u20185-Day Close\u2019 to provide timely management information. Scope: Audit of journal entry approvals and balance sheet reconciliations for Q4 2025.",
+            "details": [
+                {
+                    "observation": "12% of manual journal entries were posted to the General Ledger without a secondary reviewer\u2019s approval.",
+                    "risk": "Fraudulent financial reporting or material errors in the financial statements.",
+                    "risk_rating": "INADEQUATE",
+                    "recommendation": "Enable a \u2018hard stop\u2019 in the ERP that prevents posting without a workflow approval.",
+                    "status": "Open"
+                },
+                {
+                    "observation": "Bank reconciliations contained \u2018open items\u2019 older than 90 days that had not been investigated.",
+                    "risk": "Hidden financial losses or failure to identify bank errors.",
+                    "risk_rating": "FOR IMPROVEMENT",
+                    "recommendation": "Implement a policy requiring all reconciling items older than 30 days to be escalated to the Controller.",
+                    "status": "Open"
+                }
+            ],
+            "recommendations": [
+                "Enforce automated workflow approvals for all manual journals.",
+                "Standardize balance sheet reconciliation templates across all subsidiaries.",
+                "Conduct monthly \u2018Closing Quality\u2019 reviews with regional teams."
+            ],
+            "management_action_plan": [
+                "ERP Workflow | IT Finance | May 2026",
+                "Recon Policy | Group Controller | June 2026",
+                "Training Sessions | Finance Staff | April 2026"
+            ]
+        }
+    ]
 }

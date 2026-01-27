@@ -1,5 +1,4 @@
-from google import genai
-from google.genai import types
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 import sys
@@ -52,7 +51,7 @@ def export_as_pptx(json_data, target_directory="generated_pptx", char_limit=800)
 def main():
     # Load and import API Keys
     load_dotenv()
-    GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
     # Parse input arguments
     parser = argparse.ArgumentParser(description="Generates a JSON of internal audit risk reports in Markdown format.")
@@ -75,7 +74,9 @@ def main():
         print(f"[DEBUG] Received reports={args.reports}")
 
     # Get response from Gemini API
-    google_client = genai.Client(api_key=GEMINI_API_KEY)
+    openai_client = OpenAI(
+        api_key=OPENAI_API_KEY
+    )
 
     # System Prompt
     system_prompt = f"""
@@ -101,7 +102,7 @@ def main():
     ### SLIDE SEQUENCE
     1. # [Title Slide]: Include Business Unit and Date.
     2. # Executive Summary: Include ### Objectives, ### Background, and ### Scope.
-    3. # Observation [N]: [Title]: Detail the finding. Use bold labels (**Issue:**, **Risk:**, **Risk Rating:**, **Recommendation:**, **Status:**) each on their own line separated by \n\n.
+    3. # Observation [N]: [Title]: Detail the finding. Use bold labels (**Issue:**, **Risk:**, **Risk Rating:**, **Recommendation:**) each on their own line separated by \n\n.
     4. # Recommendations Summary: Consolidated bulleted list.
     5. # Management Action Plan: Use a Markdown table: | Action Item | Owner | Deadline |.
 
@@ -110,14 +111,20 @@ def main():
     - Maximum length: Keep body text under 1000 characters per slide.
     - Risk Ratings MUST be: ADEQUATE, FOR IMPROVEMENT, or INADEQUATE.
 
+    ### TITLE SLIDE RULES
+    The first element of the array MUST follow this exact format:
+    "# [Audit Report Title]
+    ## [Business Unit Name]
+    ### [Date]"
+
     ### EXAMPLES OF IDEAL OUTPUT
     {{
         "file_name": "IA_Report_HR_Payroll_Processing.json",
         "Report Content": [
-            "# Title Slide\n**Report:** Internal Audit of Payroll Processing & Employee Benefits\n**Business Unit:** Human Resources (Global Operations)\n**Date:** January 25, 2026",
+            "# Internal Audit of Payroll Processing & Employee Benefits\n\n**Business Unit:** Human Resources (Global Operations)\n**Date:** January 25, 2026",
             "# Executive Summary\n\n### Objectives\nTo evaluate the accuracy of payroll disbursements and compliance with tax regulations.\n\n### Background\nThe HR unit manages payroll for 5,000 employees across three jurisdictions.\n\n### Scope\nReview of payroll cycles from Q3 2025 to Q4 2025, including manual adjustments and bonus calculations.",
-            "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.\n**Status:** Open",
-            "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.\n**Status:** In Progress",
+            "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.,
+            "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.,
             "# Recommendations Summary\n1. Enforce strict Segregation of Duties (SoD) in payroll software.\n2. Implement automated 'Leaver' protocols for system access.\n3. Conduct quarterly payroll audits against physical headcount records.",
             "# Management Action Plan\n* **Action Item:** Configure ERP permissions for SoD.\n  * **Owner:** HR Director / IT Manager\n  * **Deadline:** March 31, 2026\n* **Action Item:** Establish automated termination alerts.\n  * **Owner:** HR Operations Lead\n  * **Deadline:** February 28, 2026"
         ]
@@ -125,10 +132,10 @@ def main():
     {{
         "file_name": "IA_Report_Procurement_Vendor_Mgmt.json",
         "Report Content": [
-        "# Title Slide\n**Report:** Strategic Sourcing and Vendor Risk Management Audit\n**Business Unit:** Corporate Procurement\n**Date:** January 20, 2026",
+        "# Strategic Sourcing and Vendor Risk Management Audit\n\n**Business Unit:** Corporate Procurement\n**Date:** January 20, 2026",
         "# Executive Summary\n\n### Objectives\nTo assess the vendor selection process and contract lifecycle management.\n\n### Background\nProcurement managed $50M in spend across 200+ vendors in the last fiscal year.\n\n### Scope\nFocus on vendors with annual spend exceeding $500k and the competitive bidding process.",
-        "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.\n**Status:** Open",
-        "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.\n**Status:** Not Started",
+        "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.,
+        "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.,
         "# Recommendations Summary\n1. Standardize the competitive bidding workflow.\n2. Launch a Vendor Performance Management (VPM) framework.\n3. Audit vendor insurance certificates for expiration.",
         "# Management Action Plan\n* **Action Item:** Update Procurement Policy to include Bid Exception requirements.\n  * **Owner:** Head of Procurement\n  * **Deadline:** April 15, 2026\n* **Action Item:** Conduct catch-up reviews for top 10 vendors.\n  * **Owner:** Procurement Category Manager\n  * **Deadline:** May 30, 2026"
         ]
@@ -143,13 +150,10 @@ def main():
     Generate {args.reports} reports with focus on {args.seed} for the reports.
     """
 
-    response = google_client.models.generate_content(
-        model='gemini-3-flash-preview', 
-        contents=user_prompt,
-        config=types.GenerateContentConfig(
-            systemInstruction=system_prompt,
-            responseMimeType='application/json'
-        )
+    response = openai_client.responses.create(
+        model='gpt-5-mini', 
+        instructions=system_prompt,
+        input=user_prompt
     )
 
     # Load JSON

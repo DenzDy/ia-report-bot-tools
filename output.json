@@ -1,222 +1,222 @@
 [
     {
-        "file_name": "IA_Report_Travel_and_Expense_Management.json",
+        "file_name": "IA_Report_Travel_Expense_Mgmt.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Internal Audit of Travel and Expense (T&E) Management\n\n**Business Unit:** Corporate Finance\n\n**Date:** February 10, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure corporate expense claims are valid, business-related, and compliant with policy.\n\n### Background\n\nThe T&E budget exceeds $1.2M annually across 500 active claimants.\n\n### Scope\n\nAudit of expense reports from July 2025 to December 2025.",
-            "# Observation 1: Inadequate Documentation for High-Value Claims\n\n**Issue:** 20% of sampled claims over $500 lacked itemized receipts, only showing total credit card slips.\n\n**Risk:** Fraudulent charges or personal expenses reimbursed as business costs.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Mandate itemized receipts for all transactions exceeding $25.\n\n**Status:** Open",
-            "# Observation 2: Duplicate Reimbursement Submissions\n\n**Issue:** Systematic failure to detect duplicate entries across different reporting periods for the same receipt.\n\n**Risk:** Financial loss due to double payments to employees.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement automated duplicate detection software within the expense management tool.\n\n**Status:** Not Started",
-            "# Recommendations Summary\n\n1. Update T&E policy to require itemized documentation.\n\n2. Configure ERP alerts for duplicate invoice numbers or dates.\n\n3. Conduct bi-monthly audits of executive-level expenses.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Policy Revision | Finance Manager | March 2026 |\n| Software Update | IT Systems Lead | May 2026 |\n| Internal Training | HR Team | June 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Fixed_Asset_Control.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Fixed Asset Lifecycle and Verification Audit\n\n**Business Unit:** Operations & Facilities\n\n**Date:** February 12, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo verify the existence and valuation of physical assets listed on the balance sheet.\n\n### Background\n\nThe company maintains $15M in fixed assets, including machinery and IT hardware.\n\n### Scope\n\nPhysical inspection of assets in regional offices and review of depreciation schedules.",
-            "# Observation 1: Asset Registry Discrepancies\n\n**Issue:** 15% of physical assets sampled were not found in the central asset register.\n\n**Risk:** Misstatement of financial assets and lack of physical control.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Perform a wall-to-wall physical inventory count immediately.\n\n**Status:** Open",
-            "# Observation 2: Improper Disposal Procedures\n\n**Issue:** Retired laptops were sold or donated without documented data wiping certificates.\n\n**Risk:** Data breach and non-compliance with privacy regulations (GDPR/CCPA).\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Formalize a disposal protocol involving IT security verification.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Synchronize the Fixed Asset Register with physical counts.\n\n2. Implement a tagging system using RFID or QR codes.\n\n3. Establish a standard operating procedure (SOP) for asset decommissioning.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Asset Tagging Project | Facilities Lead | July 2026 |\n| Data Wiping Audit | IT Manager | April 2026 |\n| Register Reconciliation | Controller | May 2026 |"
+            "# Internal Audit of Corporate Travel & Expense Management\n\n## Finance Operations\n\n### February 15, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo evaluate the effectiveness of the Travel & Expense (T&E) policy and reimbursement process.\n\n### Background\n\nCorporate travel spend increased by 30% in the last fiscal year, totaling $4.5M.\n\n### Scope\n\nAudit of expense reports from June 2025 to January 2026, focusing on high-value reimbursements.",
+            "# Observation 1: Non-Itemized Expense Submissions\n\n**Issue:** 22% of sampled expenses were approved without itemized receipts, showing only total amounts.\n\n**Risk:** Failure to distinguish between business and personal expenses; tax non-compliance.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Enforce a strict policy requiring digital uploads of itemized receipts for all transactions over $25.",
+            "# Observation 2: Late Submission of Expense Claims\n\n**Issue:** Claims are regularly submitted more than 60 days post-travel, exceeding the 30-day policy limit.\n\n**Risk:** Budgeting inaccuracies and poor cash flow forecasting.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Implement automated reminders and a 'soft-lock' on corporate cards for accounts with overdue claims.",
+            "# Recommendations Summary\n\n1. Mandate itemized receipts for all reimbursement tiers.\n\n2. Integrate automated receipt scanning (OCR) into the ERP system.\n\n3. Enforce 30-day claim submission deadlines via system notifications.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Policy Revision | Finance Director | March 2026 |\n| OCR Integration | IT Manager | May 2026 |\n| Submission Training | HR Operations | April 2026 |"
         ]
     },
     {
         "file_name": "IA_Report_Facilities_Physical_Security.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Physical Security and Facilities Access Audit\n\n**Business Unit:** Corporate Services\n\n**Date:** February 15, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo evaluate the effectiveness of physical access controls and site safety measures.\n\n### Background\n\nThe main campus houses 800 employees and high-value data centers.\n\n### Scope\n\nReview of badge access logs, CCTV coverage, and visitor management systems.",
-            "# Observation 1: Unrestricted Access to Server Rooms\n\n**Issue:** Biometric scanners for the primary data center were found bypassed during business hours.\n\n**Risk:** Unauthorized physical tampering with critical IT infrastructure.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Enforce strict 'Always Locked' policy and audit access logs weekly.\n\n**Status:** Open",
-            "# Observation 2: Outdated CCTV Maintenance\n\n**Issue:** 25% of security cameras were non-functional or had obstructed views.\n\n**Risk:** Inability to investigate security incidents or provide evidence of theft.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Contract a third-party maintenance provider for monthly camera checks.\n\n**Status:** Open",
-            "# Recommendations Summary\n\n1. Repair all faulty CCTV hardware immediately.\n\n2. Re-verify access permissions for all personnel with 'All Area' access.\n\n3. Install alarm sensors on high-security zone doors.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| CCTV Repair | Facilities Manager | March 2026 |\n| Access Audit | Security Director | April 2026 |\n| Alarm Installation | Ops Lead | June 2026 |"
+            "# Internal Audit of Facilities & Physical Security Controls\n\n## Corporate Real Estate\n\n### February 18, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo verify the robustness of physical access controls and facility maintenance logs.\n\n### Background\n\nThe organization operates five regional hubs with high-value server rooms and equipment.\n\n### Scope\n\nPhysical inspection of access logs and security footage from Q4 2025.",
+            "# Observation 1: Unrestricted Access to Server Rooms\n\n**Issue:** Card access logs show cleaning staff and general contractors have 24/7 access to restricted server areas.\n\n**Risk:** Potential for unauthorized data tampering or theft of physical infrastructure.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Restrict server room access to authorized IT personnel and implement dual-factor authentication.",
+            "# Observation 2: Outdated Fire Safety Equipment\n\n**Issue:** 15% of fire extinguishers in the East Wing had expired inspection tags as of December 2025.\n\n**Risk:** Violation of local health and safety regulations; life safety risk during an emergency.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Establish a digital tracking log for all fire safety assets with automated renewal alerts.",
+            "# Recommendations Summary\n\n1. Review and revoke excessive access permissions immediately.\n\n2. Install biometric locks on critical infrastructure doors.\n\n3. Standardize safety inspection frequencies across all regional hubs.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Fixed_Asset_Management.json",
+        "Report Content": [
+            "# Audit of Fixed Asset Management & Lifecycle\n\n## Corporate Finance\n\n### February 20, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure the accuracy of the Fixed Asset Register (FAR) and physical existence of assets.\n\n### Background\n\nThe company holds $12M in fixed assets including IT equipment, machinery, and furniture.\n\n### Scope\n\nVerification of asset additions, disposals, and depreciation for the 2025 fiscal year.",
+            "# Observation 1: Inaccurate Asset Tagging\n\n**Issue:** 18% of IT assets located during the physical floor walk did not have a corresponding asset tag or entry in the FAR.\n\n**Risk:** Misstatement of financial records and increased risk of asset misappropriation.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Conduct a full wall-to-wall inventory count and tag all untracked equipment.",
+            "# Observation 2: Improper Disposal Documentation\n\n**Issue:** Retired laptops were sold to employees without proper disposal forms or data wiping certificates.\n\n**Risk:** Data privacy breaches and loss of audit trail for asset depreciation.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement a mandatory 'Asset Disposal Checklist' including IT security sign-off for data destruction.",
+            "# Recommendations Summary\n\n1. Perform annual physical inventory counts for all high-value assets.\n\n2. Enforce asset tagging at the point of procurement.\n\n3. Standardize the decommissioning process with IT security oversight.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Inventory Count | Asset Coordinator | April 2026 |\n| Policy Update | CFO | March 2026 |\n| Data Wiping Audit | IT Security Lead | February 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Records_Retention_Compliance.json",
+        "Report Content": [
+            "# Audit of Corporate Records Management & Retention\n\n## Legal & Compliance\n\n### February 22, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo assess compliance with statutory records retention periods and secure destruction protocols.\n\n### Background\n\nThe company handles sensitive customer data and legal contracts across various jurisdictions.\n\n### Scope\n\nReview of physical archiving facilities and digital document deletion schedules.",
+            "# Observation 1: Expired Records Not Purged\n\n**Issue:** Financial records dating back 15 years are still stored on-site, despite a 7-year legal retention limit.\n\n**Risk:** Increased litigation discovery risks and excessive storage costs.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Execute a bulk shredding project for all documents past their retention period.",
+            "# Observation 2: Insecure Document Disposal\n\n**Issue:** Highly sensitive payroll documents were found in regular recycling bins instead of locked shredding consoles.\n\n**Risk:** Unauthorized disclosure of PII and potential GDPR/regulatory fines.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Replace open recycling bins in administrative areas with locked security consoles for sensitive paper.",
+            "# Recommendations Summary\n\n1. Update the Global Records Retention Schedule.\n\n2. Conduct annual training on sensitive data handling.\n\n3. Partner with a certified secure destruction vendor for site-wide clearances.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Retention Update | General Counsel | March 2026 |\n| Shredding Project | Office Manager | April 2026 |\n| Compliance Training | HR Manager | May 2026 |"
         ]
     },
     {
         "file_name": "IA_Report_Fleet_Management_Operations.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Corporate Fleet Management and Vehicle Safety Audit\n\n**Business Unit:** Logistics\n\n**Date:** February 18, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo assess the efficiency of vehicle utilization and compliance with maintenance schedules.\n\n### Background\n\nThe fleet consists of 120 delivery vans and 30 executive vehicles.\n\n### Scope\n\nFuel card usage analysis and maintenance records from the past 12 months.",
-            "# Observation 1: Fuel Card Misuse\n\n**Issue:** Anomalies detected where fuel was purchased on weekends for vehicles registered as 'Inactive' on those dates.\n\n**Risk:** Fraudulent use of corporate funds for personal vehicle fueling.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Link fuel cards to specific vehicle IDs and implement mileage tracking.\n\n**Status:** Open",
-            "# Observation 2: Lapsed Safety Inspections\n\n**Issue:** 10% of fleet vehicles were operating with expired state safety certifications.\n\n**Risk:** Legal liability, insurance invalidation, and driver safety hazards.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement an automated fleet management system to track expiry dates.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Digitize all maintenance and inspection logs.\n\n2. Restrict fuel card usage to business hours via provider settings.\n\n3. Introduce a telematics system for real-time tracking.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Telematics Pilot | Logistics Mgr | August 2026 |\n| Certification Update | Fleet Supervisor | March 2026 |\n| Fuel Card Policy | Finance Lead | April 2026 |"
+            "# Internal Audit of Corporate Fleet Operations\n\n## Logistics & Procurement\n\n### February 25, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo evaluate fuel card usage and the vehicle maintenance program.\n\n### Background\n\nThe fleet consists of 150 vehicles used for sales and field service operations.\n\n### Scope\n\nReview of fuel logs, GPS tracking data, and maintenance records from 2025.",
+            "# Observation 1: Fuel Card Misuse\n\n**Issue:** Multiple fuel card transactions occurred on weekends for vehicles assigned for 'business use only'.\n\n**Risk:** Fraudulent use of corporate funds for personal travel.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Link fuel cards to specific vehicle IDs and implement monthly mileage-vs-fuel reconciliation.",
+            "# Observation 2: Overdue Preventative Maintenance\n\n**Issue:** 12% of the fleet exceeded the manufacturer's recommended service interval by more than 3,000 miles.\n\n**Risk:** Increased repair costs, vehicle downtime, and potential safety liability.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Automate maintenance alerts based on real-time odometer readings from the GPS system.",
+            "# Recommendations Summary\n\n1. Implement strict fuel card controls and PIN requirements.\n\n2. Establish a central fleet dashboard for maintenance tracking.\n\n3. Review vehicle utilization rates to identify underused assets.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Fuel Log Audit | Fleet Supervisor | March 2026 |\n| GPS Integration | IT Director | April 2026 |\n| Maintenance Policy | Procurement Head | March 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_Records_Management_Retention.json",
+        "file_name": "IA_Report_Business_Continuity_Planning.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Corporate Records Management and Document Retention Audit\n\n**Business Unit:** Legal and Compliance\n\n**Date:** February 20, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure compliance with statutory retention periods and secure disposal of sensitive data.\n\n### Background\n\nStorage consists of 2,000 physical boxes and 50TB of digitized records.\n\n### Scope\n\nReview of the Records Retention Schedule (RRS) and off-site storage security.",
-            "# Observation 1: Over-Retention of Personal Data\n\n**Issue:** HR records for former employees are being kept 5 years past the legal limit.\n\n**Risk:** Legal non-compliance and increased liability during data breaches.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Execute a mass purge of records exceeding the RRS thresholds.\n\n**Status:** Open",
-            "# Observation 2: Lack of Encryption for Digital Archives\n\n**Issue:** Legacy digital archives are stored on unencrypted network drives.\n\n**Risk:** Exposure of sensitive intellectual property to unauthorized internal users.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Migrate all digital archives to a secure, encrypted Document Management System (DMS).\n\n**Status:** Not Started",
-            "# Recommendations Summary\n\n1. Update the Corporate Retention Policy.\n\n2. Automate the deletion process for digital records.\n\n3. Conduct annual audits of the off-site physical storage vendor.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Retention Purge | Compliance Officer | June 2026 |\n| DMS Migration | IT Director | December 2026 |\n| Policy Refresh | General Counsel | May 2026 |"
+            "# Audit of Business Continuity & Disaster Recovery\n\n## Risk Management\n\n### February 28, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo test the readiness of the Business Continuity Plan (BCP) and backup systems.\n\n### Background\n\nCritical business operations rely on 100% availability of the primary data center.\n\n### Scope\n\nAssessment of BCP documentation, testing logs, and offsite storage reliability.",
+            "# Observation 1: Outdated Crisis Contact Lists\n\n**Issue:** The emergency call tree contained former employees and incorrect phone numbers for 30% of the key personnel.\n\n**Risk:** Significant delays in mobilizing response teams during a major incident.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Integrate the BCP contact list with the HR system to ensure real-time updates.",
+            "# Observation 2: Failure to Conduct Full Disaster Simulations\n\n**Issue:** Only tabletop exercises were conducted in 2025; no physical failover test of the secondary site was performed.\n\n**Risk:** Uncertainty regarding the actual Recovery Time Objective (RTO) during a real outage.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Schedule and execute a full functional failover test of critical systems to the DR site.",
+            "# Recommendations Summary\n\n1. Update BCP documentation and contact lists quarterly.\n\n2. Perform semi-annual disaster recovery failover tests.\n\n3. Conduct mandatory BCP awareness training for all staff.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Contact List Sync | HRIS Manager | March 2026 |\n| DR Failover Test | IT Ops Director | June 2026 |\n| Awareness Training | Risk Manager | April 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_Corporate_CSR_Activities.json",
+        "file_name": "IA_Report_Onboarding_Offboarding.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Corporate Social Responsibility (CSR) Spend and Impact Audit\n\n**Business Unit:** Public Relations\n\n**Date:** February 22, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo verify that CSR funds are allocated to legitimate NGOs and achieve stated goals.\n\n### Background\n\nThe CSR budget is $500k, focused on local education and environmental sustainability.\n\n### Scope\n\nAudit of grants awarded in the FY2025 cycle.",
-            "# Observation 1: Insufficient NGO Due Diligence\n\n**Issue:** Grants were awarded to 2 organizations without verifying their current non-profit status.\n\n**Risk:** Potential funding of illegitimate entities and reputational damage.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement a formal 'Know Your Partner' (KYP) vetting process.\n\n**Status:** Open",
-            "# Observation 2: Lack of Impact Measurement\n\n**Issue:** No standardized reporting exists to track the actual outcomes of donated funds.\n\n**Risk:** Inability to demonstrate ROI for social impact and wasted resources.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Require quarterly impact reports from all grant recipients.\n\n**Status:** Resolved",
-            "# Recommendations Summary\n\n1. Standardize the grant application and vetting workflow.\n\n2. Create a public-facing CSR impact dashboard.\n\n3. Perform site visits for high-value projects.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| KYP Implementation | Compliance Mgr | July 2026 |\n| Impact Dashboard | PR Lead | September 2026 |\n| Site Visit Schedule | CSR Coordinator | Continuous |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Legal_Contract_Lifecycle.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Legal Department Operations and Contract Lifecycle Management\n\n**Business Unit:** Legal Affairs\n\n**Date:** February 25, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo assess the efficiency of the contract drafting, approval, and storage process.\n\n### Background\n\nThe legal team processes over 150 contracts per month.\n\n### Scope\n\nReview of master service agreements (MSAs) and non-disclosure agreements (NDAs) from 2025.",
-            "# Observation 1: Use of Outdated Contract Templates\n\n**Issue:** Procurement teams are using 2021 templates that lack current indemnity clauses.\n\n**Risk:** Increased legal exposure and unfavorable liability terms.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Centralize all templates in a 'Single Source of Truth' portal.\n\n**Status:** Open",
-            "# Observation 2: Missing Signature Authorizations\n\n**Issue:** 5 sampled contracts were signed by managers exceeding their delegated financial authority.\n\n**Risk:** Invalid contracts and breach of internal control policies.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Integrate the 'Delegation of Authority' (DoA) into the e-signature workflow.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Enforce use of the centralized Legal Portal for templates.\n\n2. Audit signature levels in DocuSign quarterly.\n\n3. Provide training on the updated DoA limits.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Template Portal | Legal Ops Mgr | April 2026 |\n| DoA Integration | IT / Legal | May 2026 |\n| Staff Training | General Counsel | June 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Treasury_Cash_Management.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Treasury Operations and Cash Management Audit\n\n**Business Unit:** Finance / Treasury\n\n**Date:** March 01, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure secure handling of cash flows and accuracy of liquidity forecasting.\n\n### Background\n\nTreasury manages 15 bank accounts across 4 currencies with daily swings of $2M.\n\n### Scope\n\nBank reconciliation review and wire transfer authorization testing.",
-            "# Observation 1: Delayed Bank Reconciliations\n\n**Issue:** Two major operating accounts were not reconciled for over 45 days.\n\n**Risk:** Undetected fraudulent transactions or significant accounting errors.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Enforce a 5-day month-end deadline for all bank reconciliations.\n\n**Status:** Open",
-            "# Observation 2: Weak Authentication for Wire Transfers\n\n**Issue:** Wire transfers under $10k only require a single approver.\n\n**Risk:** Susceptibility to Business Email Compromise (BEC) and internal fraud.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Mandate dual-factor authorization (MFA) for all outbound payments.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Automate bank feeds into the ERP for real-time reconciliation.\n\n2. Update the Treasury Policy to require MFA for all payment tiers.\n\n3. Rotate staff responsible for payment execution annually.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| ERP Bank Feed Setup | IT Finance | August 2026 |\n| Policy Update | Treasurer | April 2026 |\n| Wire MFA Rollout | IT Security | March 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Business_Continuity_BCP.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Business Continuity Planning (BCP) and Disaster Recovery\n\n**Business Unit:** Corporate Risk\n\n**Date:** March 05, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo evaluate the readiness of the organization to handle major operational disruptions.\n\n### Background\n\nThe BCP was last fully updated in 2023, prior to the new data center launch.\n\n### Scope\n\nTesting of the disaster recovery plan and emergency communication trees.",
-            "# Observation 1: Outdated Contact Lists\n\n**Issue:** 30% of key emergency contacts listed in the BCP are no longer with the company.\n\n**Risk:** Delayed response times during a critical crisis.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Integrate the BCP contact list with the HR system for auto-updates.\n\n**Status:** Open",
-            "# Observation 2: Lack of Backup Site Testing\n\n**Issue:** The secondary operations site has not been physically tested for 2 years.\n\n**Risk:** Potential failure of the backup site to support critical operations during an outage.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Conduct a full-scale 'Live Switch' test annually.\n\n**Status:** Not Started",
-            "# Recommendations Summary\n\n1. Perform semi-annual desktop simulation exercises.\n\n2. Automate emergency contact synchronization.\n\n3. Formalize the Disaster Recovery (DR) testing schedule.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Live Switch Test | IT Ops Director | October 2026 |\n| Contact Automation | HR / IT Lead | June 2026 |\n| BCP Desktop Exercise | Risk Manager | May 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Inventory_Warehouse_Mgmt.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Inventory Management and Warehousing Controls Audit\n\n**Business Unit:** Supply Chain\n\n**Date:** March 10, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo assess the accuracy of inventory records and the security of physical stock.\n\n### Background\n\nThe central warehouse holds $4M in raw materials and finished goods.\n\n### Scope\n\nReview of cycle counting processes and shrinkage reports for Q3-Q4 2025.",
-            "# Observation 1: High Variance in Cycle Counts\n\n**Issue:** Sampled counts showed a 12% variance between physical stock and ERP records.\n\n**Risk:** Production delays due to stockouts or inflated financial statements.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Increase the frequency of cycle counts for high-value items.\n\n**Status:** Open",
-            "# Observation 2: Inadequate Climate Controls\n\n**Issue:** Temperature-sensitive materials were stored in non-regulated zones due to space constraints.\n\n**Risk:** Material degradation and financial loss through spoiled inventory.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Re-configure warehouse layout and install real-time temperature sensors.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Implement barcode scanning for all stock movements.\n\n2. Invest in climate-controlled storage expansion.\n\n3. Train warehouse staff on rigorous cycle counting procedures.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Barcode Rollout | Warehouse Mgr | December 2026 |\n| Sensors Install | Facilities | June 2026 |\n| Counting Training | Ops Lead | April 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Customer_Service_Quality.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Customer Service Operations and Quality Assurance Audit\n\n**Business Unit:** Customer Experience\n\n**Date:** March 15, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo evaluate the effectiveness of complaint resolution and data privacy in support calls.\n\n### Background\n\nThe call center handles 10,000 interactions monthly across phone, chat, and email.\n\n### Scope\n\nAnalysis of ticket resolution times and call monitoring logs.",
-            "# Observation 1: Non-Compliance with PII Masking\n\n**Issue:** Customer credit card details were found in plain text within support chat transcripts.\n\n**Risk:** Significant PCI-DSS non-compliance and risk of identity theft.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Enable automated PII masking/redaction in the chat software.\n\n**Status:** Open",
-            "# Observation 2: Inaccurate SLA Reporting\n\n**Issue:** Tickets were being marked as 'Resolved' to meet targets before the customer confirmed satisfaction.\n\n**Risk:** Misleading performance metrics and poor customer retention.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Audit 'Resolved' status changes and link metrics to customer surveys.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Deploy AI-driven redaction for chat and email.\n\n2. Implement a 'Voice of the Customer' (VoC) feedback loop.\n\n3. Re-train staff on ethical SLA reporting.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| PII Redaction Tool | IT Director | May 2026 |\n| QA Framework Audit | CX Manager | April 2026 |\n| Ethics Workshop | Support Lead | June 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_HSE_Compliance_Audit.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Health, Safety, and Environment (HSE) Compliance Audit\n\n**Business Unit:** Operations / HSE\n\n**Date:** March 18, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure adherence to workplace safety regulations and environmental permits.\n\n### Background\n\nThe company operates two manufacturing sites with high-voltage machinery.\n\n### Scope\n\nInspection of PPE usage, fire safety systems, and chemical waste disposal logs.",
-            "# Observation 1: Expired Fire Extinguishers\n\n**Issue:** 40% of fire extinguishers in the production area had passed their inspection date.\n\n**Risk:** Inability to contain small fires, leading to life safety risks and property damage.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Establish a digital tracking log for all safety equipment inspections.\n\n**Status:** Open",
-            "# Observation 2: Improper Hazardous Waste Labeling\n\n**Issue:** Chemical waste drums were missing proper GHS labeling in the storage yard.\n\n**Risk:** Environmental fines and accidental chemical reactions due to mishandling.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Standardize waste labeling and conduct daily storage inspections.\n\n**Status:** Open",
-            "# Recommendations Summary\n\n1. Replace/Refill all expired fire extinguishers immediately.\n\n2. Implement a 'Safety First' training module for new hires.\n\n3. Conduct unannounced monthly safety walks by senior management.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Fire Safety Audit | HSE Manager | March 2026 |\n| GHS Labeling Project | Ops Supervisor | April 2026 |\n| Management Walks | Site Director | Continuous |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Training_and_Development.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Employee Training and Development Program Audit\n\n**Business Unit:** Human Resources\n\n**Date:** March 20, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo verify the effectiveness of mandatory training and the accuracy of certification records.\n\n### Background\n\nThe company spends $300k annually on external training and certifications.\n\n### Scope\n\nReview of the Learning Management System (LMS) and compliance training logs.",
-            "# Observation 1: Low Completion Rates for Cybersecurity Training\n\n**Issue:** Only 60% of employees completed the mandatory annual cybersecurity awareness course.\n\n**Risk:** Increased vulnerability to phishing and social engineering attacks.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Link training completion to network access and performance reviews.\n\n**Status:** Open",
-            "# Observation 2: Missing Certification Proof\n\n**Issue:** 25% of specialized roles (e.g., forklift operators) lacked physical proof of valid certifications.\n\n**Risk:** Operational safety hazards and potential OSHA fines.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Upload all digital copies of external certifications to the LMS.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Enforce a 'No Training, No Access' policy for critical systems.\n\n2. Automate certification expiry reminders for managers.\n\n3. Survey employees on the relevance of current training content.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| LMS Auto-Reminders | HRIS Analyst | June 2026 |\n| Security Training | IT Security | May 2026 |\n| Cert Document Drive | Dept Managers | July 2026 |"
-        ]
-    },
-    {
-        "file_name": "IA_Report_Corporate_Insurance_Coverage.json",
-        "Report Content": [
-            "# Title Slide\n\n**Report:** Corporate Insurance and Risk Coverage Audit\n\n**Business Unit:** Risk Management\n\n**Date:** March 22, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure that all corporate assets and liabilities are adequately insured.\n\n### Background\n\nInsurance premiums total $2.5M annually across 10 global policies.\n\n### Scope\n\nReview of policy limits, deductibles, and timely renewal of key coverages.",
-            "# Observation 1: Underinsured Physical Assets\n\n**Issue:** Policy limits for the primary warehouse haven't been updated to reflect the 2025 expansion.\n\n**Risk:** Significant financial shortfall in the event of a total loss claim.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Perform an annual appraisal of assets prior to policy renewal.\n\n**Status:** Open",
-            "# Observation 2: Missing Cyber Insurance Endorsements\n\n**Issue:** The current cyber policy lacks coverage for social engineering/wire fraud.\n\n**Risk:** No financial recourse for losses resulting from phishing or impersonation.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Update the cyber policy to include 'Fraudulent Instruction' coverage.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Conduct a full insurance gap analysis with an external broker.\n\n2. Update asset values in the policy schedule annually.\n\n3. Centralize policy management in a digital risk portal.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Gap Analysis | Risk Director | August 2026 |\n| Policy Endorsement | CFO | April 2026 |\n| Asset Appraisal | Controller | June 2026 |"
+            "# Audit of Employee Onboarding & Offboarding Controls\n\n## Human Resources\n\n### March 02, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure new hires are properly vetted and terminated employees lose access promptly.\n\n### Background\n\nThe company hired 300 and offboarded 120 employees in the last 12 months.\n\n### Scope\n\nVerification of background checks for new hires and system deactivations for leavers.",
+            "# Observation 1: Missing Background Check Documentation\n\n**Issue:** 10% of new hire files lacked evidence of completed criminal or education verification checks.\n\n**Risk:** Hiring of unqualified or high-risk individuals; regulatory non-compliance.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Make background check clearance a prerequisite for generating an employee ID.",
+            "# Observation 2: Delayed System Access Revocation\n\n**Issue:** 5 terminated employees retained active VPN and Email access for more than 72 hours after their final day.\n\n**Risk:** Potential for data exfiltration or unauthorized system changes post-employment.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement an automated 'Leaver' workflow that disables all accounts at midnight on the termination date.",
+            "# Recommendations Summary\n\n1. Standardize the onboarding checklist to include all vetting requirements.\n\n2. Automate the offboarding notification between HR and IT.\n\n3. Conduct quarterly access reviews for 'stale' accounts.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Vetting Compliance | HR Director | March 2026 |\n| Identity Mgmt Auto | IT Lead | April 2026 |\n| Access Cleanup | Security Ops | March 2026 |"
         ]
     },
     {
         "file_name": "IA_Report_Marketing_Spend_Efficiency.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Marketing Spend and Agency Management Audit\n\n**Business Unit:** Marketing\n\n**Date:** March 25, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo evaluate the procurement of agency services and the tracking of marketing ROI.\n\n### Background\n\nMarketing spend is $5M/year, with 70% allocated to digital agencies.\n\n### Scope\n\nReview of agency contracts and performance-based incentive payments.",
-            "# Observation 1: Lack of Competitive Agency Bidding\n\n**Issue:** Three major digital agencies have been retained for 5+ years without a market re-bid.\n\n**Risk:** Overpaying for services and missing out on innovative market practices.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Mandate a Request for Proposal (RFP) process every 3 years for all agencies.\n\n**Status:** Open",
-            "# Observation 2: Unverified 'Pass-Through' Costs\n\n**Issue:** Agencies were found to be adding markups to 'pass-through' media buys against contract terms.\n\n**Risk:** Direct financial leakage and breach of contract.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Exercise 'Right to Audit' clauses for all major agency billings.\n\n**Status:** Not Started",
-            "# Recommendations Summary\n\n1. Launch an RFP for digital marketing services.\n\n2. Conduct a forensic audit of the top 2 spend agencies.\n\n3. Standardize agency performance KPIs.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Agency RFP | Marketing Dir | October 2026 |\n| Forensic Audit | Internal Audit | June 2026 |\n| Contract Review | Procurement | May 2026 |"
+            "# Audit of Marketing Spend & Agency Management\n\n## Marketing Department\n\n### March 05, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo review the approval process for media buys and agency performance monitoring.\n\n### Background\n\nMarketing spend for 2025 was $8M, primarily focused on digital advertising and trade shows.\n\n### Scope\n\nAudit of agency contracts, invoice approvals, and campaign performance reports.",
+            "# Observation 1: Unapproved Media Spend Overages\n\n**Issue:** Several digital ad campaigns exceeded their approved budgets by over 15% without prior written authorization.\n\n**Risk:** Budget overruns and lack of financial oversight on discretionary spend.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement hard budget caps within the digital ad platforms to prevent overspending.",
+            "# Observation 2: Lack of ROI Measurement for Sponsorships\n\n**Issue:** There is no standardized framework to measure the Return on Investment (ROI) for corporate sponsorships.\n\n**Risk:** Inefficient allocation of marketing capital on low-value activities.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Develop a scorecard to assess lead generation and brand awareness for all sponsorships over $50k.",
+            "# Recommendations Summary\n\n1. Enforce strict budget controls for all digital media agencies.\n\n2. Establish a Performance KPI framework for all marketing spend.\n\n3. Review agency fee structures against industry benchmarks.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Budget Cap Policy | Marketing VP | March 2026 |\n| ROI Scorecard | Analytics Lead | May 2026 |\n| Agency Audit | Procurement | April 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_IP_Security_Audit.json",
+        "file_name": "IA_Report_Third_Party_Risk_Mgmt.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Intellectual Property (IP) and Trade Secret Protection Audit\n\n**Business Unit:** R&D / Legal\n\n**Date:** March 28, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo assess the controls protecting proprietary designs, patents, and customer lists.\n\n### Background\n\nThe company holds 50 active patents and maintains a proprietary client algorithm.\n\n### Scope\n\nReview of data access controls, NDAs, and physical security of R&D labs.",
-            "# Observation 1: Excessive Access to Source Code\n\n**Issue:** 40% of IT staff have full access to the proprietary source code repository.\n\n**Risk:** Intellectual property theft or accidental deletion of critical code.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement 'Least Privilege' access and just-in-time permissions.\n\n**Status:** Open",
-            "# Observation 2: Inadequate Offboarding for R&D Staff\n\n**Issue:** Terminated engineers retained access to the cloud design portal for up to 7 days.\n\n**Risk:** Exfiltration of pre-patent designs by departing employees.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Automate the offboarding workflow for high-risk IP access.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Restrict source code access to active developers only.\n\n2. Deploy Data Loss Prevention (DLP) software on R&D endpoints.\n\n3. Conduct exit interviews specifically focused on IP obligations.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| DLP Deployment | CISO | September 2026 |\n| Access Cleanup | R&D Manager | April 2026 |\n| Offboarding Automation | IT / HR | May 2026 |"
+            "# Audit of Third-Party Risk Management (TPRM)\n\n## Global Procurement\n\n### March 08, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo evaluate the due diligence process for onboarding and monitoring third-party vendors.\n\n### Background\n\nThe company relies on 400+ vendors for critical software, logistics, and data processing.\n\n### Scope\n\nReview of vendor risk assessments and SOC report reviews for 2025.",
+            "# Observation 1: Incomplete Vendor Risk Assessments\n\n**Issue:** 35% of vendors identified as 'High Risk' had not completed the mandatory security questionnaire.\n\n**Risk:** Onboarding vendors with poor security postures or financial instability.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Prevent vendor payment setup in the ERP until the Risk Assessment is 'Approved'.",
+            "# Observation 2: Expired Insurance Certificates\n\n**Issue:** 20% of onsite service providers had expired Liability Insurance certificates on file.\n\n**Risk:** Financial liability for the company in the event of an onsite accident caused by a vendor.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement a vendor management portal that sends automated alerts for expiring documents.",
+            "# Recommendations Summary\n\n1. Mandate risk assessment completion for all new vendor contracts.\n\n2. Monitor vendor insurance and compliance certificates centrally.\n\n3. Conduct periodic 'right-to-audit' visits for critical suppliers.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| TPRM Portal Launch | Procurement Head | June 2026 |\n| Risk Policy Update | Compliance Mgr | March 2026 |\n| Insurance Audit | Risk Officer | April 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_Whistleblower_Ethics.json",
+        "file_name": "IA_Report_Governance_Board_Reporting.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Corporate Ethics and Whistleblower Program Audit\n\n**Business Unit:** Ethics and Compliance\n\n**Date:** April 01, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure the whistleblower hotline is accessible, anonymous, and effectively managed.\n\n### Background\n\nThe hotline is managed by a third party and received 50 reports in 2025.\n\n### Scope\n\nReview of case resolution times and whistleblower protection protocols.",
-            "# Observation 1: Inconsistent Case Investigation Timelines\n\n**Issue:** 15% of high-priority cases took over 90 days to close without documented reason.\n\n**Risk:** Loss of whistleblower trust and potential legal escalation.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Set a 30-day target for initial findings and 60 days for closure.\n\n**Status:** Open",
-            "# Observation 2: Lack of Program Awareness\n\n**Issue:** Employee surveys indicate 40% of staff are unaware of the anonymous reporting channel.\n\n**Risk:** Misconduct goes unreported, leading to financial or cultural damage.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Launch a global awareness campaign and post hotline info in all offices.\n\n**Status:** Not Started",
-            "# Recommendations Summary\n\n1. Implement a formal 'Investigation SOP'.\n\n2. Conduct mandatory annual ethics training for all staff.\n\n3. Display hotline posters in local languages across all sites.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Awareness Campaign | Comms Director | July 2026 |\n| Investigation SOP | Ethics Officer | May 2026 |\n| Hotline Posters | Facilities | April 2026 |"
+            "# Audit of Corporate Governance & Board Reporting\n\n## Corporate Secretariat\n\n### March 12, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure compliance with governance frameworks and the accuracy of board meeting records.\n\n### Background\n\nThe Board of Directors meets quarterly to review strategic objectives and risk appetites.\n\n### Scope\n\nReview of board minutes, conflict of interest disclosures, and resolution tracking for 2025.",
+            "# Observation 1: Delayed Finalization of Meeting Minutes\n\n**Issue:** Minutes for the Q3 Board Meeting were not finalized or signed for 4 months following the session.\n\n**Risk:** Lack of legal record for key decisions; potential for disputes over approved resolutions.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Establish a 14-day KPI for the distribution and approval of draft minutes.",
+            "# Observation 2: Missing Conflict of Interest Disclosures\n\n**Issue:** 2 out of 10 Senior Executives had not submitted their annual Conflict of Interest (COI) disclosure forms.\n\n**Risk:** Unidentified related-party transactions and breach of fiduciary duties.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Transition the COI disclosure process to an automated annual digital campaign.",
+            "# Recommendations Summary\n\n1. Enforce strict timelines for board documentation approval.\n\n2. Digitalize the conflict of interest disclosure process.\n\n3. Implement a tracking log for all board-mandated action items.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Minutes KPI | Co-Sec | March 2026 |\n| COI Automation | HR / Legal | April 2026 |\n| Action Item Log | Governance Lead | March 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_Third_Party_SLAs.json",
+        "file_name": "IA_Report_ESG_Sustainability_Ops.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Third-Party Service Level Agreement (SLA) Compliance Audit\n\n**Business Unit:** Procurement / IT Services\n\n**Date:** April 05, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo verify that key service providers are meeting their contractual obligations.\n\n### Background\n\nThe company relies on outsourced IT and logistics providers for core operations.\n\n### Scope\n\nAudit of SLA reports from the top 5 vendors by spend.",
-            "# Observation 1: Unclaimed Service Credits\n\n**Issue:** The IT provider missed 'Uptime' SLAs three times in 2025, but no financial credits were claimed.\n\n**Risk:** Failure to recover costs for service disruptions.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Assign a contract manager to review vendor performance against billing.\n\n**Status:** Open",
-            "# Observation 2: Lack of Independent Verification\n\n**Issue:** The company relies solely on vendor-provided reports for SLA performance data.\n\n**Risk:** Potential manipulation of data by vendors to avoid penalties.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Implement internal monitoring tools to independently track vendor performance.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Establish a formal Vendor Performance Management (VPM) framework.\n\n2. Recover outstanding service credits from the IT provider.\n\n3. Install independent uptime monitoring software.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| VPM Framework | Procurement Head | August 2026 |\n| Credit Recovery | Finance Director | June 2026 |\n| Monitoring Tools | IT Manager | July 2026 |"
+            "# Audit of ESG Data Collection & Reporting\n\n## Sustainability Office\n\n### March 15, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo verify the integrity of environmental data used in the Annual Sustainability Report.\n\n### Background\n\nThe company committed to a 20% reduction in carbon emissions by 2030.\n\n### Scope\n\nAudit of electricity bills, waste logs, and travel data from the top 10 emitting sites.",
+            "# Observation 1: Inconsistent Emission Calculation Methods\n\n**Issue:** Different regional offices used different conversion factors for Scope 2 emissions (electricity).\n\n**Risk:** Material misstatement in the public ESG report and greenwashing allegations.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Centralize emission calculations using a single verified software platform.",
+            "# Observation 2: Lack of Source Documentation for Waste Diversion\n\n**Issue:** Several sites reported 90% waste diversion rates without supporting invoices from waste vendors.\n\n**Risk:** Inaccurate sustainability claims and lack of audit trail for regulatory inquiries.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Mandate that all sites upload monthly waste certificates to the central sustainability portal.",
+            "# Recommendations Summary\n\n1. Standardize ESG data collection templates globally.\n\n2. Invest in an Enterprise ESG Management software.\n\n3. Conduct internal verification of data before public release.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Software Selection | Sustainability VP | July 2026 |\n| Data Standards | ESG Manager | April 2026 |\n| Site Training | Regional Ops | May 2026 |"
         ]
     },
     {
-        "file_name": "IA_Report_MA_Integration_Ops.json",
+        "file_name": "IA_Report_Internal_Communications_Knowledge.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Mergers and Acquisitions (M&A) Post-Integration Audit\n\n**Business Unit:** Corporate Development\n\n**Date:** April 10, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo assess the success of integrating 'Acme Corp' (acquired 2025) into corporate operations.\n\n### Background\n\nThe $10M acquisition was intended to consolidate back-office functions by Q1 2026.\n\n### Scope\n\nReview of payroll migration, IT systems consolidation, and policy alignment.",
-            "# Observation 1: Fragmented ERP Systems\n\n**Issue:** The acquired entity is still using its legacy ERP, causing manual data consolidation errors.\n\n**Risk:** Financial reporting inaccuracies and loss of operational synergy.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Accelerate the migration to the corporate ERP platform.\n\n**Status:** In Progress",
-            "# Observation 2: Misaligned HR Policies\n\n**Issue:** Acquired employees are still operating under different leave and bonus structures.\n\n**Risk:** Internal friction, morale issues, and potential payroll non-compliance.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Harmonize all HR benefits and policies by the next fiscal year.\n\n**Status:** Open",
-            "# Recommendations Summary\n\n1. Finalize ERP data migration by Q3.\n\n2. Conduct a 'Day 100' review with all acquired department heads.\n\n3. Issue a unified Employee Handbook.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| ERP Migration | IT / Finance | September 2026 |\n| Policy Harmonization | HR Director | December 2026 |\n| Synergy Audit | M&A Lead | June 2026 |"
+            "# Audit of Knowledge Management & SOP Governance\n\n## Operations Excellence\n\n### March 18, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure Standard Operating Procedures (SOPs) are current, approved, and accessible.\n\n### Background\n\nThe company maintains a central repository for over 500 operational policies.\n\n### Scope\n\nReview of the policy lifecycle management and version control on the company Intranet.",
+            "# Observation 1: Proliferation of Outdated SOPs\n\n**Issue:** 40% of the SOPs on the Intranet have not been reviewed or updated in the last 3 years.\n\n**Risk:** Employees following obsolete processes leading to operational errors or safety risks.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement an automated 'Expiry' flag that requires owners to re-verify SOPs annually.",
+            "# Observation 2: Lack of Controlled Document Access\n\n**Issue:** Draft versions of sensitive financial policies were accessible to all employees via a shared folder.\n\n**Risk:** Unauthorized use of draft procedures and potential for internal fraud.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Move all policy documents to a dedicated Document Management System (DMS) with restricted permissions.",
+            "# Recommendations Summary\n\n1. Enforce a mandatory annual review cycle for all operational policies.\n\n2. Consolidate all SOPs into a single, permission-controlled system.\n\n3. Retire the use of ungoverned shared network drives for policy storage.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| DMS Migration | IT Manager | August 2026 |\n| Policy Audit | Ops Excellence | June 2026 |\n| Access Review | Security Lead | April 2026 |"
         ]
     },
     {
         "file_name": "IA_Report_Petty_Cash_Controls.json",
         "Report Content": [
-            "# Title Slide\n\n**Report:** Petty Cash and Miscellaneous Fund Controls Audit\n\n**Business Unit:** Regional Office Operations\n\n**Date:** April 12, 2026",
-            "# Executive Summary\n\n### Objectives\n\nTo ensure petty cash funds are kept securely and used for valid business purposes.\n\n### Background\n\nFive regional offices maintain petty cash floats ranging from $500 to $2,000.\n\n### Scope\n\nSurprise cash counts and voucher audits across all regional locations.",
-            "# Observation 1: Commingling of Personal Funds\n\n**Issue:** In the West Office, the petty cash box contained personal checks and 'IOUs' from staff.\n\n**Risk:** Use of company funds for personal loans and loss of cash integrity.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Strictly prohibit non-business use of the fund and enforce daily logs.\n\n**Status:** Open",
-            "# Observation 2: Missing Custodian Segregation\n\n**Issue:** The person who approves the petty cash vouchers is also the one holding the key.\n\n**Risk:** Easy circumvention of controls and risk of undetected theft.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Assign a separate manager to approve all vouchers before cash is dispensed.\n\n**Status:** In Progress",
-            "# Recommendations Summary\n\n1. Implement a digital petty cash log for real-time tracking.\n\n2. Conduct unannounced cash counts quarterly.\n\n3. Reduce the maximum float to $500 to minimize exposure.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Surprise Counts | Regional Auditor | Continuous |\n| Float Reduction | Office Mgr | May 2026 |\n| Digital Logs | Finance IT | July 2026 |"
+            "# Audit of Operational Petty Cash Management\n\n## Regional Branch Operations\n\n### March 20, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo verify the security of petty cash funds and the validity of small-value disbursements.\n\n### Background\n\n15 regional branches maintain petty cash floats ranging from $500 to $2,000.\n\n### Scope\n\nSurprise cash counts and voucher audits at 5 selected regional branches.",
+            "# Observation 1: Missing Reconciliation Logs\n\n**Issue:** 3 out of 5 branches visited did not perform weekly cash reconciliations as required by policy.\n\n**Risk:** Undetected theft or loss of funds; financial reporting inaccuracies.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Mandate a weekly sign-off by the Branch Manager on a standardized cash reconciliation form.",
+            "# Observation 2: Commingling of Personal and Company Funds\n\n**Issue:** Personal funds and 'IOU' notes from employees were found in the petty cash lockbox at one location.\n\n**Risk:** High risk of fraud and lack of accountability for corporate assets.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Strictly prohibit 'IOUs' and enforce immediate disciplinary action for commingling of funds.",
+            "# Recommendations Summary\n\n1. Standardize petty cash reconciliation templates.\n\n2. Perform monthly unannounced cash counts by Regional Controllers.\n\n3. Phase out physical petty cash in favor of corporate 'P-Cards' for small spend.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| P-Card Rollout | Finance VP | September 2026 |\n| Surprise Counts | Regional Auditor | Monthly |\n| Policy Briefing | Branch Managers | April 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Real_Estate_Lease_Mgmt.json",
+        "Report Content": [
+            "# Audit of Real Estate & Lease Accounting\n\n## Finance & Legal\n\n### March 22, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure lease obligations are accurately recorded and renewals are managed proactively.\n\n### Background\n\nThe company manages 45 office and warehouse leases globally under IFRS 16.\n\n### Scope\n\nAudit of lease contracts, payment schedules, and critical date tracking for 2025.",
+            "# Observation 1: Missed Lease Termination Deadlines\n\n**Issue:** Failure to provide notice on an underutilized warehouse lease led to an automatic 1-year renewal ($200k cost).\n\n**Risk:** Unnecessary financial expenditure on surplus real estate capacity.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement a central lease management dashboard with 12-month advance notifications for all critical dates.",
+            "# Observation 2: Inaccurate Incremental Borrowing Rates\n\n**Issue:** The discount rates used for IFRS 16 valuations were not updated to reflect current market conditions.\n\n**Risk:** Material misstatement of Lease Liabilities and Right-of-Use assets in the Balance Sheet.\n\n**Risk Rating:** **ADEQUATE**\n\n**Recommendation:** Establish a quarterly review process with the Treasury team to update borrowing rates.",
+            "# Recommendations Summary\n\n1. Centralize lease administration into a specialized software tool.\n\n2. Establish a formal Lease Renewal Committee to review space needs.\n\n3. Audit all active lease payment schedules against base rent clauses.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Lease Software | Real Estate Head | October 2026 |\n| Rate Review | Treasury Mgr | April 2026 |\n| Surplus Review | CFO | June 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_CSR_Program_Governance.json",
+        "Report Content": [
+            "# Audit of Corporate Social Responsibility (CSR) Programs\n\n## Corporate Affairs\n\n### March 25, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure CSR funds are disbursed to legitimate organizations and impact is verified.\n\n### Background\n\nThe CSR budget for the current year is $1.5M, distributed across 20 global NGOs.\n\n### Scope\n\nDue diligence review of recipient charities and audit of project completion reports.",
+            "# Observation 1: Lack of Due Diligence on New NGOs\n\n**Issue:** Three new charities received funding before completion of the mandatory anti-bribery and corruption (ABC) screening.\n\n**Risk:** Reputational damage and potential violations of international anti-corruption laws.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Mandate Compliance sign-off before any CSR funds can be released to a new entity.",
+            "# Observation 2: Insufficient Monitoring of Project Outcomes\n\n**Issue:** 40% of funded projects did not submit a final impact report as required by the grant agreement.\n\n**Risk:** Funds being used for purposes other than intended; inability to prove CSR impact.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Withhold final 20% of funding until the project impact report is received and verified.",
+            "# Recommendations Summary\n\n1. Enforce mandatory due diligence for all CSR partners.\n\n2. Link funding tranches to the submission of progress reports.\n\n3. Perform site visits for high-value community projects.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| ABC Screening | Compliance | April 2026 |\n| Funding Controls | CSR Lead | May 2026 |\n| Partner Audit | Internal Audit | Ongoing |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Regulatory_Licensing_Compliance.json",
+        "Report Content": [
+            "# Audit of Regulatory Licensing & Permits\n\n## Legal & Operations\n\n### March 28, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure all operational licenses and permits are valid and current across all regions.\n\n### Background\n\nThe business requires over 200 specific permits to operate its manufacturing and retail sites.\n\n### Scope\n\nInventory check of business licenses, environmental permits, and trade certifications.",
+            "# Observation 1: Expired Operating Permits in Remote Sites\n\n**Issue:** Three remote distribution centers were found to be operating with business licenses that expired in 2025.\n\n**Risk:** Legal fines, site closures, and business interruption by local authorities.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Establish a central 'Compliance Calendar' managed by the Legal department for all site permits.",
+            "# Observation 2: Inconsistent Tracking of Professional Licenses\n\n**Issue:** The company does not centrally track the professional certifications of its licensed engineers.\n\n**Risk:** Liability issues if work is performed by staff with lapsed professional standing.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Upload all professional licenses to the HRIS and set up automated expiry notifications.",
+            "# Recommendations Summary\n\n1. Centralize all corporate and site-specific permits in a single database.\n\n2. Designate 'Compliance Leads' at each site responsible for renewals.\n\n3. Conduct annual internal audits of the licensing status.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Compliance Calendar | Legal Counsel | May 2026 |\n| License Uploads | HR Manager | June 2026 |\n| Audit Schedule | Internal Audit | July 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Workplace_Health_Safety.json",
+        "Report Content": [
+            "# Audit of Workplace Health & Safety (EHS)\n\n## Environment, Health & Safety\n\n### April 02, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo evaluate the effectiveness of safety training and incident reporting protocols.\n\n### Background\n\nThe company experienced 12 'Lost Time Injuries' (LTI) in the previous calendar year.\n\n### Scope\n\nReview of safety training records, incident logs, and PPE compliance at three plants.",
+            "# Observation 1: Gaps in Specialized Safety Training\n\n**Issue:** 25% of forklift operators had not attended their mandatory biennial recertification training.\n\n**Risk:** Increased risk of workplace accidents and non-compliance with OSHA-style regulations.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Use the LMS to block system access for operators with expired safety certifications.",
+            "# Observation 2: Incomplete Incident Root Cause Analysis\n\n**Issue:** Minor safety incidents ('Near Misses') are logged, but no Root Cause Analysis (RCA) is performed to prevent recurrence.\n\n**Risk:** Minor issues escalating into major accidents due to unaddressed systemic failures.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Mandate an RCA for all 'Near Miss' reports within 48 hours of occurrence.",
+            "# Recommendations Summary\n\n1. Enforce strict recertification schedules for high-risk equipment operators.\n\n2. Formalize the Root Cause Analysis process for all safety events.\n\n3. Increase the frequency of 'Safety Walks' by senior management.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| LMS Lockout | IT / HR | May 2026 |\n| RCA Training | EHS Manager | June 2026 |\n| Safety Audits | Plant Managers | Monthly |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Intellectual_Property_Prot.json",
+        "Report Content": [
+            "# Audit of IP & Trademark Protection Controls\n\n## Legal & R&D\n\n### April 05, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure proprietary designs and trademarks are legally protected and securely stored.\n\n### Background\n\nThe company’s valuation is heavily tied to its portfolio of 50 patents and 100+ trademarks.\n\n### Scope\n\nReview of patent filing statuses and access controls for the R&D design vault.",
+            "# Observation 1: Unsecured Storage of Trade Secrets\n\n**Issue:** Critical design specifications for the 2027 product line were stored on an unencrypted public shared drive.\n\n**Risk:** Intellectual property theft and loss of competitive advantage.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Migrate all proprietary R&D data to a secure, encrypted Product Lifecycle Management (PLM) system.",
+            "# Observation 2: Lapsed Trademark Renewals in Emerging Markets\n\n**Issue:** Trademarks in two key expansion markets were allowed to expire due to a lack of tracking.\n\n**Risk:** Brand infringement and legal costs to reclaim brand rights.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Hire an external IP counsel to manage a global trademark renewal calendar.",
+            "# Recommendations Summary\n\n1. Implement data loss prevention (DLP) tools for sensitive R&D folders.\n\n2. Centralize IP management with a dedicated legal tracking tool.\n\n3. Conduct annual IP awareness training for all engineers.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| PLM Migration | R&D Director | December 2026 |\n| IP Counsel Hire | Legal Head | May 2026 |\n| DLP Implementation | CISO | August 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Corporate_Events_Hospitality.json",
+        "Report Content": [
+            "# Audit of Corporate Events & Hospitality Spend\n\n## Marketing & Communications\n\n### April 08, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo ensure event budgets are managed effectively and hospitality complies with the Ethics Policy.\n\n### Background\n\nThe company spends $2M annually on its Annual Sales Kickoff and client hospitality events.\n\n### Scope\n\nReview of vendor selection for the 2025 Sales Kickoff and 'Gift & Hospitality' logs.",
+            "# Observation 1: Single-Sourcing of Large Event Vendors\n\n**Issue:** The event management agency for the $1M Sales Kickoff was selected without a competitive bidding process.\n\n**Risk:** Failure to achieve market-competitive pricing and potential conflict of interest.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Enforce a three-quote minimum for any event spend exceeding $50k.",
+            "# Observation 2: Incomplete Gift & Hospitality Logs\n\n**Issue:** 60% of client dinners exceeding the $100/head limit were not recorded in the central Gift Register.\n\n**Risk:** Violation of Anti-Bribery policies and potential regulatory scrutiny.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Integrate the expense system with the Gift Register to automatically flag high-value hospitality.",
+            "# Recommendations Summary\n\n1. Mandate competitive bidding for all major event contracts.\n\n2. Automate the gift disclosure process within the expense reporting tool.\n\n3. Conduct post-event financial reconciliations within 15 days.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Procurement Audit | Procurement | May 2026 |\n| Gift Log Integration | IT Lead | July 2026 |\n| Policy Refresh | Compliance | June 2026 |"
+        ]
+    },
+    {
+        "file_name": "IA_Report_Financial_Closing_Operations.json",
+        "Report Content": [
+            "# Audit of General Ledger & Financial Closing Process\n\n## Group Finance\n\n### April 12, 2026",
+            "# Executive Summary\n\n### Objectives\n\nTo assess the speed, accuracy, and control environment of the monthly financial close.\n\n### Background\n\nThe Finance team aims for a '5-Day Close' to provide timely management information.\n\n### Scope\n\nAudit of journal entry approvals and balance sheet reconciliations for Q4 2025.",
+            "# Observation 1: Unauthorized Journal Entries\n\n**Issue:** 12% of manual journal entries were posted to the General Ledger without a secondary reviewer's approval.\n\n**Risk:** Fraudulent financial reporting or material errors in the financial statements.\n\n**Risk Rating:** **INADEQUATE**\n\n**Recommendation:** Enable a 'hard stop' in the ERP that prevents posting without a workflow approval.",
+            "# Observation 2: Aged Reconciling Items\n\n**Issue:** Bank reconciliations contained 'open items' older than 90 days that had not been investigated.\n\n**Risk:** Hidden financial losses or failure to identify bank errors.\n\n**Risk Rating:** **FOR IMPROVEMENT**\n\n**Recommendation:** Implement a policy requiring all reconciling items older than 30 days to be escalated to the Controller.",
+            "# Recommendations Summary\n\n1. Enforce automated workflow approvals for all manual journals.\n\n2. Standardize balance sheet reconciliation templates across all subsidiaries.\n\n3. Conduct monthly 'Closing Quality' reviews with regional teams.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| ERP Workflow | IT Finance | May 2026 |\n| Recon Policy | Group Controller | June 2026 |\n| Training Sessions | Finance Staff | April 2026 |"
         ]
     }
 ]
