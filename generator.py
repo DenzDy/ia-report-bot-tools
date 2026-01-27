@@ -94,10 +94,11 @@ def main():
     - Keep slide text under 600 characters.
     
     ### STRUCTURAL REQUIREMENTS (CRITICAL)
-    - Return ONLY a JSON object: {{"file_name": "...", "Report Content": ["...", "..."]}}
+    - Return an ARRAY of JSON OBJECTS with the following schema PER OBJECT: {{"file_name": "...", "Report Content": ["...", "..."]}}
     - Each array element in "Report Content" represents EXACTLY one PowerPoint slide.
     - EVERY slide string MUST start with "# " as the first character.
     - **Spacing Rule:** Use exactly two newline characters (\n\n) to separate every header, subheading, and paragraph. This prevents text clumping on the slide.
+    - **Table Spacing Rule:** Use only one newline character (\n) to separate each table row to prevent table rows being shown in separate slides.
 
     ### SLIDE SEQUENCE
     1. # [Title Slide]: Include Business Unit and Date.
@@ -106,6 +107,10 @@ def main():
     4. # Recommendations Summary: Consolidated bulleted list.
     5. # Management Action Plan: Use a Markdown table: | Action Item | Owner | Deadline |.
 
+    ### FILENAME REQUIREMENTS
+    - The file name should contain the report title
+    - The file name should not include the seed of the generator
+    
     ### CONSTRAINTS
     - Minimum of 2 detailed observations per report.
     - Maximum length: Keep body text under 1000 characters per slide.
@@ -118,6 +123,7 @@ def main():
     ### [Date]"
 
     ### EXAMPLES OF IDEAL OUTPUT
+    [
     {{
         "file_name": "IA_Report_HR_Payroll_Processing.json",
         "Report Content": [
@@ -126,7 +132,7 @@ def main():
             "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.,
             "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.,
             "# Recommendations Summary\n1. Enforce strict Segregation of Duties (SoD) in payroll software.\n2. Implement automated 'Leaver' protocols for system access.\n3. Conduct quarterly payroll audits against physical headcount records.",
-            "# Management Action Plan\n* **Action Item:** Configure ERP permissions for SoD.\n  * **Owner:** HR Director / IT Manager\n  * **Deadline:** March 31, 2026\n* **Action Item:** Establish automated termination alerts.\n  * **Owner:** HR Operations Lead\n  * **Deadline:** February 28, 2026"
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
         ]
     }},
     {{
@@ -137,10 +143,10 @@ def main():
         "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.,
         "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.,
         "# Recommendations Summary\n1. Standardize the competitive bidding workflow.\n2. Launch a Vendor Performance Management (VPM) framework.\n3. Audit vendor insurance certificates for expiration.",
-        "# Management Action Plan\n* **Action Item:** Update Procurement Policy to include Bid Exception requirements.\n  * **Owner:** Head of Procurement\n  * **Deadline:** April 15, 2026\n* **Action Item:** Conduct catch-up reviews for top 10 vendors.\n  * **Owner:** Procurement Category Manager\n  * **Deadline:** May 30, 2026"
+        "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
         ]
     }}
-
+    ]
     ### INPUT SEED
     Generate a new report based on the user's provided seed.
     """
@@ -155,10 +161,10 @@ def main():
         instructions=system_prompt,
         input=user_prompt
     )
-
+    # print(response.output_text)
     # Load JSON
-    data = json.loads(response.text)
-    # print(data)
+    data = json.loads(response.output_text)
+    print(data)
     with open("output.json", "w", encoding="utf-8") as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
     # Convert data to PDFs
