@@ -1,12 +1,12 @@
 from pydantic import BaseModel
 from typing import List
 from pptx import Presentation
-from google import genai
 import os
 from dotenv import load_dotenv
 from typing import Dict
 import json 
-from google.genai import types
+from openai import OpenAI
+import ast
 
 # JSON Object Definitions
 class DetailsTable(BaseModel):
@@ -75,9 +75,13 @@ def generate_json(extracted_text):
     5. **management_action_plan**: Specific management commitments.
 
     ### Constraints:
-    - Return a SINGLE JSON object where each key is the filename provided in the [[START_FILE]] marker.
+    - Return a SINGLE JSON OBJECT where each key is the filename provided in the [[START_FILE]] marker.
     - Output ONLY valid JSON.
     - If a field is not found, use "" or []. Do not omit keys.
+
+    ### OUTPUT RULES:
+    - Use double quotes for all keys and string values
+    - Do not include explanations or formatting
 
     ### Target JSON Schema:
     {{
@@ -90,37 +94,41 @@ def generate_json(extracted_text):
     }},
     "filename_2.pptx": {{ ... }}
     }}
-
-    ### Source Text:
-    {extracted_text}
     """
     # Load and import API Keys
     load_dotenv()
-    GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     
-    google_client = genai.Client(api_key=GEMINI_API_KEY)
-    response = google_client.models.generate_content(
-        model='gemini-3-flash-preview', 
-        contents=extraction_prompt,
-        config=types.GenerateContentConfig(
-            responseMimeType='application/json',
-            responseSchema=BatchResponse
-        )
+    openai_client = OpenAI(
+        api_key=OPENAI_API_KEY
     )
-    return json.loads(response.text)
+    response = openai_client.responses.create(
+        model='gpt-5-mini', 
+        instructions=extraction_prompt,
+        input=extracted_text,
+    )
+    raw = response.output_text.strip()
+    data = ast.literal_eval(raw)
+    return data
+
 def main():
     # TODO: Batch processing
     extracted_data : dict[str, ReportData] = {}
     all_pptx = [f for f in os.listdir('generated_pptx') if f.endswith('.pptx')]
-    batch_files = all_pptx[0:5]
-    combined_text = ""
-    for filename in batch_files:
-        # Local extraction is fast and consumes no quota
-        text = extract_slide_content(f"generated_pptx/{filename}")
-        combined_text += f"\n[[START_FILE: {filename}]]\n{text}\n[[END_FILE]]\n"
-    batch_json = generate_json(combined_text)
-    extracted_data.update(batch_json)
+    for i in range(0, len(all_pptx), 5):
+        combined_text = ""
+        batch_files = all_pptx[i:i+5]
+        for filename in batch_files:
+            # Local extraction is fast and consumes no quota
+            text = extract_slide_content(f"generated_pptx/{filename}")
+            combined_text += f"\n[[START_FILE: {filename}]]\n{text}\n[[END_FILE]]\n"
+        
+        # Create Batch JSONs and add it to final JSON list
+        batch_json = generate_json(combined_text)
+        for filename, data in batch_json.items():
+            extracted_data[filename] = data
 
+    # Create JSON file
     with open("extracted_output.json", "w") as f:
         json.dump(extracted_data, f, indent=4)
 if __name__ == '__main__':

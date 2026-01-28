@@ -1,154 +1,674 @@
 {
-    "reports": [
-        {
-            "report_title": "Audit of Corporate Records Management & Retention (IA_Report_Records_Retention_Compliance.pptx)",
-            "executive_summary": "Objectives: To assess compliance with statutory records retention periods and secure destruction protocols. Background: The company handles sensitive customer data and legal contracts across various jurisdictions. Scope: Review of physical archiving facilities and digital document deletion schedules.",
-            "details": [
-                {
-                    "observation": "Financial records dating back 15 years are still stored on-site, despite a 7-year legal retention limit.",
-                    "risk": "Increased litigation discovery risks and excessive storage costs.",
-                    "risk_rating": "FOR IMPROVEMENT",
-                    "recommendation": "Execute a bulk shredding project for all documents past their retention period.",
-                    "status": "Open"
-                },
-                {
-                    "observation": "Highly sensitive payroll documents were found in regular recycling bins instead of locked shredding consoles.",
-                    "risk": "Unauthorized disclosure of PII and potential GDPR/regulatory fines.",
-                    "risk_rating": "INADEQUATE",
-                    "recommendation": "Replace open recycling bins in administrative areas with locked security consoles for sensitive paper.",
-                    "status": "Open"
-                }
-            ],
-            "recommendations": [
-                "Update the Global Records Retention Schedule.",
-                "Conduct annual training on sensitive data handling.",
-                "Partner with a certified secure destruction vendor for site-wide clearances."
-            ],
-            "management_action_plan": [
-                "Retention Update | General Counsel | March 2026",
-                "Shredding Project | Office Manager | April 2026",
-                "Compliance Training | HR Manager | May 2026"
-            ]
-        },
-        {
-            "report_title": "Audit of Operational Petty Cash Management (IA_Report_Petty_Cash_Controls.pptx)",
-            "executive_summary": "Objectives: To verify the security of petty cash funds and the validity of small-value disbursements. Background: 15 regional branches maintain petty cash floats ranging from $500 to $2,000. Scope: Surprise cash counts and voucher audits at 5 selected regional branches.",
-            "details": [
-                {
-                    "observation": "3 out of 5 branches visited did not perform weekly cash reconciliations as required by policy.",
-                    "risk": "Undetected theft or loss of funds; financial reporting inaccuracies.",
-                    "risk_rating": "INADEQUATE",
-                    "recommendation": "Mandate a weekly sign-off by the Branch Manager on a standardized cash reconciliation form.",
-                    "status": "Open"
-                },
-                {
-                    "observation": "Personal funds and \u2018IOU\u2019 notes from employees were found in the petty cash lockbox at one location.",
-                    "risk": "High risk of fraud and lack of accountability for corporate assets.",
-                    "risk_rating": "INADEQUATE",
-                    "recommendation": "Strictly prohibit \u2018IOUs\u2019 and enforce immediate disciplinary action for commingling of funds.",
-                    "status": "Open"
-                }
-            ],
-            "recommendations": [
-                "Standardize petty cash reconciliation templates.",
-                "Perform monthly unannounced cash counts by Regional Controllers.",
-                "Phase out physical petty cash in favor of corporate \u2018P-Cards\u2019 for small spend."
-            ],
-            "management_action_plan": [
-                "P-Card Rollout | Finance VP | September 2026",
-                "Surprise Counts | Regional Auditor | Monthly",
-                "Policy Briefing | Branch Managers | April 2026"
-            ]
-        },
-        {
-            "report_title": "Audit of Knowledge Management & SOP Governance (IA_Report_Internal_Communications_Knowledge.pptx)",
-            "executive_summary": "Objectives: To ensure Standard Operating Procedures (SOPs) are current, approved, and accessible. Background: The company maintains a central repository for over 500 operational policies. Scope: Review of the policy lifecycle management and version control on the company Intranet.",
-            "details": [
-                {
-                    "observation": "40% of the SOPs on the Intranet have not been reviewed or updated in the last 3 years.",
-                    "risk": "Employees following obsolete processes leading to operational errors or safety risks.",
-                    "risk_rating": "FOR IMPROVEMENT",
-                    "recommendation": "Implement an automated \u2018Expiry\u2019 flag that requires owners to re-verify SOPs annually.",
-                    "status": "Open"
-                },
-                {
-                    "observation": "Draft versions of sensitive financial policies were accessible to all employees via a shared folder.",
-                    "risk": "Unauthorized use of draft procedures and potential for internal fraud.",
-                    "risk_rating": "ADEQUATE",
-                    "recommendation": "Move all policy documents to a dedicated Document Management System (DMS) with restricted permissions.",
-                    "status": "Open"
-                }
-            ],
-            "recommendations": [
-                "Enforce a mandatory annual review cycle for all operational policies.",
-                "Consolidate all SOPs into a single, permission-controlled system.",
-                "Retire the use of ungoverned shared network drives for policy storage."
-            ],
-            "management_action_plan": [
-                "DMS Migration | IT Manager | August 2026",
-                "Policy Audit | Ops Excellence | June 2026",
-                "Access Review | Security Lead | April 2026"
-            ]
-        },
-        {
-            "report_title": "Audit of Employee Onboarding & Offboarding Controls (IA_Report_Onboarding_Offboarding.pptx)",
-            "executive_summary": "Objectives: To ensure new hires are properly vetted and terminated employees lose access promptly. Background: The company hired 300 and offboarded 120 employees in the last 12 months. Scope: Verification of background checks for new hires and system deactivations for leavers.",
-            "details": [
-                {
-                    "observation": "10% of new hire files lacked evidence of completed criminal or education verification checks.",
-                    "risk": "Hiring of unqualified or high-risk individuals; regulatory non-compliance.",
-                    "risk_rating": "FOR IMPROVEMENT",
-                    "recommendation": "Make background check clearance a prerequisite for generating an employee ID.",
-                    "status": "Open"
-                },
-                {
-                    "observation": "5 terminated employees retained active VPN and Email access for more than 72 hours after their final day.",
-                    "risk": "Potential for data exfiltration or unauthorized system changes post-employment.",
-                    "risk_rating": "INADEQUATE",
-                    "recommendation": "Implement an automated \u2018Leaver\u2019 workflow that disables all accounts at midnight on the termination date.",
-                    "status": "Open"
-                }
-            ],
-            "recommendations": [
-                "Standardize the onboarding checklist to include all vetting requirements.",
-                "Automate the offboarding notification between HR and IT.",
-                "Conduct quarterly access reviews for \u2018stale\u2019 accounts."
-            ],
-            "management_action_plan": [
-                "Vetting Compliance | HR Director | March 2026",
-                "Identity Mgmt Auto | IT Lead | April 2026",
-                "Access Cleanup | Security Ops | March 2026"
-            ]
-        },
-        {
-            "report_title": "Audit of General Ledger & Financial Closing Process (IA_Report_Financial_Closing_Operations.pptx)",
-            "executive_summary": "Objectives: To assess the speed, accuracy, and control environment of the monthly financial close. Background: The Finance team aims for a \u20185-Day Close\u2019 to provide timely management information. Scope: Audit of journal entry approvals and balance sheet reconciliations for Q4 2025.",
-            "details": [
-                {
-                    "observation": "12% of manual journal entries were posted to the General Ledger without a secondary reviewer\u2019s approval.",
-                    "risk": "Fraudulent financial reporting or material errors in the financial statements.",
-                    "risk_rating": "INADEQUATE",
-                    "recommendation": "Enable a \u2018hard stop\u2019 in the ERP that prevents posting without a workflow approval.",
-                    "status": "Open"
-                },
-                {
-                    "observation": "Bank reconciliations contained \u2018open items\u2019 older than 90 days that had not been investigated.",
-                    "risk": "Hidden financial losses or failure to identify bank errors.",
-                    "risk_rating": "FOR IMPROVEMENT",
-                    "recommendation": "Implement a policy requiring all reconciling items older than 30 days to be escalated to the Controller.",
-                    "status": "Open"
-                }
-            ],
-            "recommendations": [
-                "Enforce automated workflow approvals for all manual journals.",
-                "Standardize balance sheet reconciliation templates across all subsidiaries.",
-                "Conduct monthly \u2018Closing Quality\u2019 reviews with regional teams."
-            ],
-            "management_action_plan": [
-                "ERP Workflow | IT Finance | May 2026",
-                "Recon Policy | Group Controller | June 2026",
-                "Training Sessions | Finance Staff | April 2026"
-            ]
-        }
-    ]
+    "Internal_Audit_Meeting_and_Event_Spend_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Meetings & Events Spend",
+        "executive_summary": "Review of governance, budgeting and approval controls over corporate meetings and events. Events include client forums, internal town halls and vendor-sponsored activities. Scope included sampled event budgets, approvals, vendor selection and post-event reconciliations for 2025. Key issues identified relate to vendor selection and budget overruns requiring improved sourcing and approval controls.",
+        "details": [
+            {
+                "observation": "Several event vendors were engaged without competitive quotes or documented rationale.",
+                "risk": "Higher costs, vendor favoritism, and missed savings opportunities.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Apply competitive sourcing for event vendors above an approval threshold and document exceptions."
+            },
+            {
+                "observation": "4 of 10 events exceeded budgets by >15% without documented change approvals.",
+                "risk": "Uncontrolled expenditure and inaccurate financial reporting.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require formal change approvals and contingency tracking for event budgets."
+            }
+        ],
+        "recommendations": [
+            "Require competitive sourcing for significant event spend.",
+            "Enforce budget change approvals and contingency tracking.",
+            "Post-event vendor performance reviews."
+        ],
+        "management_action_plan": [
+            "Event vendor sourcing policy | Events Manager | Feb 2026",
+            "Budget change approval workflow | Finance Ops | March 2026",
+            "Post-event reviews | Events Coordinator | Ongoing"
+        ]
+    },
+    "Internal_Audit_Office_Supplies_and_Procurement_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Office Supplies & Low-Value Procurement",
+        "executive_summary": "Assessment of controls over office supply procurement, catalog management, and petty purchasing thresholds across departments. Scope included catalog controls, delegation of authority, and purchase order compliance for 2025. Findings indicate inconsistent catalog pricing and misuse of delegation thresholds requiring centralization and stronger approval controls.",
+        "details": [
+            {
+                "observation": "Catalog items showed inconsistent pricing across locations without documented justification.",
+                "risk": "Overpayment and lack of centralized price management.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Centralize catalog pricing and require justification for local price overrides."
+            },
+            {
+                "observation": "Purchases above petty thresholds were approved by unauthorized staff in several cases.",
+                "risk": "Policy breaches and increased fraud risk.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce approval matrices and implement system controls to block unauthorized approvals."
+            }
+        ],
+        "recommendations": [
+            "Centralize catalog pricing and manage local overrides.",
+            "Enforce delegation matrices with system controls.",
+            "Periodic review of low-value spend categories."
+        ],
+        "management_action_plan": [
+            "Catalog price centralization | Procurement Ops | March 2026",
+            "Approval matrix enforcement | AP Systems | Feb 2026",
+            "Low-value spend review | Category Manager | April 2026"
+        ]
+    },
+    "Internal_Audit_IT_Asset_Management_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - IT Asset Inventory & Controls",
+        "executive_summary": "Assessment of the accuracy of IT asset inventories, lifecycle controls, and disposal procedures. Scope included asset registration, periodic reconciliations, and secure disposal for 2025. Key issues include incomplete asset records and insufficient disposal documentation, posing operational and data security risks.",
+        "details": [
+            {
+                "observation": "14% of sampled devices were not recorded in the central asset register or had missing owner fields.",
+                "risk": "Lost assets, inaccurate depreciation, and security risks from unmanaged devices.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce mandatory asset registration at procurement and periodic reconciliations."
+            },
+            {
+                "observation": "Disposal records lacked proof of data sanitization for disposed laptops in three instances.",
+                "risk": "Potential data leakage and non-compliance with data protection obligations.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Mandate IT-certified data erasure and maintain disposal certificates for all disposals."
+            }
+        ],
+        "recommendations": [
+            "Enforce asset registration at procurement and periodic reconciliations.",
+            "Require certified data sanitization and disposal certificates.",
+            "Implement owner accountability for assigned devices."
+        ],
+        "management_action_plan": [
+            "Asset register update process | IT Asset Manager | Feb 2026",
+            "Certified disposal procedure | IT Security | March 2026",
+            "Quarterly inventory reconciliation | IT Operations | April 2026"
+        ]
+    },
+    "Internal_Audit_Third_Party_Facilities_Contractors_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Third-Party Facilities Contractors",
+        "executive_summary": "Review of contractor onboarding, insurance verification, performance monitoring, and access controls for facilities vendors. Scope covered contractor vetting, insurance certificates, site access credentials, and performance logs. Findings show missing insurance verification and inconsistent performance monitoring, exposing the organization to financial and service risks.",
+        "details": [
+            {
+                "observation": "Insurance certificates were not on file for two subcontractors working on-site.",
+                "risk": "Financial exposure for third-party incidents and breach of contractual obligations.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Require verified insurance certificates before site access and maintain expiration tracking."
+            },
+            {
+                "observation": "Performance metrics and periodic reviews were not consistently documented across contractors.",
+                "risk": "Degraded service levels and lack of remediation for poor performance.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement standardized KPIs and quarterly performance reviews with contract remediation clauses."
+            }
+        ],
+        "recommendations": [
+            "Enforce verified insurance certificates before contractor access.",
+            "Standardize contractor KPIs and quarterly reviews.",
+            "Centralize contractor records and access permissions."
+        ],
+        "management_action_plan": [
+            "Insurance verification process | Procurement | Feb 2026",
+            "Contractor KPI framework | Facilities Lead | March 2026",
+            "Central contractor repository | Vendor Mgmt | April 2026"
+        ]
+    },
+    "Internal_Audit_Health_and_Safety_Compliance_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Health & Safety Compliance",
+        "executive_summary": "Verification of compliance with workplace health & safety policies, incident reporting, and training completion. Scope included incident logs, training records, and risk assessments for 2024\u20132025. Issues identified include low training completion rates in some departments and insufficient incident investigations, requiring stronger training enforcement and investigation processes.",
+        "details": [
+            {
+                "observation": "Mandatory workplace safety training completion rates were below 80% for two departments.",
+                "risk": "Increased likelihood of preventable incidents and regulatory non-compliance.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce mandatory completion via LMS gating and escalate non-compliance to managers."
+            },
+            {
+                "observation": "Several minor incidents lacked root-cause analysis and corrective action records.",
+                "risk": "Recurrence of incidents and missed opportunities to improve controls.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Standardize investigation templates and require documented corrective actions with owners and due dates."
+            }
+        ],
+        "recommendations": [
+            "Enforce 100% mandatory safety training with escalation for non-compliance.",
+            "Standardize incident investigation and corrective action tracking.",
+            "Quarterly safety performance reviews by management."
+        ],
+        "management_action_plan": [
+            "LMS gating for safety training | HR Learning | Feb 2026",
+            "Incident investigation template | OHS Officer | March 2026",
+            "Quarterly safety reviews | Facilities Director | April 2026"
+        ]
+    },
+    "Internal_Audit_Travel_and_Expense_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Travel & Expense Management",
+        "executive_summary": "Objectives: To evaluate compliance with travel policy, expense approvals, and controls over corporate spend. Background: Annual travel and T&E spend approximates $3.2M across corporate functions. Scope: Sampled travel bookings and expense reports from Q4 2025 and approval workflows. Overall, audit identified gaps in receipt submission and approver authorization, and instances of unapproved travel upgrades, resulting in recommendations to strengthen system validations, approvals, and periodic audits.",
+        "details": [
+            {
+                "observation": "18% of expense reports lacked required receipts or had approvals from unauthorized approvers.",
+                "risk": "Increased fraud, duplicate claims, and non-compliance with tax and policy requirements.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce e-receipt uploads in the expense system and restrict approver roles by delegation lists."
+            },
+            {
+                "observation": "Multiple business-class upgrades were processed without documented business justification for 6 trips.",
+                "risk": "Elevated costs and breaches of travel policy leading to budget overruns.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require pre-approval for upgrades and capture cost-center sign-off before booking."
+            }
+        ],
+        "recommendations": [
+            "Enforce receipt and approver validation in the expense system.",
+            "Implement mandatory pre-approval for travel upgrades.",
+            "Conduct quarterly T&E audit by finance."
+        ],
+        "management_action_plan": [
+            "Update T&E policy and approver matrix | Finance Director | Feb 2026",
+            "Expense system validation rules | IT Finance Apps | March 2026",
+            "Quarterly T&E audit schedule | Internal Audit | April 2026"
+        ]
+    },
+    "Internal_Audit_Facilities_Access_Controls_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Facilities Access Controls",
+        "executive_summary": "Objectives: To assess physical access provisioning, badge lifecycle management, and visitor controls at corporate locations. Background: Facilities issues badges and manages visitor logs for ~2,500 employees and contractors. Scope: Review of access requests, deprovisioning, and visitor registries for Q3\u2013Q4 2025. Overall, audit found delayed badge deactivation and visitor log inconsistencies that increase risk of unauthorized access and safety incidents, prompting recommendations for automation and improved visitor management.",
+        "details": [
+            {
+                "observation": "12% of terminated employees retained active badges beyond 48 hours in sampled cases.",
+                "risk": "Unauthorized facility access, asset theft, or data exposure.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Automate deprovisioning via HR-Facilities integration and run daily revocation reports."
+            },
+            {
+                "observation": "Visitor sign-in records lacked host verification and printed badge capture for 30% of visits.",
+                "risk": "Unverified access increases risk of unauthorized entry and safety incidents.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Implement electronic visitor management with host confirmation and badge printing."
+            }
+        ],
+        "recommendations": [
+            "Integrate HR termination events with access management for automated badge revocation.",
+            "Deploy electronic visitor management with host acknowledgement.",
+            "Conduct monthly access reconciliations and exception reporting."
+        ],
+        "management_action_plan": [
+            "Implement HR-Facilities deprovisioning | Facilities Manager | March 2026",
+            "Daily access reconciliation report | Security Lead | Feb 2026",
+            "Deploy electronic VMS at HQ | Facilities IT | June 2026"
+        ]
+    },
+    "Internal_Audit_Fleet_Management_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Corporate Fleet Management",
+        "executive_summary": "Objectives: To review fleet utilization, maintenance scheduling, driver vetting, and cost allocation controls. Background: Corporate operates a managed fleet of vehicles for executive travel and field operations. Scope: Assessment of vehicle assignment, maintenance records, fuel card usage, and insurance documentation. Overall, audit identified incomplete maintenance records and weaknesses in fuel card monitoring, leading to recommendations to improve documentation, monitoring, and vetting processes.",
+        "details": [
+            {
+                "observation": "Maintenance logs for 3 vehicles lacked service provider receipts and mileage stamps.",
+                "risk": "Increased downtime risk, warranty disputes, and untracked costs.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require scanned maintenance receipts and mileage verification for all services."
+            },
+            {
+                "observation": "Fuel card transactions lacked timely reconciliations and unexplained transactions were not investigated.",
+                "risk": "Potential fuel fraud and inaccurate cost allocation.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement daily fuel card exception reports and immediate investigation protocols."
+            }
+        ],
+        "recommendations": [
+            "Enforce complete maintenance documentation and mileage verification.",
+            "Implement fuel card exception monitoring and investigation workflows.",
+            "Annual driver vetting and license checks."
+        ],
+        "management_action_plan": [
+            "Maintenance documentation policy | Fleet Manager | March 2026",
+            "Fuel card exception reports | Finance Ops | Feb 2026",
+            "Driver vetting schedule | HR Mobility | April 2026"
+        ]
+    },
+    "Internal_Audit_Utilities_and_Energy_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Utilities & Energy Management",
+        "executive_summary": "Objectives: To evaluate utility billing, energy efficiency initiatives, and allocation of utility costs across cost centers. Background: Facilities manage utility contracts and billing for multiple corporate locations. Scope: Review of utility invoices, meter reconciliation, and energy-saving projects for the past fiscal year. Overall, audit identified weaknesses in meter reconciliation and low uptake of energy projects, with recommendations to implement regular reconciliations and prioritize energy savings.",
+        "details": [
+            {
+                "observation": "Meter reading variances were not investigated for two sites where consumption spiked unexpectedly.",
+                "risk": "Overpayment on utility bills and undetected system leaks or meter errors.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement monthly meter reconciliations and variance investigation procedures."
+            },
+            {
+                "observation": "Identified low-cost energy saving measures were not prioritized or funded in the facilities roadmap.",
+                "risk": "Missed cost savings and higher operating expenses.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Create prioritized energy project pipeline with ROI and funding approvals."
+            }
+        ],
+        "recommendations": [
+            "Monthly meter reconciliations with variance investigations.",
+            "Prioritized energy efficiency project pipeline with ROI analysis.",
+            "Centralize utility contract review for cost optimization."
+        ],
+        "management_action_plan": [
+            "Monthly meter reconciliation | Facilities Ops | Feb 2026",
+            "Energy project pipeline | Sustainability Lead | March 2026",
+            "Utility contract centralization | Procurement | April 2026"
+        ]
+    },
+    "Internal_Audit_Corporate_Support_Services_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Corporate Support Services",
+        "executive_summary": "Objectives: To assess performance and controls for corporate support services including reception, mailroom, catering and admin support. Background: Support services are delivered via internal teams and select outsourced providers under service level agreements. Scope: Review of SLAs, performance monitoring, incident logs and service charge allocations. Overall, audit found incomplete SLA monitoring and inconsistent cost allocations, resulting in recommendations to automate reporting and standardize allocation methodology.",
+        "details": [
+            {
+                "observation": "SLA performance reports were not produced monthly for outsourced catering and cleaning services.",
+                "risk": "Undetected service degradation and absence of contractual remedies.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement automated SLA reporting with defined escalation thresholds."
+            },
+            {
+                "observation": "Service charge allocations to cost centers were inconsistent, leading to mischarged overheads.",
+                "risk": "Inaccurate departmental cost reporting and budgeting errors.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Standardize allocation methodology and reconcile monthly with finance."
+            }
+        ],
+        "recommendations": [
+            "Implement automated SLA reporting for outsourced services.",
+            "Standardize service charge allocation methodology.",
+            "Monthly reconciliation of support service charges with finance."
+        ],
+        "management_action_plan": [
+            "SLA reporting automation | Vendor Manager | March 2026",
+            "Allocation methodology standard | Finance Ops | Feb 2026",
+            "Monthly reconciliations | Support Services Lead | Ongoing"
+        ]
+    },
+    "Internal_Audit_Corporate_Card_Program_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Corporate Card Program",
+        "executive_summary": "Review of controls over corporate card issuance, usage monitoring, and reconciliations for 2025 Q4. The program supports ~150 cardholders with monthly expenditures of ~ $120k. Scope covered card issuance, cancellations, monthly reconciliations and policy compliance. Overall findings indicate weaknesses in cardholder onboarding and timeliness of reconciliations requiring process and control improvements.",
+        "details": [
+            {
+                "observation": "Cardholders were approved without documented business justification in 7 of 20 cases.",
+                "risk": "Unnecessary exposure to spend risk and lack of accountability.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require standardized card request forms with manager justification and periodic approvals."
+            },
+            {
+                "observation": "25% of monthly card reconciliations were completed beyond the policy timeframe, with missing receipts.",
+                "risk": "Increased reconciliation errors and undetected fraudulent transactions.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce reconciliation SLA and automated reminders; suspend cards with repeated non-compliance."
+            }
+        ],
+        "recommendations": [
+            "Standardize card issuance with documented justification.",
+            "Enforce reconciliation SLAs and automated reminders.",
+            "Quarterly review of inactive or high-risk cards."
+        ],
+        "management_action_plan": [
+            "Implement card request form | Finance Ops | Feb 2026",
+            "Automatic reconciliation reminders | AP Systems | March 2026",
+            "Quarterly card reviews | Finance Controller | April 2026"
+        ]
+    },
+    "Internal_Audit_Startup_and_Closure_of_projects_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Project Startup & Closure Controls",
+        "executive_summary": "Evaluation of governance over project initiation, budgeting, milestone monitoring and formal project closure. Corporate projects include process improvement, facilities upgrades and internal change programs. Scope included assessment of project charters, budget approvals, milestone tracking and lessons-learned documentation. Key findings relate to missing project charters and informal project closures requiring strengthened controls.",
+        "details": [
+            {
+                "observation": "Several projects commenced without approved charters or defined success criteria.",
+                "risk": "Scope creep, budget overruns, and poor alignment to strategic objectives.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require approved project charters with scope, budget and success metrics prior to start."
+            },
+            {
+                "observation": "Project closures lacked formal acceptance and lessons learned, with no financial reconciliations.",
+                "risk": "Unresolved issues, duplicated efforts, and incomplete cost accounting.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement formal closure checklist requiring sign-off, financial reconciliation and lessons capture."
+            }
+        ],
+        "recommendations": [
+            "Enforce approved project charters before project start.",
+            "Standardize formal project closure with financial reconciliation.",
+            "Maintain a central project repository for governance."
+        ],
+        "management_action_plan": [
+            "Project charter policy | PMO Director | Feb 2026",
+            "Closure checklist implementation | PMO | March 2026",
+            "Central project repository | PMO Systems | April 2026"
+        ]
+    },
+    "Internal_Audit_Office_Lease_and_Compliance_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Office Lease Compliance",
+        "executive_summary": "Verification of lease compliance, expense allocations, and oversight of landlord obligations across five locations. Scope covered lease terms, service charge reconciliations and renewals for 2024\u20132025. Findings include gaps in service charge (CAM) reconciliation documentation and a lease renewal executed without appropriate market review or CFO approval, indicating control weaknesses.",
+        "details": [
+            {
+                "observation": "Incomplete documentation supporting common area maintenance charges for two sites.",
+                "risk": "Overpayment to landlords and budget inaccuracies.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require detailed CAM supporting schedules before payment and centralized review."
+            },
+            {
+                "observation": "One renewal was executed without competitive market review or CFO sign-off.",
+                "risk": "Unfavorable commercial terms and missed cost-saving opportunities.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Implement mandatory market benchmarking and executive approval for renewals."
+            }
+        ],
+        "recommendations": [
+            "Centralize lease document repository and approvals.",
+            "Require CAM supporting schedules before payment.",
+            "Enforce market review and CFO sign-off for renewals."
+        ],
+        "management_action_plan": [
+            "Central lease repository | Real Estate Manager | March 2026",
+            "CAM evidence requirement | Lease Admin | Feb 2026",
+            "Renewal approval policy | Legal/Finance | April 2026"
+        ]
+    },
+    "Internal_Audit_Document_Retention_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Document Retention & Disposal",
+        "executive_summary": "Assessment of adherence to document retention policies and secure disposal procedures for corporate records (HR, legal, vendor, financial) retained across shared drives and physical archives. Scope included retention schedules, disposal authorizations, and archived storage from 2020\u20132025. Major issues identified include outdated retention schedules and insecure physical disposal practices posing legal and privacy risks.",
+        "details": [
+            {
+                "observation": "Several record types lack updated retention periods and disposal criteria in the retention matrix.",
+                "risk": "Legal exposure, regulatory non-compliance, and unnecessary storage costs.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Review and update retention schedules with Legal and Records Management annually."
+            },
+            {
+                "observation": "Contracted shredding logs were incomplete for two archive disposals; chain-of-custody not demonstrated.",
+                "risk": "Confidential data leakage and breach of privacy obligations.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Enforce certified disposal vendors and maintain signed chain-of-custody documentation."
+            }
+        ],
+        "recommendations": [
+            "Update retention schedule with Legal and Records annually.",
+            "Use certified disposal vendors and maintain disposal logs.",
+            "Archive digital records with access controls and encryption."
+        ],
+        "management_action_plan": [
+            "Retention schedule update | Records Manager | March 2026",
+            "Contract certified shredding | Procurement Lead | Feb 2026",
+            "Implement digital archive controls | IT Ops | May 2026"
+        ]
+    },
+    "Internal_Audit_Records_Management_Access_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Records Management Access Controls",
+        "executive_summary": "Review of access controls to corporate records, permission review cycles, and privileged access monitoring across cloud repositories and local servers. Scope covered access provisioning, periodic entitlement reviews, and privileged access logging. Findings include missed entitlement reviews and insufficient privileged log retention impacting security and forensic capabilities.",
+        "details": [
+            {
+                "observation": "Periodic entitlement reviews were not completed for two shared repositories in 2025.",
+                "risk": "Excessive or stale access leading to unauthorized data exposure.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Schedule quarterly entitlement reviews and recertifications for sensitive repositories."
+            },
+            {
+                "observation": "Privileged access logs were overwritten after 30 days, limiting forensic capability.",
+                "risk": "Inability to investigate incidents and identify misuse of privileged accounts.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Extend privileged access log retention to meet forensic and compliance requirements."
+            }
+        ],
+        "recommendations": [
+            "Implement quarterly entitlement recertifications for sensitive repositories.",
+            "Extend privileged access log retention and ensure secure storage.",
+            "Enforce least-privilege for records access."
+        ],
+        "management_action_plan": [
+            "Entitlement review schedule | Records Manager | Feb 2026",
+            "Extend log retention | IT Security | March 2026",
+            "Least-privilege rollout | IAM Team | April 2026"
+        ]
+    },
+    "Internal_Audit_Conference_Sponsorships_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Conference Sponsorships & Promotional Spend",
+        "executive_summary": "Objectives: Review governance around sponsorship commitments, budget controls, and ROI tracking for conferences. Background: Sponsorships are managed by corporate communications and sales with varying approval practices. Scope: Examine sponsorship approvals, contract terms, benefits delivery, and post-event ROI reporting. Conclusion: Contracts lacked defined deliverables and measurable benefits clauses, and post-event ROI assessments were not performed for major sponsorships in 2025, leading to limited ability to enforce benefits or demonstrate value. Recommendations include standardizing contracts, mandating ROI reporting, and centralizing approval and tracking.",
+        "details": [
+            {
+                "observation": "One sponsorship contract lacked defined deliverables and measurable benefits clauses.",
+                "risk": "Inability to enforce sponsor benefits and poor value for money.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Standardize sponsorship contracts with defined deliverables, KPIs and remediation clauses."
+            },
+            {
+                "observation": "Post-event ROI assessments were not conducted for major sponsorships in 2025.",
+                "risk": "Continued spend without evidence of effectiveness or alignment with strategic objectives.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require standardized post-event ROI reports and tie future approvals to performance."
+            }
+        ],
+        "recommendations": [
+            "Standardize sponsorship contracts with KPIs.",
+            "Mandate post-event ROI reporting for major sponsorships.",
+            "Centralize sponsorship approval and tracking."
+        ],
+        "management_action_plan": [
+            "Sponsorship contract template | Legal/Comms | Feb 2026",
+            "ROI reporting framework | Marketing Analytics | March 2026",
+            "Central approval process | Comms Director | April 2026"
+        ]
+    },
+    "Internal_Audit_Corporate_Travel_Policy_Compliance_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Corporate Travel Policy Compliance",
+        "executive_summary": "Objectives: Confirm adherence to corporate travel policy, approval workflows, and traveler safety protocols. Background: Travel policy governs accommodations, travel classes, booking channels, and health/safety requirements. Scope: Review of policy adherence, exceptions, and travel risk assessments for 2025 Q4 trips. Conclusion: Several travelers used external booking channels without documented exceptions and no travel risk assessments were completed for medium-risk destinations, exposing the organization to higher costs and insufficient duty-of-care preparedness. Recommendations include enforcing booking channels, mandating pre-trip risk assessments, and integrating traveler tracking.",
+        "details": [
+            {
+                "observation": "Several travelers used external booking channels without documented policy exceptions.",
+                "risk": "Increased cost and lack of duty-of-care tracking for travelers.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Enforce approved booking channels and require documented exception approvals."
+            },
+            {
+                "observation": "No travel risk assessments were completed for trips to listed medium-risk destinations.",
+                "risk": "Insufficient traveler protection and emergency response preparedness.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Mandate pre-trip risk assessments for medium/high-risk destinations and track completion."
+            }
+        ],
+        "recommendations": [
+            "Enforce approved booking channels and exception approvals.",
+            "Mandate pre-trip risk assessments for higher-risk destinations.",
+            "Integrate traveler tracking with duty-of-care procedures."
+        ],
+        "management_action_plan": [
+            "Booking channel enforcement | Travel Manager | Feb 2026",
+            "Pre-trip risk assessment rollout | Security & Risk | March 2026",
+            "Traveler tracking integration | IT Travel Systems | April 2026"
+        ]
+    },
+    "Internal_Audit_Document_disposal_and_DRM_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Document Disposal & DRM Controls",
+        "executive_summary": "Objectives: Review secure disposal of records and application of digital rights management (DRM) to sensitive documents. Background: Sensitive records exist in physical archives and shared digital repositories requiring controlled disposal and access. Scope: Assessment of disposal logs, DRM application, and access controls for sensitive document sets. Conclusion: DRM controls were not consistently applied to sensitive files and disposal logs lacked required approver and method details, risking unauthorized distribution and non-compliance with retention/destruction policies. Recommendations include applying DRM, standardizing disposal logs, and annual reviews.",
+        "details": [
+            {
+                "observation": "Sensitive financial and HR documents lacked DRM controls when stored in shared folders.",
+                "risk": "Unauthorized copying or distribution of sensitive data.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Apply DRM tags to sensitive document classes and enforce access policies at the file level."
+            },
+            {
+                "observation": "Disposal logs did not consistently record approver names and disposal methods for destroyed items.",
+                "risk": "Non-compliance with retention policies and inability to validate secure destruction.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement mandatory disposal log fields including approver, method, and certificate of destruction."
+            }
+        ],
+        "recommendations": [
+            "Apply DRM to sensitive document classes and enforce file-level access controls.",
+            "Standardize disposal logs with required mandatory fields.",
+            "Annual review of document handling practices with Legal."
+        ],
+        "management_action_plan": [
+            "DRM rollout plan | IT Security | March 2026",
+            "Disposal log standardization | Records Manager | Feb 2026",
+            "Annual handling review | Legal | April 2026"
+        ]
+    },
+    "Internal_Audit_Physical_Security_and_CCTV_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Physical Security & CCTV Controls",
+        "executive_summary": "Objectives: Assess CCTV coverage adequacy, retention policies, and access to surveillance footage. Background: CCTV systems cover building entrances, critical common areas and select internal zones. Scope: Review camera placement, footage retention, access controls, and incident logging procedures. Conclusion: Blind spots were identified in two loading dock areas and shared credentials with no access logs were observed, reducing incident detection and creating unauthorized access risk. Recommendations include remediating blind spots, implementing role-based access and logging, and reviewing retention policies.",
+        "details": [
+            {
+                "observation": "Blind spots were identified in two loading dock areas, reducing incident detection capability.",
+                "risk": "Missed security incidents and inability to investigate loss or breaches.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Conduct a camera coverage assessment and remediate blind spots with additional cameras."
+            },
+            {
+                "observation": "Shared credentials were observed for CCTV playback stations and no access logs were retained.",
+                "risk": "Unauthorized access to footage and lack of audit trail for investigations.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Implement role-based access, unique credentials, and retention of access logs for footage retrieval."
+            }
+        ],
+        "recommendations": [
+            "Remediate CCTV blind spots in critical areas.",
+            "Implement unique, role-based access to footage playback and logging.",
+            "Review retention policy to meet investigative needs."
+        ],
+        "management_action_plan": [
+            "CCTV coverage assessment | Security Manager | March 2026",
+            "Role-based access controls | IT Security | Feb 2026",
+            "Access logging implementation | Facilities IT | April 2026"
+        ]
+    },
+    "Internal_Audit_Reception_and_Visitor_Management_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Reception & Visitor Management",
+        "executive_summary": "Objectives: Evaluate front-desk procedures, visitor verification, and badge control at corporate reception points. Background: Reception staff manage daily visitor flow and initial access to corporate premises. Scope: Observation of reception processes, visitor badge issuance, and staff training records. Conclusion: Hosts were not consistently contacted to verify visitors and returned badges were not logged or sanitized, increasing the risk of unauthorized access and loss of accountability. Recommendations include requiring host confirmation, logging and sanitizing returned badges, and refresher training for reception staff.",
+        "details": [
+            {
+                "observation": "Hosts were not consistently contacted to verify visitors prior to granting access in observed shifts.",
+                "risk": "Unauthorized visitors gaining unsupervised access to offices and sensitive areas.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Require host confirmation via phone or system notification before visitor entry is completed."
+            },
+            {
+                "observation": "Returned visitor badges were not logged or sanitized prior to reuse in several instances.",
+                "risk": "Loss of accountability for badges and hygiene/security concerns.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement a badge return log and cleaning protocol before reuse."
+            }
+        ],
+        "recommendations": [
+            "Enforce host verification before visitor access.",
+            "Log returned badges and sanitize prior to reuse.",
+            "Provide reception staff refresher training on visitor controls."
+        ],
+        "management_action_plan": [
+            "Host verification procedure | Reception Manager | Feb 2026",
+            "Badge return log & sanitization | Facilities | March 2026",
+            "Reception training refresh | HR Learning | April 2026"
+        ]
+    },
+    "Internal_Audit_Mailroom_and_Courier_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Mailroom & Courier Controls",
+        "executive_summary": "Evaluated controls over incoming/outgoing mail, courier handling, and high-value package security. Mailroom processes handle confidential correspondence and vendor deliveries. Scope included review of mail acceptance, logging, recipient verification, and courier vetting procedures.",
+        "details": [
+            {
+                "observation": "Package logs lacked recipient signatures and time stamps for 22% of high-value items.",
+                "risk": "Misplaced or misdelivered items and difficulty in tracing incidents.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Implement mandatory recipient signature capture and digital timestamped logs for high-value packages."
+            },
+            {
+                "observation": "Vendor due diligence for new couriers was not documented in two recent engagements.",
+                "risk": "Exposure to theft or compromised chain-of-custody.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Standardize courier onboarding with background checks and contractual security clauses."
+            }
+        ],
+        "recommendations": [
+            "Enforce digital package logging with recipient signatures.",
+            "Standardize courier vetting and contractual security requirements.",
+            "Train mailroom staff on secure handling of confidential items."
+        ],
+        "management_action_plan": [
+            "Digital logging implementation | Facilities IT | March 2026",
+            "Courier vetting policy | Procurement | Feb 2026",
+            "Mailroom staff training | Mailroom Supervisor | April 2026"
+        ]
+    },
+    "Internal_Audit_Business_Continuity_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Business Continuity Readiness",
+        "executive_summary": "Evaluated business continuity preparedness, recovery plans, and testing for critical corporate functions. BCP covers IT, facilities, HR and finance continuity arrangements across primary and backup sites. Scope included review of plan completeness, recent exercises, and recovery time objective (RTO) alignment.",
+        "details": [
+            {
+                "observation": "Departmental BCPs lacked RTO/RPO definitions and clear recovery roles for three critical processes.",
+                "risk": "Prolonged outage and inability to meet stakeholder obligations during disruption.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Define RTO/RPO for critical processes and assign named recovery owners."
+            },
+            {
+                "observation": "Annual BCP exercises excluded several corporate support functions; last full test was 18 months ago.",
+                "risk": "Unvalidated recovery procedures and false confidence in readiness.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Establish a 12-month exercise cycle covering critical and support functions; document lessons learned."
+            }
+        ],
+        "recommendations": [
+            "Define RTO/RPO and assign recovery owners for critical processes.",
+            "Implement annual full-scale BCP exercises with all support functions.",
+            "Capture and remediate exercise findings in a remediation log."
+        ],
+        "management_action_plan": [
+            "Define RTO/RPO for critical processes | BCP Lead | March 2026",
+            "Annual full-scale exercise schedule | BCP Coordinator | April 2026",
+            "Remediation tracking log | Risk Manager | Feb 2026"
+        ]
+    },
+    "Internal_Audit_Employee_Onboarding_and_Services_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Employee Onboarding & Corporate Services",
+        "executive_summary": "Assessed onboarding processes, provisioning of corporate services, and termination procedures for corporate employees. Onboarding includes IT access, facility badges, workstation setup and administrative services. Scope included review of process completeness, SLA adherence, and reconciliation between HR and service providers.",
+        "details": [
+            {
+                "observation": "Onboarding checklists were incomplete for 20% of sampled new hires, delaying service provisioning.",
+                "risk": "Reduced productivity and potential security gaps due to inconsistent provisioning.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Standardize and enforce checklist completion with system gating prior to start date."
+            },
+            {
+                "observation": "IT access revocation was delayed in several terminations due to manual handoffs.",
+                "risk": "Unauthorized access post-termination and potential data exposure.",
+                "risk_rating": "INADEQUATE",
+                "recommendation": "Automate termination workflows linking HR events to IT and Facilities deprovisioning."
+            }
+        ],
+        "recommendations": [
+            "Enforce standardized onboarding checklists with gating.",
+            "Automate termination deprovisioning across HR, IT and Facilities.",
+            "Monthly reconciliation between HR and service owners."
+        ],
+        "management_action_plan": [
+            "Onboarding checklist enforcement | HR Ops | Feb 2026",
+            "Termination automation | IT & HR | March 2026",
+            "Monthly HR reconciliations | HR BP | Ongoing"
+        ]
+    },
+    "Internal_Audit_Corporate_Insurance_General_CorpOps.pptx": {
+        "report_title": "Internal Audit - Corporate Insurance & Coverage",
+        "executive_summary": "Assessed adequacy of corporate insurance coverage, renewal processes, and claims management. Company maintains property, liability, D&O, and cyber insurance across global operations. Scope included review of policy limits, renewal approvals, broker engagement, and recent claims handling.",
+        "details": [
+            {
+                "observation": "Cyber policy sub-limits may not align with current exposure for third-party vendor incidents.",
+                "risk": "Insufficient recovery funding and uninsured losses in the event of a cyber incident.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Conduct an insurance gap analysis with the broker and adjust limits where necessary."
+            },
+            {
+                "observation": "Renewal decision rationale and competitive quotes were not retained for one major policy renewal.",
+                "risk": "Lack of evidence for market testing and potential overpayment.",
+                "risk_rating": "FOR IMPROVEMENT",
+                "recommendation": "Retain renewal bid comparisons and formal approval records for all major policies."
+            }
+        ],
+        "recommendations": [
+            "Conduct insurance gap analysis for cyber and third-party exposures.",
+            "Retain renewal documentation and market quotes.",
+            "Strengthen claims escalation and reporting protocols."
+        ],
+        "management_action_plan": [
+            "Insurance gap analysis | Risk & Insurance Lead | March 2026",
+            "Renewal documentation process | Procurement | Feb 2026",
+            "Claims handling SOP update | Legal/Risk | April 2026"
+        ]
+    }
 }
