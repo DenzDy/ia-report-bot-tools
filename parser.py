@@ -19,6 +19,8 @@ class DetailsTable(BaseModel):
 class ReportData(BaseModel):
     report_title : str
     executive_summary : str
+    overall_audit_rating : str 
+    overall_risk_description : str
     details: List[DetailsTable]
     recommendations: List[str]
     management_action_plan: List[str]
@@ -67,13 +69,15 @@ def generate_json(extracted_text):
     ### Data Mapping Instructions (Apply to EACH report):
     1. **report_title**: Locate the main title of the audit.
     2. **executive_summary**: Summarize overarching conclusions and background.
-    3. **details**: A list of audit findings. For each finding:
+    3. **overall_audit_rating**: The overall audit rating, which can be INADEQUATE, FOR IMPROVEMENT, or ADEQUATE
+    4. **overall_audit_conclusion**: The overall conclusions and findings of the report.   
+    4. **details**: A list of audit findings. For each finding:
     - **observation**: Factual description of findings.
     - **risk**: Potential negative impact.
     - **risk_rating**: Severity (e.g., INADEQUATE, FOR IMPROVEMENT, ADEQUATE).
     - **recommendation**: Suggestion for improvement for THAT finding.
-    4. **recommendations**: A list of all corrective actions in the deck.
-    5. **management_action_plan**: Specific management commitments.
+    5. **recommendations**: A list of all corrective actions in the deck.
+    6. **management_action_plan**: Specific management commitments.
 
     ### Constraints:
     - Return a SINGLE JSON OBJECT where each key is the filename provided in the [[START_FILE]] marker.
@@ -89,6 +93,8 @@ def generate_json(extracted_text):
     "filename_1.pptx": {{
         "report_title": "string",
         "executive_summary": "string",
+        "overall_audit_rating": "string",
+        "overall_audit_conclusion": "string",
         "details": [{{"observation": "string", "risk": "string", "risk_rating": "string", "recommendation": "string"}}],
         "recommendations": ["string"],
         "management_action_plan": ["string"]
