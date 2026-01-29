@@ -52,7 +52,7 @@ def extract_slide_content(file_path):
 
         # Join all text found on this specific slide into one string
         full_slide_text = "\n".join(slide_text_blocks)
-        slides_content.append(f"{full_slide_text}")
+        slides_content.append(f"[SLIDE START]\n{full_slide_text}\n[SLIDE END]\n")
     
     return "\n".join(slides_content)
 
@@ -62,6 +62,7 @@ def generate_json(extracted_text):
 
     ### Input Format
     The source text contains multiple reports. Each report begins with a marker like [[START_FILE: filename]] and ends with [[END_FILE]].
+    Each slide's content is enclosed in [SLIDE START] amd [SLIDE END] markers.
 
     ### Data Mapping Instructions (Apply to EACH report):
     1. **report_title**: Locate the main title of the audit.
@@ -114,22 +115,23 @@ def generate_json(extracted_text):
 def main():
     # TODO: Batch processing
     extracted_data : dict[str, ReportData] = {}
-    all_pptx = [f for f in os.listdir('generated_pptx') if f.endswith('.pptx')]
+    all_pptx = [f for f in os.listdir('templates') if f.endswith('.pptx')]
     for i in range(0, len(all_pptx), 5):
         combined_text = ""
         batch_files = all_pptx[i:i+5]
         for filename in batch_files:
             # Local extraction is fast and consumes no quota
-            text = extract_slide_content(f"generated_pptx/{filename}")
+            text = extract_slide_content(f"templates/{filename}")
+            print(f"[START OF FILE]\n{text}\n[END OF FILE]\n")
             combined_text += f"\n[[START_FILE: {filename}]]\n{text}\n[[END_FILE]]\n"
-        
+
         # Create Batch JSONs and add it to final JSON list
         batch_json = generate_json(combined_text)
         for filename, data in batch_json.items():
             extracted_data[filename] = data
 
     # Create JSON file
-    with open("extracted_output.json", "w") as f:
+    with open("ac_test_output.json", "w") as f:
         json.dump(extracted_data, f, indent=4)
 if __name__ == '__main__':
     main()

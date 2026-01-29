@@ -1,0 +1,70 @@
+{
+    "ac_template.pptx": {
+        "report_title": "Ayala Corporation Internal Audit Report",
+        "executive_summary": "The audit objective is to assess the adequacy and effectiveness of governance, policies, and control frameworks, including roles and responsibilities, compliance with laws/regulations, and identification of improvement opportunities. The report notes an established documented information management and retention framework and other activities operating effectively. Key areas for enhancement include clearer definition of roles and responsibilities, documented processes and procedures with verification and escalation steps, a centralized register/calendar/tracker for key activities, a centralized secure repository with access controls and version management, designation of a central coordinator/owner for monitoring, and implementation of an integrated automated tracking/workflow tool. Overall rating examples in the report range from Adequate to Needs Improvement depending on findings.",
+        "details": [
+            {
+                "observation": "Incomplete Access Review (Example: Incomplete Access Review)",
+                "risk": "Risk 1; Risk 2; Impact 1; Impact 2",
+                "risk_rating": "HIGH",
+                "recommendation": "Recommendation 1; Recommendation 2; Recommendation 3"
+            },
+            {
+                "observation": "Observation 2",
+                "risk": "",
+                "risk_rating": "HIGH",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 3",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 4",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 5",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 6",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 7",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            },
+            {
+                "observation": "Observation 8",
+                "risk": "",
+                "risk_rating": "MEDIUM",
+                "recommendation": ""
+            }
+        ],
+        "recommendations": [
+            "Define clear roles and responsibilities, supported by appropriate oversight mechanisms to ensure accountability for timely and accurate completion of required activities.",
+            "Establish documented processes and procedures to verify tasks are completed accurately and within defined timeframes, including responsibilities, escalation paths, and verification steps.",
+            "Create and maintain a centralized register, calendar, or tracker that consolidates key activities, timelines, frequencies, and assigned responsible parties; periodically review and update it.",
+            "Identify a centralized and secure repository as the authoritative source for finalized documents and outputs, with appropriate access controls, version management, and audit trails.",
+            "Designate a central coordinator or owner responsible for overseeing monitoring activities and ensuring completeness and consistency of documentation.",
+            "Implement an integrated and automated tracking or workflow tool to streamline processes, improve visibility, monitor progress, and enhance accountability.",
+            "Recommendation 1",
+            "Recommendation 2",
+            "Recommendation 3"
+        ],
+        "management_action_plan": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+        ]
+    }
+}

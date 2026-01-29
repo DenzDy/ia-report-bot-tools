@@ -115,6 +115,7 @@ def main():
     - Minimum of 2 detailed observations per report.
     - Maximum length: Keep body text under 1000 characters per slide.
     - Risk Ratings MUST be: ADEQUATE, FOR IMPROVEMENT, or INADEQUATE.
+    - Skip the slide that contains "Observation Summary" and "Overall Internal Audit Rating"
 
     ### TITLE SLIDE RULES
     The first element of the array MUST follow this exact format:
