@@ -124,11 +124,11 @@ def main():
     # Load JSON
     data = json.loads(response.output_text)
     print(data)
-    with open("output.json", "w", encoding="utf-8") as json_file:
+    with open("output_json/generator_output.json", "w", encoding="utf-8") as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
     # Convert data to PDFs
     # DEBUG: Load dummy response from JSON file
-    with open('output.json', 'r') as file:
+    with open('output_json/generator_output.json', 'r') as file:
         data = json.load(file)
     export_as_pptx(data)
     

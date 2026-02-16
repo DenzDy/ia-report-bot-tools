@@ -111,7 +111,7 @@ def main():
         batch_json = generate_json(combined_text)
 
     # Create JSON file
-    with open("parsed_output.json", "w") as f:
+    with open("output_json/parsed_output.json", "w") as f:
         json.dump(batch_json, f, indent=4)
 if __name__ == '__main__':
     main()
