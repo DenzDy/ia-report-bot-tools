@@ -1,2 +1,5 @@
 .env
 templates/
+generated_pptx/
+generated_reports/
+prompts/

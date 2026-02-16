@@ -10,7 +10,21 @@ import subprocess
 from pptx import Presentation
 import os
 
-def export_as_pptx(json_data, target_directory="generated_pptx"):
+def fill_slide_by_layout_names(slide, data_dict):
+    """
+    Maps layout placeholder names to the slide placeholder indices.
+    """
+    # Create a map of {Name: Index} from the LAYOUT
+    layout_map = {ph.name: ph.placeholder_format.idx for ph in slide.slide_layout.placeholders}
+    
+    # Use that map to fill the placeholders on the SLIDE
+    for name, idx in layout_map.items():
+        if name in data_dict:
+            # Access the placeholder on the slide using the index found on the layout
+            slide.placeholders[idx].text = str(data_dict[name])
+            print(f"Filled {name} (Index {idx})")
+            
+def export_as_pptx(json_data, target_directory="generated_reports"):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
@@ -21,39 +35,38 @@ def export_as_pptx(json_data, target_directory="generated_pptx"):
         
         report_fn = report['file_name'].replace('.json', '.pptx')
         output_path = os.path.join(target_directory, report_fn)
-        for i, layout in enumerate(prs.slide_layouts):
-                print(f"Index: {i}, Layout: {layout.name}")
-            
-        # for i, item in enumerate(report['Report Content']):
-            # 1. Select Layout
-            # Usually: Index 0 = Title Slide, Index 1 = Title and Content
-            
-            # if i == 0:
-            #     layout = prs.slide_layouts[0] 
-            # else:
-            #     layout = prs.slide_layouts[1]
-            
-            # slide = prs.slides.add_slide(layout)
-            
-            # # 2. Parse the content
-            # # Your prompt ensures slides start with "# "
-            # parts = item.strip().split('\n', 1)
-            # header = parts[0].replace('# ', '').strip()
-            # content = parts[1].strip() if len(parts) > 1 else ""
-
-            # # 3. Fill Placeholders
-            # # title is usually placeholder 0
-            # if slide.shapes.title:
-            #     slide.shapes.title.text = header
-            
-            # # body is usually placeholder 1
-            # if len(slide.placeholders) > 1:
-            #     body_shape = slide.placeholders[1]
-            #     body_shape.text = content
-
+        
+        # Placeholder Filling for Slides
+        
+        # Report Title Slide
+        report_content = report['Report Content']
+        current_layout = prs.slide_layouts[0]
+        slide = prs.slides.add_slide(current_layout)
+        fill_slide_by_layout_names(slide, report_content['Report Title Slide'])
+        
+        # Scope, Background Slide
+        current_layout = prs.slide_layouts[1]
+        slide = prs.slides.add_slide(current_layout)
+        fill_slide_by_layout_names(slide, report_content['Objective, Background and Scope'])
+        
+        # Overall Audit Rating Slide
+        current_layout = prs.slide_layouts[2]
+        slide = prs.slides.add_slide(current_layout)
+        fill_slide_by_layout_names(slide, report_content['Overall Internal Audit Rating'])
+        
+        # Observation Slides
+        current_layout = prs.slide_layouts[3]
+        for obs in report_content['Observation Slides']:
+            slide = prs.slides.add_slide(current_layout)
+            fill_slide_by_layout_names(slide, obs)
+        
+        # End of Report Slide 
+        current_layout = prs.slide_layouts[4]
+        slide = prs.slides.add_slide(current_layout)
+        
         # Save the file
-        # prs.save(output_path)
-        # print(f"Success! Created {output_path} using python-pptx")
+        prs.save(output_path)
+        print(f"Success! Created {output_path} using python-pptx")
 def main():
     # Load and import API Keys
     load_dotenv()
@@ -73,6 +86,11 @@ def main():
         help="Optional: Provide a specific report type",
         default="General Corporate Operations"
     )
+    parser.add_argument("--observations",
+        type=int,
+        help="Optional: Provide the number of observations per report",
+        default=2
+    )
     args = parser.parse_args()
 
     # Verbose logging of command line input arguments
@@ -84,98 +102,32 @@ def main():
         api_key=OPENAI_API_KEY
     )
 
-    # System Prompt
-    system_prompt = f"""
-    ### ROLE
-    Senior Internal Audit Manager (15+ years experience). Tone: Professional and authoritative.
-
-    ### TASK
-    Generate a structured Internal Audit Report JSON for PowerPoint.
-
-    ### STRUCTURAL RULES
-    - Return a JSON object: {{"file_name": "...", "Report Content": ["...", "..."]}}
-    - Each array element = ONE slide.
-    - Every string MUST start with "# " for the title.
-    - Use Markdown tables for "Management Action Plan" slides.
-    - Keep slide text under 600 characters.
-    
-    ### STRUCTURAL REQUIREMENTS (CRITICAL)
-    - Return an ARRAY of JSON OBJECTS with the following schema PER OBJECT: {{"file_name": "...", "Report Content": ["...", "..."]}}
-    - Each array element in "Report Content" represents EXACTLY one PowerPoint slide.
-    - EVERY slide string MUST start with "# " as the first character.
-    - **Spacing Rule:** Use exactly two newline characters (\n\n) to separate every header, subheading, and paragraph. This prevents text clumping on the slide.
-    - **Table Spacing Rule:** Use only one newline character (\n) to separate each table row to prevent table rows being shown in separate slides.
-
-    ### SLIDE SEQUENCE
-    1. # [Title Slide]: Include Business Unit and Date.
-    2. # Executive Summary: Include ### Objectives, ### Background, and ### Scope.
-    3. # Observation [N]: [Title]: Detail the finding. Use bold labels (**Issue:**, **Risk:**, **Risk Rating:**, **Recommendation:**) each on their own line separated by \n\n.
-    4. # Recommendations Summary: Consolidated bulleted list.
-    5. # Management Action Plan: Use a Markdown table: | Action Item | Owner | Deadline |.
-
-    ### FILENAME REQUIREMENTS
-    - The file name should contain the report title
-    - The file name should not include the seed of the generator
-    
-    ### CONSTRAINTS
-    - Minimum of 2 detailed observations per report.
-    - Maximum length: Keep body text under 1000 characters per slide.
-    - Risk Ratings MUST be: ADEQUATE, FOR IMPROVEMENT, or INADEQUATE.
-    - Skip the slide that contains "Observation Summary" and "Overall Internal Audit Rating"
-
-    ### TITLE SLIDE RULES
-    The first element of the array MUST follow this exact format:
-    "# [Audit Report Title]
-    ## [Business Unit Name]
-    ### [Date]"
-
-    ### EXAMPLES OF IDEAL OUTPUT
-    [
-    {{
-        "file_name": "IA_Report_HR_Payroll_Processing.json",
-        "Report Content": [
-            "# Internal Audit of Payroll Processing & Employee Benefits\n\n**Business Unit:** Human Resources (Global Operations)\n**Date:** January 25, 2026",
-            "# Executive Summary\n\n### Objectives\nTo evaluate the accuracy of payroll disbursements and compliance with tax regulations.\n\n### Background\nThe HR unit manages payroll for 5,000 employees across three jurisdictions.\n\n### Scope\nReview of payroll cycles from Q3 2025 to Q4 2025, including manual adjustments and bonus calculations.",
-            "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.,
-            "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.,
-            "# Recommendations Summary\n1. Enforce strict Segregation of Duties (SoD) in payroll software.\n2. Implement automated 'Leaver' protocols for system access.\n3. Conduct quarterly payroll audits against physical headcount records.",
-            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
-        ]
-    }},
-    {{
-        "file_name": "IA_Report_Procurement_Vendor_Mgmt.json",
-        "Report Content": [
-        "# Strategic Sourcing and Vendor Risk Management Audit\n\n**Business Unit:** Corporate Procurement\n**Date:** January 20, 2026",
-        "# Executive Summary\n\n### Objectives\nTo assess the vendor selection process and contract lifecycle management.\n\n### Background\nProcurement managed $50M in spend across 200+ vendors in the last fiscal year.\n\n### Scope\nFocus on vendors with annual spend exceeding $500k and the competitive bidding process.",
-        "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.,
-        "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.,
-        "# Recommendations Summary\n1. Standardize the competitive bidding workflow.\n2. Launch a Vendor Performance Management (VPM) framework.\n3. Audit vendor insurance certificates for expiration.",
-        "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
-        ]
-    }}
-    ]
-    ### INPUT SEED
-    Generate a new report based on the user's provided seed.
-    """
-
+    # Load System Prompt
+    system_prompt = ""
+    try:
+        with open('prompts/generation_prompt.txt', 'r') as f:
+            system_prompt = f.read()
+    except FileNotFoundError:
+        print("ERROR: System prompt text file not found...")
+        exit(-1)
+        
     # User Prompt
     user_prompt = f"""
-    Generate {args.reports} reports with focus on {args.seed} for the reports.
+    Generate {args.reports} reports with focus on {args.seed} for the reports with {args.observations} observations for each report.
     """
-
-    # response = openai_client.responses.create(
-    #     model='gpt-5-mini', 
-    #     instructions=system_prompt,
-    #     input=user_prompt
-    # )
-    # # print(response.output_text)
-    # # Load JSON
-    # data = json.loads(response.output_text)
-    # print(data)
-    # with open("output.json", "w", encoding="utf-8") as json_file:
-    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
-    # # Convert data to PDFs
-    # # DEBUG: Load dummy response from JSON file
+    response = openai_client.responses.create(
+        model='gpt-5-mini', 
+        instructions=system_prompt,
+        input=user_prompt
+    )
+    # print(response.output_text)
+    # Load JSON
+    data = json.loads(response.output_text)
+    print(data)
+    with open("output.json", "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
+    # Convert data to PDFs
+    # DEBUG: Load dummy response from JSON file
     with open('output.json', 'r') as file:
         data = json.load(file)
     export_as_pptx(data)

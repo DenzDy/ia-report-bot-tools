@@ -1,12 +1,62 @@
 [
     {
-        "file_name": "ia_report_corporate_procurement_controls.json",
+        "file_name": "ia_report_payroll_timekeeping_controls.pdf",
+        "Report Content": {
+            "Report Title Slide": {
+                "report_title": "General Corporate Operations - Payroll and Timekeeping Controls",
+                "overall_rating": "NEEDS IMPROVEMENT",
+                "observation_count": 2,
+                "fieldwork_completion_date": "2026-12-31"
+            },
+            "Objective, Background and Scope": {
+                "purpose_objective": "Assess payroll and timekeeping control environment including timesheet approvals, payroll calculation accuracy, reconciliation processes, and segregation of duties to ensure payroll integrity and accurate financial reporting.",
+                "background": "Payroll is a high-volume, high-risk process. Recent organisational changes included an interim payroll processor and an upgrade to the timekeeping system in 2025; controls should ensure continuity and accuracy during transitions.",
+                "scope": "Review included testing of timesheet approvals for the most recent payroll cycle (sample 60 entries), review of monthly payroll reconciliations for the last six months, and assessment of segregation of duties over payroll initiation and vendor payments."
+            },
+            "Overall Internal Audit Rating": {
+                "overall_conclusion_description": "Payroll controls are generally established but application gaps were noted in approval and reconciliation processes, creating moderate to high residual financial and operational risk which requires corrective actions.",
+                "rating_scale": [
+                    "NOT ADEQUATE",
+                    "NEEDS IMPROVEMENT",
+                    "ADEQUATE"
+                ]
+            },
+            "Observation Slides": [
+                {
+                    "observation_id": "RCM-01",
+                    "observation_title": "Timesheet Approval Exceptions",
+                    "category": "Operational Controls",
+                    "observation_owner": "Mark",
+                    "details": "Testing of 60 employee timesheet records from the most recent payroll cycle identified 9 records (15%) where timesheets were processed without documented managerial approval prior to payroll cut-off. Evidence: timesheet export dated 2026-01-31 and payroll processing logs.",
+                    "risk_impact": "Processing timesheets without prior approval increases risk of incorrect payments and potential payroll fraud. This weakens control over pay accuracy and employee entitlement verification.",
+                    "recommendations": "1) Enforce system controls to prevent payroll processing of unapproved timesheets. 2) Implement a pre-payroll exception report and require documented escalation for late approvals. 3) Conduct retraining for managers on approval timelines.",
+                    "status": "Open",
+                    "risk_rating": "NEEDS IMPROVEMENT",
+                    "management_response_action_plan": "Payroll will configure the timekeeping system to block unapproved timesheets and implement a pre-payroll exception report. Remediation owner: Payroll Manager (Lydia Harper). Target date: System configuration and exception reporting implemented by 2026-03-15; manager retraining completed by 2026-04-15."
+                },
+                {
+                    "observation_id": "RCM-02",
+                    "observation_title": "Payroll Reconciliation Variances Not Timely Resolved",
+                    "category": "Financial Controls",
+                    "observation_owner": "Mark",
+                    "details": "Review of monthly payroll reconciliations for the six most recent months found 3 months with unresolved reconciling items totaling $18,450 (net) outstanding for more than 30 days. Supporting investigation documentation was incomplete for two of the months. Evidence: reconciliation workbook and bank statements for July-December 2025.",
+                    "risk_impact": "Unreconciled payroll items increase the risk of incorrect financial reporting, potential duplicate payments, and delayed detection of errors or fraud, potentially impacting financial statement accuracy.",
+                    "recommendations": "1) Establish SLA of 10 business days to resolve payroll reconciling items with documented root cause analysis. 2) Require monthly reconciliation sign-off by Finance Controller. 3) Enhance monitoring of reconciliation aging and escalate items beyond SLA.",
+                    "status": "In progress",
+                    "risk_rating": "NOT ADEQUATE",
+                    "management_response_action_plan": "Finance will formalise reconciliation SLAs and require Controller sign-off; outstanding items will be investigated and cleared. Remediation owner: Head of Finance Operations (Samantha Lee). Target date: SLA and sign-off process effective by 2026-03-31; outstanding reconciling items cleared by 2026-04-30."
+                }
+            ]
+        }
+    },
+    {
+        "file_name": "ia_report_corporate_procurement_controls.pptx",
         "Report Content": {
             "Report Title Slide": {
                 "report_title": "Corporate Procurement Controls Review",
                 "overall_rating": "NEEDS IMPROVEMENT",
                 "observation_count": 2,
-                "fieldwork_completion_date": "2026-01-30"
+                "fieldwork_completion_date": ""
             },
             "Objective, Background and Scope": {
                 "purpose_objective": "Assess design effectiveness and operating efficiency of procurement processes across corporate functions, including adherence to procurement policy, competitive sourcing, vendor selection, and contract approval controls.",
@@ -26,37 +76,37 @@
                     "observation_id": "RCM-01",
                     "observation_title": "Non-compliance with competitive bidding thresholds",
                     "category": "Procurement Compliance",
-                    "observation_owner": "Procurement Director",
+                    "observation_owner": "",
                     "details": "Procurement Policy requires documented competitive bids for purchases above $10,000. In a sample of 25 contracts > $10,000 executed in the review period, 7 (28%) lacked documented evidence of competitive bidding or written justification for single-source procurement. Supporting documentation was missing in the contract repository for 5 of these 7 transactions.",
                     "risk_impact": "Increases risk of supplier favoritism, overpayment, and reduced value-for-money; potential regulatory and reputational exposure related to non-compliant procurements.",
                     "recommendations": "Enforce mandatory competitive bidding workflows for contracts > $10,000, implement electronic approval gates that prevent PO issuance without required bid documentation, and maintain a centralized, searchable procurement register recording bid evaluation and awarding rationale.",
                     "status": "Open",
-                    "risk_rating": "HIGH",
+                    "risk_rating": "NOT ADEQUATE",
                     "management_response_action_plan": "Procurement will update the SOP to require electronic bid evidence and implement a procurement register integrated with the ERP. Training for procurement staff and approvers will be completed. Target date: 2026-03-15. Remediation owner: Procurement Director, Jane Doe."
                 },
                 {
                     "observation_id": "RCM-02",
                     "observation_title": "Incomplete vendor due diligence and onboarding records",
                     "category": "Vendor Management",
-                    "observation_owner": "Vendor Management Lead",
+                    "observation_owner": "",
                     "details": "Vendor onboarding procedures require KYC, tax and conflict-of-interest checks. In a sample of 20 new vendors onboarded in 2025, 9 (45%) had incomplete due diligence files: 6 lacked tax registration documents and 5 lacked documented conflict-of-interest attestations (2 overlap). The vendor master data in ERP lacked documentation links for these vendors.",
                     "risk_impact": "Exposes organization to regulatory non-compliance, potential tax liabilities, and increased third-party risk including transaction with sanctioned or conflicted parties.",
                     "recommendations": "Implement a mandatory checklist that prevents vendor activation in ERP until required due diligence artifacts are uploaded. Conduct a retrospective remediation on all vendors onboarded in 2025 and suspend payments to vendors with unresolved documentation until cleared.",
                     "status": "In Progress",
-                    "risk_rating": "MEDIUM",
+                    "risk_rating": "NEEDS IMPROVEMENT",
                     "management_response_action_plan": "Vendor Management will deploy a vendor activation workflow in the ERP requiring mandatory document uploads and will run a clean-up project to remediate 2025 onboardings. Retroactive remediations will be completed by 2026-04-01. Remediation owner: Vendor Management Lead, Carlos Mendez."
                 }
             ]
         }
     },
     {
-        "file_name": "ia_report_it_access_change_management.json",
+        "file_name": "ia_report_it_access_change_management.pptx",
         "Report Content": {
             "Report Title Slide": {
                 "report_title": "IT Access and Change Management Controls",
                 "overall_rating": "NOT ADEQUATE",
                 "observation_count": 2,
-                "fieldwork_completion_date": "2026-02-05"
+                "fieldwork_completion_date": ""
             },
             "Objective, Background and Scope": {
                 "purpose_objective": "Evaluate the effectiveness of logical access controls and change management processes supporting critical corporate systems to ensure confidentiality, integrity and availability of corporate data.",
@@ -76,37 +126,37 @@
                     "observation_id": "RCM-03",
                     "observation_title": "Excessive privileged access and lack of periodic access reviews",
                     "category": "Access Control",
-                    "observation_owner": "Chief Information Officer",
-                    "details": "Privileged access should be limited to IT operations and justified with business need. In a sample of 40 accounts with administrative privileges across core systems, 16 (40%) belonged to users whose roles did not require such privileges (e.g., finance analysts, HR coordinators). No evidence of quarterly privileged access reviews for these systems was available for 2025.",
+                    "observation_owner": "",
+                    "details": "In a sample of 40 accounts with administrative privileges across core systems, 16 (40%) belonged to users whose roles did not require such privileges (e.g., finance analysts, HR coordinators). No evidence of quarterly privileged access reviews for these systems was available for 2025.",
                     "risk_impact": "Increases likelihood of unauthorized data modification, data loss, and potential segregation-of-duties violations contributing to fraud or system compromise.",
                     "recommendations": "Immediately revoke unnecessary privileges, implement role-based access controls (RBAC), and institute mandatory quarterly privileged access reviews with attestation evidence retained. Use automated access recertification and logging for privileged actions.",
                     "status": "Open",
-                    "risk_rating": "HIGH",
+                    "risk_rating": "NOT ADEQUATE",
                     "management_response_action_plan": "CIO will conduct a privilege entitlement review and remove non-essential admin rights within 30 days, implement RBAC and automate quarterly recertifications by 2026-03-31. Remediation owner: CIO, John Smith."
                 },
                 {
                     "observation_id": "RCM-04",
                     "observation_title": "Production changes deployed without formal approval or test evidence",
                     "category": "Change Management",
-                    "observation_owner": "Head of IT Operations",
-                    "details": "Change Management policy requires documented change requests, approval and test evidence prior to production deployment. In a sample of 15 production changes deployed in 2025, 6 (40%) lacked a formal change request record or test sign-off (3 lacked both). Root-cause analysis and rollback plans were not documented for 4 of these changes.",
+                    "observation_owner": "",
+                    "details": "In a sample of 15 production changes deployed in 2025, 6 (40%) lacked a formal change request record or test sign-off (3 lacked both). Root-cause analysis and rollback plans were not documented for 4 of these changes.",
                     "risk_impact": "Uncontrolled changes increase risk of production outages, data corruption, compliance breaches and extended business disruption due to lack of rollback or testing.",
                     "recommendations": "Enforce a change gate that prevents production deployment without an approved change request and attached test evidence. Require documented rollback plans and post-implementation reviews for all high-impact changes.",
                     "status": "Open",
-                    "risk_rating": "HIGH",
+                    "risk_rating": "NOT ADEQUATE",
                     "management_response_action_plan": "Head of IT Operations will implement deployment automation that checks for approved change tickets and test artifacts, require rollback plans for high-impact changes, and perform a retrospective audit of 2025 deployments. Target date: 2026-04-15. Remediation owner: Head of IT Operations, Maria Lopez."
                 }
             ]
         }
     },
     {
-        "file_name": "ia_report_travel_expense_controls.json",
+        "file_name": "ia_report_travel_expense_controls.pptx",
         "Report Content": {
             "Report Title Slide": {
                 "report_title": "Corporate Travel and Expense Controls Review",
                 "overall_rating": "ADEQUATE",
                 "observation_count": 2,
-                "fieldwork_completion_date": "2026-02-10"
+                "fieldwork_completion_date": ""
             },
             "Objective, Background and Scope": {
                 "purpose_objective": "Assess the operating effectiveness of travel and expense (T&E) policies, approval workflows, expense reimbursement timeliness, and corporate card reconciliation to ensure expense integrity and policy compliance.",
@@ -126,24 +176,24 @@
                     "observation_id": "RCM-05",
                     "observation_title": "Policy exceptions and delayed approvals for business travel",
                     "category": "Policy Compliance",
-                    "observation_owner": "Head of Finance - Travel",
+                    "observation_owner": "",
                     "details": "Policy requires pre-trip approval for international travel and submission of expense reports within 60 days of trip completion. In a sample of 50 expense reports, 12 (24%) either had no evidence of pre-trip approval (7 cases) or were submitted more than 60 days after trip completion (5 cases). Of the 7 without pre-trip approvals, 3 involved international travel.",
                     "risk_impact": "Lack of pre-trip approvals increases the risk of unapproved expenditures and travel that does not comply with safety or policy considerations. Late submissions hinder timely expense validation and may obscure inappropriate claims.",
                     "recommendations": "Enforce system checks that require pre-trip approval for international travel before booking, and implement auto-reminders and escalation for expense reports older than 45 days. Consider a cap on reimbursements for reports submitted after 90 days unless exceptions are approved by Finance.",
                     "status": "In Progress",
-                    "risk_rating": "MEDIUM",
+                    "risk_rating": "NEEDS IMPROVEMENT",
                     "management_response_action_plan": "Head of Finance - Travel will enable pre-trip approval enforcement in the travel tool and configure auto-reminders and escalations by 2026-04-01. Remediation owner: Head of Finance - Travel, Emily Carter."
                 },
                 {
                     "observation_id": "RCM-06",
                     "observation_title": "Delayed corporate card reconciliations and unreconciled transactions",
                     "category": "Treasury and Reconciliation",
-                    "observation_owner": "Treasury Manager",
-                    "details": "Corporate card reconciliations are required monthly. In a sample of 10 corporate card accounts, reconciliations for 4 accounts were completed with a delay exceeding 30 days on at least two occasions during 2025. Additionally, 3 accounts had unreconciled transactions totaling $8,450 as of the reconciliation date.",
+                    "observation_owner": "",
+                    "details": "In a sample of 10 corporate card accounts, reconciliations for 4 accounts were completed with a delay exceeding 30 days on at least two occasions during 2025. Additionally, 3 accounts had unreconciled transactions totaling $8,450 as of the reconciliation date.",
                     "risk_impact": "Delayed reconciliations increase the risk of billing errors going unnoticed, fraudulent charges, and late payment fees. Unreconciled transactions may indicate control lapses in expense verification.",
                     "recommendations": "Institute KPI targets for reconciliation timeliness (e.g., complete within 15 days of statement) with monthly reporting to Finance leadership. Require cardholders to reconcile within the travel tool and escalate persistent delays to line managers. Investigate and clear all unreconciled items within 30 days.",
                     "status": "Open",
-                    "risk_rating": "MEDIUM",
+                    "risk_rating": "NEEDS IMPROVEMENT",
                     "management_response_action_plan": "Treasury will implement monthly reconciliation KPIs and reporting, require reconciliation within 15 days, and complete clearance of outstanding items by 2026-03-20. Remediation owner: Treasury Manager, Ahmed Khan."
                 }
             ]

@@ -7,6 +7,7 @@ from typing import Dict
 import json 
 from openai import OpenAI
 import ast
+import pymupdf
 
 # JSON Object Definitions
 class DetailsTable(BaseModel):
@@ -58,50 +59,21 @@ def extract_slide_content(file_path):
     
     return "\n".join(slides_content)
 
+def extract_pdf_content(file_path):
+    doc = pymupdf.open(file_path)
+    full_text = ""
+    for page in doc:
+        full_text += f"[SLIDE START]\n{page.get_text("text")}\n[SLIDE_END]\n"
+    return full_text
+
 def generate_json(extracted_text):
-    extraction_prompt = f"""
-    Act as an Internal Audit Data Analyst. Your goal is to parse raw text extracted from MULTIPLE PowerPoint reports into a structured JSON format. 
-
-    ### Input Format
-    The source text contains multiple reports. Each report begins with a marker like [[START_FILE: filename]] and ends with [[END_FILE]].
-    Each slide's content is enclosed in [SLIDE START] amd [SLIDE END] markers.
-
-    ### Data Mapping Instructions (Apply to EACH report):
-    1. **report_title**: Locate the main title of the audit.
-    2. **executive_summary**: Summarize overarching conclusions and background.
-    3. **overall_audit_rating**: The overall audit rating, which can be INADEQUATE, FOR IMPROVEMENT, or ADEQUATE
-    4. **overall_audit_conclusion**: The overall conclusions and findings of the report.   
-    4. **details**: A list of audit findings. For each finding:
-    - **observation**: Factual description of findings.
-    - **risk**: Potential negative impact.
-    - **risk_rating**: Severity (e.g., INADEQUATE, FOR IMPROVEMENT, ADEQUATE).
-    - **recommendation**: Suggestion for improvement for THAT finding.
-    5. **recommendations**: A list of all corrective actions in the deck.
-    6. **management_action_plan**: Specific management commitments.
-
-    ### Constraints:
-    - Return a SINGLE JSON OBJECT where each key is the filename provided in the [[START_FILE]] marker.
-    - Output ONLY valid JSON.
-    - If a field is not found, use "" or []. Do not omit keys.
-
-    ### OUTPUT RULES:
-    - Use double quotes for all keys and string values
-    - Do not include explanations or formatting
-
-    ### Target JSON Schema:
-    {{
-    "filename_1.pptx": {{
-        "report_title": "string",
-        "executive_summary": "string",
-        "overall_audit_rating": "string",
-        "overall_audit_conclusion": "string",
-        "details": [{{"observation": "string", "risk": "string", "risk_rating": "string", "recommendation": "string"}}],
-        "recommendations": ["string"],
-        "management_action_plan": ["string"]
-    }},
-    "filename_2.pptx": {{ ... }}
-    }}
-    """
+    extraction_prompt = ""
+    try:
+        with open('prompts/parser_prompt.txt', 'r') as f:
+            extraction_prompt = f.read()
+    except FileNotFoundError:
+        print("ERROR: System prompt text file not found...")
+        exit(-1)
     # Load and import API Keys
     load_dotenv()
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
@@ -116,28 +88,30 @@ def generate_json(extracted_text):
     )
     raw = response.output_text.strip()
     data = ast.literal_eval(raw)
+    print(data)
     return data
 
 def main():
     # TODO: Batch processing
-    extracted_data : dict[str, ReportData] = {}
-    all_pptx = [f for f in os.listdir('templates') if f.endswith('.pptx')]
+    batch_json = None
+    all_pptx = [f for f in os.listdir('generated_reports') if f.endswith('.pptx') or f.endswith('.pdf')]
     for i in range(0, len(all_pptx), 5):
         combined_text = ""
         batch_files = all_pptx[i:i+5]
         for filename in batch_files:
-            # Local extraction is fast and consumes no quota
-            text = extract_slide_content(f"templates/{filename}")
+            text = ""
+            if filename.endswith(".pdf"):
+                text = extract_pdf_content(f"generated_reports/{filename}")
+            else:
+                text = extract_slide_content(f"generated_reports/{filename}")
             print(f"[START OF FILE]\n{text}\n[END OF FILE]\n")
             combined_text += f"\n[[START_FILE: {filename}]]\n{text}\n[[END_FILE]]\n"
 
         # Create Batch JSONs and add it to final JSON list
         batch_json = generate_json(combined_text)
-        for filename, data in batch_json.items():
-            extracted_data[filename] = data
 
     # Create JSON file
-    with open("ac_test_output.json", "w") as f:
-        json.dump(extracted_data, f, indent=4)
+    with open("parsed_output.json", "w") as f:
+        json.dump(batch_json, f, indent=4)
 if __name__ == '__main__':
     main()
