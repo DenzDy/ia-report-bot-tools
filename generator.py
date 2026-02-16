@@ -7,47 +7,53 @@ import json
 import markdown2
 import subprocess
 
-def export_as_pptx(json_data, target_directory="generated_pptx", char_limit=800):
+from pptx import Presentation
+import os
+
+def export_as_pptx(json_data, target_directory="generated_pptx"):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
     for report in json_data:
+        # Load your template
+        # Ensure 'template.pptx' is in your directory
+        prs = Presentation('templates/ac_template.pptx') 
+        
         report_fn = report['file_name'].replace('.json', '.pptx')
         output_path = os.path.join(target_directory, report_fn)
-        
-        final_slides = []
-        for item in report['Report Content']:
-            parts = item.strip().split('\n', 1)
-            header = parts[0]
-            content = parts[1] if len(parts) > 1 else ""
+        for i, layout in enumerate(prs.slide_layouts):
+                print(f"Index: {i}, Layout: {layout.name}")
             
-            # Split if content is excessively long
-            if len(content) > char_limit:
-                split_point = content.rfind(' ', 0, char_limit)
-                final_slides.append(f"{header} (1/2)\n\n{content[:split_point]}")
-                final_slides.append(f"{header} (2/2)\n\n{content[split_point:].strip()}")
-            else:
-                final_slides.append(item.strip())
-        
-        full_markdown = "\n\n---\n\n".join(final_slides)
-        temp_md = "temp_report.md"
-        
-        with open(temp_md, "w", encoding="utf-8") as f:
-            f.write(full_markdown)
+        # for i, item in enumerate(report['Report Content']):
+            # 1. Select Layout
+            # Usually: Index 0 = Title Slide, Index 1 = Title and Content
+            
+            # if i == 0:
+            #     layout = prs.slide_layouts[0] 
+            # else:
+            #     layout = prs.slide_layouts[1]
+            
+            # slide = prs.slides.add_slide(layout)
+            
+            # # 2. Parse the content
+            # # Your prompt ensures slides start with "# "
+            # parts = item.strip().split('\n', 1)
+            # header = parts[0].replace('# ', '').strip()
+            # content = parts[1].strip() if len(parts) > 1 else ""
 
-        try:
-            subprocess.run([
-                "pandoc", 
-                temp_md, 
-                "--reference-doc=template.pptx", # Path to the file you just made
-                "--slide-level=1", 
-                "-o", output_path
-            ], check=True)
-            print(f"Success! Created {output_path}")
-        finally:
-            if os.path.exists(temp_md):
-                os.remove(temp_md)
+            # # 3. Fill Placeholders
+            # # title is usually placeholder 0
+            # if slide.shapes.title:
+            #     slide.shapes.title.text = header
+            
+            # # body is usually placeholder 1
+            # if len(slide.placeholders) > 1:
+            #     body_shape = slide.placeholders[1]
+            #     body_shape.text = content
 
+        # Save the file
+        # prs.save(output_path)
+        # print(f"Success! Created {output_path} using python-pptx")
 def main():
     # Load and import API Keys
     load_dotenv()
@@ -157,19 +163,19 @@ def main():
     Generate {args.reports} reports with focus on {args.seed} for the reports.
     """
 
-    response = openai_client.responses.create(
-        model='gpt-5-mini', 
-        instructions=system_prompt,
-        input=user_prompt
-    )
-    # print(response.output_text)
-    # Load JSON
-    data = json.loads(response.output_text)
-    print(data)
-    with open("output.json", "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=4)
-    # Convert data to PDFs
-    # DEBUG: Load dummy response from JSON file
+    # response = openai_client.responses.create(
+    #     model='gpt-5-mini', 
+    #     instructions=system_prompt,
+    #     input=user_prompt
+    # )
+    # # print(response.output_text)
+    # # Load JSON
+    # data = json.loads(response.output_text)
+    # print(data)
+    # with open("output.json", "w", encoding="utf-8") as json_file:
+    #     json.dump(data, json_file, ensure_ascii=False, indent=4)
+    # # Convert data to PDFs
+    # # DEBUG: Load dummy response from JSON file
     with open('output.json', 'r') as file:
         data = json.load(file)
     export_as_pptx(data)

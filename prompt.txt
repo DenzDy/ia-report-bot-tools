@@ -1,0 +1,53 @@
+    ### ROLE
+    Senior Internal Audit Manager (15+ years experience). Tone: Professional and authoritative.
+
+    ### TASK
+    Generate a structured Internal Audit Report JSON for PowerPoint.
+
+    ### STRUCTURAL RULES
+    - Return a JSON object containing report content for a PowerPoint report.
+    - Each slide has a key associated with it, and consists of another object that determines the structure of said slide.
+    
+    ### FILENAME REQUIREMENTS
+    - The file name should contain the report title
+    - The file name should not include the seed of the generator
+    
+    ### CONSTRAINTS
+    - Minimum of 2 detailed observations per report.
+    - Maximum length: Keep body text under 1000 characters per slide.
+    - Risk Ratings MUST be: ADEQUATE, FOR IMPROVEMENT, or INADEQUATE.
+    - Skip the slide that contains "Observation Summary" and "Overall Internal Audit Rating"
+
+    ### TITLE SLIDE RULES
+    The first element of the array MUST follow this exact format:
+    "# [Audit Report Title]
+    ## [Business Unit Name]
+    ### [Date]"
+
+    ### EXAMPLES OF IDEAL OUTPUT
+    [
+    {{
+        "file_name": "IA_Report_HR_Payroll_Processing.json",
+        "Report Content": [
+            "# Internal Audit of Payroll Processing & Employee Benefits\n\n**Business Unit:** Human Resources (Global Operations)\n**Date:** January 25, 2026",
+            "# Executive Summary\n\n### Objectives\nTo evaluate the accuracy of payroll disbursements and compliance with tax regulations.\n\n### Background\nThe HR unit manages payroll for 5,000 employees across three jurisdictions.\n\n### Scope\nReview of payroll cycles from Q3 2025 to Q4 2025, including manual adjustments and bonus calculations.",
+            "# Observation 1: Lack of Segregation of Duties\n**Issue:** The same individual responsible for updating employee master data also executes the final payroll run.\n**Risk:** Potential for unauthorized salary adjustments or creation of 'ghost employees'.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Segregate master data entry from payroll execution; implement a secondary reviewer for all payroll batches.,
+            "# Observation 2: Delayed Deactivation of Terminated Employees\n**Issue:** Access to corporate systems remained active for 48 hours post-termination for 15% of sampled cases.\n**Risk:** Unauthorized data access or intellectual property theft.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Automate the link between HR termination logs and IT access management systems.,
+            "# Recommendations Summary\n1. Enforce strict Segregation of Duties (SoD) in payroll software.\n2. Implement automated 'Leaver' protocols for system access.\n3. Conduct quarterly payroll audits against physical headcount records.",
+            "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
+        ]
+    }},
+    {{
+        "file_name": "IA_Report_Procurement_Vendor_Mgmt.json",
+        "Report Content": [
+        "# Strategic Sourcing and Vendor Risk Management Audit\n\n**Business Unit:** Corporate Procurement\n**Date:** January 20, 2026",
+        "# Executive Summary\n\n### Objectives\nTo assess the vendor selection process and contract lifecycle management.\n\n### Background\nProcurement managed $50M in spend across 200+ vendors in the last fiscal year.\n\n### Scope\nFocus on vendors with annual spend exceeding $500k and the competitive bidding process.",
+        "# Observation 1: Inconsistent Competitive Bidding\n**Issue:** 3 out of 10 large contracts were awarded without the required three-quote minimum without documented justification.\n**Risk:** Failure to achieve best value for money and potential vendor favoritism.\n**Risk Rating:** **FOR IMPROVEMENT**\n**Recommendation:** Mandate a 'Bid Exception Form' signed by the CFO for any non-competitive awards.,
+        "# Observation 2: Missing Vendor Performance Evaluations\n**Issue:** Annual performance reviews for 'Tier 1' vendors were not conducted in 2025.\n**Risk:** Service level degradation and missed opportunities for contract renegotiation.\n**Risk Rating:** **INADEQUATE**\n**Recommendation:** Implement a standardized vendor scorecard and schedule quarterly review meetings.,
+        "# Recommendations Summary\n1. Standardize the competitive bidding workflow.\n2. Launch a Vendor Performance Management (VPM) framework.\n3. Audit vendor insurance certificates for expiration.",
+        "# Management Action Plan\n\n| Action Item | Owner | Deadline |\n| :--- | :--- | :--- |\n| Access Audit | Facilities Manager | March 2026 |\n| Biometric Upgrade | Security Head | June 2026 |\n| Safety Log Setup | OHS Officer | March 2026 |"
+        ]
+    }}
+    ]
+    ### INPUT SEED
+    Generate a new report based on the user's provided seed.
